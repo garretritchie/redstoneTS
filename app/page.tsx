@@ -3,7 +3,6 @@ import {
   ArrowUpRight,
   Brain,
   Briefcase,
-  Buildings,
   ChartLineUp,
   ChatCircleText,
   CheckCircle,
@@ -21,14 +20,11 @@ import {
   LockKey,
   MagnifyingGlass,
   MapPin,
-  Monitor,
   Phone,
   Pulse,
   Quotes,
-  Robot,
   SealCheck,
   ShieldCheck,
-  Sparkle,
   TrendUp,
   UserFocus,
   UsersThree,
@@ -40,45 +36,49 @@ const assessmentHref =
 
 const services = [
   {
-    name: "Overwatch",
-    promise: "We monitor your environment.",
+    brand: "Overwatch",
+    name: "Remote Monitoring & Management",
+    promise: "See issues early. Act before impact.",
     description:
-      "Continuous visibility across your managed devices helps us spot risk early and respond before small issues become costly interruptions.",
+      "Continuous visibility, alerting and proactive management across the technology your business depends on.",
     icon: Pulse,
-    className: "service-card service-card--feature",
-    points: ["24/7/365 monitoring", "Earlier issue detection", "Proactive response"],
+    covers: ["24/7/365 monitoring", "Proactive remediation", "Device health & visibility"],
   },
   {
-    name: "Checkmark",
-    promise: "We maintain your systems.",
+    brand: "Checkmark",
+    name: "Core Infrastructure Support & Maintenance",
+    promise: "Keep the foundation stable and dependable.",
     description:
-      "Structured maintenance keeps servers, networks, workstations and core systems stable, current and dependable.",
+      "Structured maintenance and expert support for servers, networks, workstations and the systems at the centre of your operation.",
     icon: GearSix,
-    className: "service-card",
+    covers: ["Preventive maintenance", "Patching & lifecycle", "Network & server support"],
   },
   {
-    name: "Helpdesk",
-    promise: "We support your people.",
+    brand: "Helpdesk",
+    name: "End User Support",
+    promise: "Give every user a human path back to productive.",
     description:
-      "Friendly, knowledgeable technicians resolve problems clearly and stay involved until your people are moving again.",
+      "Fast, friendly support that resolves day-to-day issues clearly and stays involved until your people are moving again.",
     icon: Headset,
-    className: "service-card",
+    covers: ["Remote & onsite support", "User administration", "Vendor coordination"],
   },
   {
-    name: "Shield",
-    promise: "We protect your business.",
+    brand: "Shield",
+    name: "Security Services",
+    promise: "Protect every layer of the business.",
     description:
-      "Coordinated security across users, devices, identity, email and infrastructure reduces risk without slowing work down.",
+      "Coordinated protection across users, devices, identity, email and infrastructure reduces risk without slowing work down.",
     icon: ShieldCheck,
-    className: "service-card",
+    covers: ["Endpoint & email security", "Identity protection", "Security awareness"],
   },
   {
-    name: "Cirrus",
-    promise: "We manage your cloud.",
+    brand: "Cirrus",
+    name: "Cloud Services",
+    promise: "Make cloud simpler, safer and more useful.",
     description:
-      "Microsoft 365, migrations, backup, identity and licensing—simplified under one accountable team.",
+      "Microsoft 365, migrations, backup, identity and licensing—designed and managed under one accountable team.",
     icon: CloudArrowUp,
-    className: "service-card",
+    covers: ["Microsoft 365", "Cloud migrations", "Backup & continuity"],
   },
 ];
 
@@ -122,24 +122,34 @@ const process = [
 
 const capabilities = [
   {
-    name: "IT Projects",
-    text: "Infrastructure upgrades, cloud migrations, office moves and complex technology changes—planned and delivered with control.",
+    name: "Ad Hoc Technology Projects",
+    text: "Infrastructure upgrades, office moves, hardware deployments and complex technology changes—planned and delivered with control.",
     icon: Briefcase,
   },
   {
-    name: "AI-Powered Business Systems",
-    text: "Practical automation and intelligent operating systems that connect information, reduce manual work and support better decisions.",
+    name: "Security & Compliance as a Service",
+    text: "Ongoing security governance, risk reviews, policy guidance and compliance support that turn requirements into an operating discipline.",
+    icon: SealCheck,
+  },
+  {
+    name: "AI-Powered Web & Application Development",
+    text: "Premium websites, applications and intelligent business platforms designed around the way your organisation actually works.",
     icon: Brain,
   },
   {
-    name: "Web & Digital Platforms",
-    text: "Premium websites and digital experiences that make your organisation clearer, more credible and easier to do business with.",
-    icon: Monitor,
+    name: "Workflow Automation & Optimisation",
+    text: "Practical automation that connects information, removes repetitive work and gives teams a clearer, faster way to operate.",
+    icon: FlowArrow,
   },
   {
-    name: "vCIO & Technology Planning",
-    text: "Executive-level guidance, budgeting and roadmaps without the cost or complexity of a full-time CIO.",
+    name: "vCIO & Technology Strategy",
+    text: "Executive-level guidance, budgeting, roadmaps and lifecycle planning without the cost or complexity of a full-time CIO.",
     icon: ChartLineUp,
+  },
+  {
+    name: "Systems Integration & Modernisation",
+    text: "Bring disconnected platforms, data and processes together so the business operates as one coordinated system.",
+    icon: HardDrives,
   },
 ];
 
@@ -283,40 +293,42 @@ export default function Home() {
           <div className="services-heading">
             <div>
               <p className="eyebrow eyebrow--light">The Redstone managed system</p>
-              <h2 id="services-title">Everything your business needs.<br /><span>Covered.</span></h2>
+              <h2 id="services-title">Five services.<br /><span>One complete coverage system.</span></h2>
             </div>
             <p>
-              Five connected services support your people, maintain your infrastructure, strengthen your security and keep technology aligned with the business.
+              Each service has a distinct role. Together, they monitor, maintain, support, protect and modernise your entire technology environment—with no gaps between providers.
             </p>
           </div>
           <div className="services-grid">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <article className={service.className} key={service.name}>
+                <article className="service-card" key={service.brand}>
                   <div className="service-topline">
                     <span className="service-index">0{index + 1}</span>
                     <Icon size={32} weight="light" aria-hidden="true" />
                   </div>
-                  <p className="service-name">{service.name}</p>
-                  <h3>{service.promise}</h3>
+                  <p className="service-brand">{service.brand}</p>
+                  <h3>{service.name}</h3>
+                  <p className="service-promise">{service.promise}</p>
                   <p>{service.description}</p>
-                  {service.points && (
-                    <ul>
-                      {service.points.map((point) => (
-                        <li key={point}><CheckCircle size={17} weight="fill" aria-hidden="true" />{point}</li>
-                      ))}
-                    </ul>
-                  )}
-                  <a href={assessmentHref} aria-label={`Ask Redstone about ${service.name}`}>
-                    Explore {service.name} <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
+                  <ul>
+                    {service.covers.map((item) => (
+                      <li key={item}><CheckCircle size={15} weight="fill" aria-hidden="true" />{item}</li>
+                    ))}
+                  </ul>
+                  <a href={assessmentHref} aria-label={`Ask Redstone about ${service.brand} ${service.name}`}>
+                    Explore {service.brand} <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
                   </a>
                 </article>
               );
             })}
           </div>
           <div className="services-footer">
-            <p><Sparkle size={20} weight="duotone" aria-hidden="true" /> One coordinated service experience. No unnecessary complexity.</p>
+            <div className="services-unified">
+              <FlowArrow size={24} weight="duotone" aria-hidden="true" />
+              <p><strong>Five specialist practices. One accountable team.</strong><span>Monitor. Maintain. Support. Protect. Modernise.</span></p>
+            </div>
             <ArrowLink href={assessmentHref} inverse>Explore all managed services</ArrowLink>
           </div>
         </div>
@@ -376,9 +388,9 @@ export default function Home() {
         <div className="section-shell">
           <div className="capabilities-heading">
             <p className="eyebrow">Beyond managed services</p>
-            <h2 id="solutions-title">When technology becomes<br />a business advantage.</h2>
+            <h2 id="solutions-title">Specialist capabilities.<br />Still one trusted partner.</h2>
             <p>
-              Your managed foundation is only the beginning. Redstone also designs and delivers the projects, platforms and intelligent systems that move the business forward.
+              When your business needs more than day-to-day IT, Redstone can design, deliver and continuously improve the projects, compliance programmes, applications and workflows that move it forward.
             </p>
           </div>
           <div className="capabilities-list">
@@ -430,7 +442,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="assessment-section" aria-labelledby="assessment-title">
+      <section className="assessment-section" id="assessment" aria-labelledby="assessment-title">
         <div className="assessment-card">
           <div className="assessment-copy">
             <p className="eyebrow eyebrow--light">Start with clarity</p>
@@ -439,7 +451,7 @@ export default function Home() {
               Get a practical review of your network, infrastructure, security posture and operational risks—with clear recommendations and no pressure.
             </p>
             <div className="assessment-actions">
-              <a className="button button--light" href={assessmentHref}>Request Your Free Assessment <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
+              <a className="button" href={assessmentHref}>Request Your Free Assessment <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
               <a className="assessment-phone" href="tel:+12426016014"><Phone size={19} weight="fill" aria-hidden="true" /> (242) 601-6014</a>
             </div>
           </div>
@@ -465,7 +477,7 @@ export default function Home() {
           </div>
           <div className="footer-links">
             <div><h3>Managed Services</h3><a href="#services">Overwatch</a><a href="#services">Checkmark</a><a href="#services">Helpdesk</a><a href="#services">Shield</a><a href="#services">Cirrus</a></div>
-            <div><h3>Solutions</h3><a href="#solutions">IT Projects</a><a href="#solutions">AI Business Systems</a><a href="#solutions">Web & Digital</a><a href="#solutions">vCIO Services</a><a href={assessmentHref}>Free Assessment</a></div>
+            <div><h3>Solutions</h3><a href="#solutions">Ad Hoc Projects</a><a href="#solutions">Security & Compliance</a><a href="#solutions">AI Web & Applications</a><a href="#solutions">Workflow Automation</a><a href={assessmentHref}>Free Assessment</a></div>
             <div><h3>Redstone</h3><a href="#why-redstone">Why Redstone</a><a href="#process">Our Approach</a><a href="#about">About</a><a href="tel:+12426018324">Client Support</a><a href={assessmentHref}>Contact</a></div>
           </div>
         </div>
