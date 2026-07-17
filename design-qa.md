@@ -87,6 +87,22 @@ blocked
 
 passed
 
+## 2026-07-17 multipage V2 information architecture
+
+- Preserved the completed one-page site as the pushed Git tag `one-page-final-v1`; the live site remains unchanged while V2 is reviewed.
+- Reduced the desktop home page from approximately 10,770px to 5,354px, keeping the strongest conversion, service overview, proof, testimonial and call-to-action content on the landing page.
+- Reorganised deeper content by visitor intent across `/managed-it`, `/capabilities`, `/about` and `/contact`, with shared global navigation, footer and page-level metadata.
+- Verified all five routes at desktop width with no horizontal overflow and reviewed their hierarchy, typography, spacing and content continuity.
+- Verified the mobile experience at 390 x 844: navigation collapses into a working hamburger menu, cards stack cleanly, page navigation works and no horizontal overflow is present.
+- Verified the full service tile is interactive and the service-detail dialog provides a vertically scrollable mobile reading experience for long content.
+- Updated the XML sitemap to include every V2 route.
+- The contact form was not submitted during QA to avoid sending an unsolicited enquiry.
+- Evidence: `qa/multipage-audit/05-home-v2.jpg`, `qa/multipage-audit/06-home-services-v2.jpg`, `qa/multipage-audit/07-managed-it-v2.jpg`, `qa/multipage-audit/08-capabilities-v2.jpg`, `qa/multipage-audit/09-about-v2.jpg` and `qa/multipage-audit/10-contact-v2.jpg`.
+
+## Final result
+
+passed
+
 ## 2026-07-16 SEO and search-readiness pass
 
 - Added a production canonical URL, Bahamas-focused title and description, natural keyword targeting, index/follow directives, and complete Open Graph and X sharing metadata.

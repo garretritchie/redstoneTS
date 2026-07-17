@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function HeaderBehavior() {
   useEffect(() => {
     const header = document.querySelector<HTMLElement>(".site-header");
-    const hero = document.querySelector<HTMLElement>(".hero");
+    const hero = document.querySelector<HTMLElement>(".hero, .page-hero");
     const mobileNav = document.querySelector<HTMLDetailsElement>(".mobile-nav");
     const mobileNavSummary = mobileNav?.querySelector<HTMLElement>("summary");
 

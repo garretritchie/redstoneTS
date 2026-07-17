@@ -1,32 +1,31 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   ArrowUp,
-  FlowArrow,
+  Buildings,
+  EnvelopeSimple,
   House,
-  Path,
   ShieldCheck,
   Sparkle,
-  UsersThree,
 } from "@phosphor-icons/react";
 
 const sections = [
-  { id: "top", label: "Home", icon: House },
-  { id: "services", label: "Managed IT", icon: ShieldCheck },
-  { id: "solutions", label: "Capabilities", icon: Sparkle },
-  { id: "process", label: "How we work", icon: FlowArrow },
-  { id: "about", label: "Why Redstone", icon: UsersThree },
-  { id: "director", label: "Our director", icon: Path },
+  { href: "/", path: "/", label: "Home", icon: House },
+  { href: "/managed-it", path: "/managed-it", label: "Managed IT", icon: ShieldCheck },
+  { href: "/capabilities", path: "/capabilities", label: "Capabilities", icon: Sparkle },
+  { href: "/about", path: "/about", label: "About Redstone", icon: Buildings },
+  { href: "/contact", path: "/contact", label: "Contact", icon: EnvelopeSimple },
 ];
 
 export default function SectionNavigator() {
-  const [activeSection, setActiveSection] = useState("top");
+  const activeSection = usePathname();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showNavigator, setShowNavigator] = useState(false);
 
   useEffect(() => {
-    const hero = document.querySelector<HTMLElement>(".hero");
+    const hero = document.querySelector<HTMLElement>(".hero, .page-hero");
     let heroBottom = 0;
 
     const measure = () => {
@@ -48,25 +47,9 @@ export default function SectionNavigator() {
     window.addEventListener("scroll", updateScrollState, { passive: true });
     window.addEventListener("resize", handleResize);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target.id) setActiveSection(visible.target.id);
-      },
-      { rootMargin: "-30% 0px -55%", threshold: [0, 0.1, 0.35, 0.6] },
-    );
-
-    sections.forEach(({ id }) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
-
     return () => {
       window.removeEventListener("scroll", updateScrollState);
       window.removeEventListener("resize", handleResize);
-      observer.disconnect();
     };
   }, []);
 
@@ -78,16 +61,16 @@ export default function SectionNavigator() {
         aria-hidden={!showNavigator}
       >
         <span className="section-jumper-title" aria-hidden="true">Navigate</span>
-        {sections.map(({ id, label, icon: Icon }) => (
+        {sections.map(({ href, path, label, icon: Icon }) => (
           <a
-            key={id}
-            className={activeSection === id ? "is-active" : ""}
-            href={`#${id}`}
-            aria-label={`Jump to ${label}`}
-            aria-current={activeSection === id ? "location" : undefined}
+            key={path}
+            className={activeSection === path ? "is-active" : ""}
+            href={href}
+            aria-label={`Go to ${label}`}
+            aria-current={activeSection === path ? "page" : undefined}
             tabIndex={showNavigator ? undefined : -1}
           >
-            <Icon size={17} weight={activeSection === id ? "fill" : "regular"} aria-hidden="true" />
+            <Icon size={17} weight={activeSection === path ? "fill" : "regular"} aria-hidden="true" />
             <span>{label}</span>
           </a>
         ))}
