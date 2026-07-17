@@ -19,7 +19,9 @@ const services = [
     name: "Remote Monitoring & Management",
     promise: "See issues early. Act before impact.",
     description:
-      "Continuous visibility, alerting and proactive management across the technology your business depends on.",
+      "Continuous visibility into device health, availability and developing issues so problems do not remain unnoticed.",
+    responsibility: "Monitoring, visibility, alerting, device health and early intervention across the managed environment.",
+    ongoing: "Technology conditions change throughout the day. Continuous monitoring is what reveals failures, negative trends and capacity concerns before users or customers feel the impact.",
     detail:
       "Overwatch feeds live health and performance information from your environment to Redstone. That visibility helps our team identify failures, negative trends and maintenance needs early - often before users notice a problem.",
     outcome:
@@ -49,7 +51,9 @@ const services = [
     name: "Core Infrastructure Support & Maintenance",
     promise: "Keep the foundation stable and dependable.",
     description:
-      "Structured maintenance and expert support for servers, networks, workstations and the systems at the centre of your operation.",
+      "Disciplined maintenance of servers, networks, workstations and core systems so the foundation stays current and dependable.",
+    responsibility: "Infrastructure maintenance, patching, configuration, documentation, standards and long-term reliability.",
+    ongoing: "Patches, configurations, hardware lifecycles and business requirements keep changing. Without active maintenance, reliability and security decline gradually—often without a single obvious failure.",
     detail:
       "Checkmark manages the core server and network environment on an ongoing basis. Preventive maintenance, careful configuration and experienced engineering keep the foundation current, documented and ready to support changing business needs.",
     outcome:
@@ -79,7 +83,9 @@ const services = [
     name: "End User Support",
     promise: "Give every user a human path back to productive.",
     description:
-      "Fast, friendly support that resolves day-to-day issues clearly and stays involved until your people are moving again.",
+      "Responsive, accountable support that keeps employees productive and gives every user a professional path to resolution.",
+    responsibility: "User support, issue resolution, communication, service experience and employee productivity.",
+    ongoing: "People encounter new issues, requests and changes every day. A managed helpdesk provides consistent ownership, prioritisation and follow-through instead of leaving employees to find their own workaround.",
     detail:
       "Helpdesk gives your team one clear place to request assistance by telephone, email or web. Redstone resolves issues remotely whenever practical and provides onsite support when the situation requires a hands-on response.",
     outcome:
@@ -109,7 +115,9 @@ const services = [
     name: "Security Services",
     promise: "Protect every layer of the business.",
     description:
-      "Coordinated protection across users, devices, identity, email and infrastructure reduces risk without slowing work down.",
+      "Ongoing protection across users, devices, identity, email and infrastructure—not simply security software installed once.",
+    responsibility: "Cybersecurity, data protection, threat response, access security and continuous risk reduction.",
+    ongoing: "Threats, vulnerabilities, users and access patterns continually change. Security controls must be reviewed, maintained and improved to remain effective as the business evolves.",
     detail:
       "Shield brings network, endpoint and identity protection together so security controls can work as a coordinated system. Redstone helps businesses prevent, detect and respond to threats while building the policies and operating discipline needed for stronger compliance.",
     outcome:
@@ -140,7 +148,9 @@ const services = [
     name: "Cloud Services",
     promise: "Make cloud simpler, safer and more useful.",
     description:
-      "Microsoft 365, migrations, backup, identity and licensing - designed and managed under one accountable team.",
+      "Managed cloud access, collaboration, identity, backup and recovery that keep people and information available as circumstances change.",
+    responsibility: "Cloud services, secure access, collaboration, backup, recovery and business continuity.",
+    ongoing: "Cloud platforms, licences, identities, data and recovery needs evolve with the business. Ongoing management keeps access secure, costs controlled and information recoverable when it matters.",
     detail:
       "Cirrus combines cloud platforms and virtualisation with the planning, migration and ongoing management needed to make them dependable. Solutions can be private, public or hybrid and are shaped around access, cost, resilience and security requirements.",
     outcome:
@@ -269,6 +279,17 @@ export default function ServiceExplorer() {
               <p className="service-dialog-detail">{active.detail}</p>
             </header>
 
+            <section className="service-dialog-responsibilities" aria-label={`${active.brand} service responsibilities`}>
+              <div>
+                <span>What it manages</span>
+                <p>{active.responsibility}</p>
+              </div>
+              <div>
+                <span>Why it requires ongoing attention</span>
+                <p>{active.ongoing}</p>
+              </div>
+            </section>
+
             <section className="service-dialog-best-fit" aria-labelledby="service-best-fit-title">
               <span id="service-best-fit-title">Best suited for</span>
               <p>{active.bestFor}</p>
@@ -311,7 +332,7 @@ export default function ServiceExplorer() {
             </section>
 
             <div className="service-dialog-actions">
-              <a className="button" href="#contact" onClick={closeService}>
+              <a className="button" href="/contact" onClick={closeService}>
                 Discuss {active.brand} <ArrowRight size={18} weight="bold" aria-hidden="true" />
               </a>
               <span>One specialist practice. One coordinated Redstone coverage system.</span>

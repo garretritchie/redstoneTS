@@ -37,11 +37,11 @@ const businessSchema = {
 };
 
 const services = [
-  { brand: "Overwatch", name: "Remote Monitoring & Management", role: "See issues early.", icon: Pulse },
-  { brand: "Checkmark", name: "Core Infrastructure Support", role: "Keep the foundation stable.", icon: GearSix },
-  { brand: "Helpdesk", name: "End User Support", role: "Get people productive again.", icon: Headset },
-  { brand: "Shield", name: "Security Services", role: "Protect every layer.", icon: ShieldCheck },
-  { brand: "Cirrus", name: "Cloud Services", role: "Modernise with confidence.", icon: CloudArrowUp },
+  { brand: "Overwatch", name: "Remote Monitoring & Management", role: "Know when something is going wrong.", icon: Pulse },
+  { brand: "Checkmark", name: "Core Infrastructure Support", role: "Keep systems properly maintained.", icon: GearSix },
+  { brand: "Helpdesk", name: "End User Support", role: "Keep your people productive.", icon: Headset },
+  { brand: "Shield", name: "Security Services", role: "Manage security continuously.", icon: ShieldCheck },
+  { brand: "Cirrus", name: "Cloud Services", role: "Keep people and data available.", icon: CloudArrowUp },
 ];
 
 const capabilities = [
@@ -64,11 +64,11 @@ export default function Home() {
         <HeroSpotlight />
         <div className="hero-inner">
           <div className="hero-copy">
-            <p className="eyebrow">Managed IT for serious businesses</p>
-            <h1 id="hero-title">Mind-blowing service.<span>Effortless IT<span className="red-dot">.</span></span></h1>
-            <p className="hero-lede">Redstone delivers managed IT services in The Bahamas, bringing support, infrastructure, cybersecurity, cloud and technology planning together under one accountable team.</p>
+            <p className="eyebrow">Technology management for serious businesses</p>
+            <h1 id="hero-title">Serious business.<span>Properly managed technology<span className="red-dot">.</span></span></h1>
+            <p className="hero-lede">Redstone helps ambitious organisations monitor, maintain, support, secure and improve the technology behind their operations—so they can reduce risk, work with confidence and compete more effectively.</p>
             <div className="hero-actions">
-              <a className="button" href="/contact">Request a Free Assessment <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
+              <a className="button" href="/contact">Assess your technology standard <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
               <a className="text-link" href="/managed-it">Explore managed IT <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
             </div>
             <div className="hero-trust" aria-label="Redstone service promise"><SealCheck size={22} weight="duotone" aria-hidden="true" /><strong>Local. Proactive. Human.</strong><span>Nassau, The Bahamas</span></div>
@@ -87,15 +87,15 @@ export default function Home() {
 
       <section className="proof-section section-pad home-proof" id="why-redstone" aria-labelledby="proof-title">
         <div className="section-shell proof-layout">
-          <div className="section-heading"><p className="eyebrow">Built around your business</p><h2 id="proof-title">Order from chaos.<br />Confidence from technology.</h2></div>
-          <div className="proof-copy"><p>The best IT partner takes responsibility, understands what matters and quietly keeps your business moving.</p><p>Bahamian-owned and serving organisations since 2006, Redstone turns disconnected technology into a secure, dependable business foundation.</p><a className="text-link" href="/about">Why businesses choose Redstone <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div>
+          <div className="section-heading"><p className="eyebrow">A professional operating standard</p><h2 id="proof-title">Well-run business.<br />Well-run technology.</h2></div>
+          <div className="proof-copy"><p>Technology affects productivity, security, customer service and growth. It should be managed as intentionally as every other business-critical function.</p><p>Since 2006, Redstone has helped Bahamian organisations replace fragmented, reactive support with clear standards, ongoing oversight and one accountable relationship.</p><a className="text-link" href="/about">Why businesses choose Redstone <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div>
           <div className="proof-numbers" aria-label="Redstone at a glance"><div><strong>24/7/365</strong><span>Continuous monitoring</span></div><div><strong>5</strong><span>Connected managed services</span></div><div><strong>1</strong><span>Accountable partner</span></div><div><strong>20+ years</strong><span>Serving The Bahamas</span></div></div>
         </div>
       </section>
 
       <section className="home-services section-pad" aria-labelledby="home-services-title">
         <div className="section-shell">
-          <div className="home-section-heading"><div><p className="eyebrow eyebrow--light">The Redstone managed system</p><h2 id="home-services-title">Five services.<br /><span>One coverage system.</span></h2></div><div><p>Monitoring, maintenance, support, protection and cloud modernisation work together—without gaps between providers.</p><a className="text-link text-link--inverse" href="/managed-it">Explore the complete system <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div></div>
+          <div className="home-section-heading"><div><p className="eyebrow eyebrow--light">The Redstone managed system</p><h2 id="home-services-title">Five responsibilities.<br /><span>One managed system.</span></h2></div><div><p>Each service manages a different ongoing responsibility. Together they provide the visibility, maintenance, support, security and continuity a professionally run business requires.</p><a className="text-link text-link--inverse" href="/managed-it">Explore the complete system <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div></div>
           <div className="home-services-grid">
             {services.map(({ brand, name, role, icon: Icon }, index) => <a href="/managed-it" key={brand}><span>0{index + 1}</span><Icon size={30} weight="light" aria-hidden="true" /><small>{brand}</small><h3>{name}</h3><p>{role}</p><ArrowUpRight className="home-card-arrow" size={18} weight="bold" aria-hidden="true" /></a>)}
           </div>
@@ -104,7 +104,7 @@ export default function Home() {
 
       <section className="home-pathways section-pad" aria-labelledby="pathways-title">
         <div className="section-shell home-pathways-grid">
-          <div className="home-pathways-intro"><p className="eyebrow">Beyond managed services</p><h2 id="pathways-title">Specialist capability.<br />Still one trusted partner.</h2><p>Projects, compliance, intelligent applications and workflow improvement stay connected to the technology foundation beneath them.</p><a className="button" href="/capabilities">Explore our capabilities <ArrowRight size={18} weight="bold" aria-hidden="true" /></a></div>
+          <div className="home-pathways-intro"><p className="eyebrow">Beyond managed services</p><h2 id="pathways-title">Specialist capability.<br />Connected to your operation.</h2><p>Engage Redstone for a focused project or to add expertise and capacity to your internal team. The work remains aligned with your standards, risks and long-term technology plan.</p><a className="button" href="/capabilities">Explore our capabilities <ArrowRight size={18} weight="bold" aria-hidden="true" /></a></div>
           <div className="home-capability-list">
             {capabilities.map(({ name, icon: Icon }, index) => <a href="/capabilities" key={name}><span>0{index + 1}</span><Icon size={27} weight="light" aria-hidden="true" /><strong>{name}</strong><ArrowUpRight size={17} weight="bold" aria-hidden="true" /></a>)}
           </div>

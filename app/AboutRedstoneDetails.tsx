@@ -67,9 +67,9 @@ export default function AboutRedstoneDetails() {
           <header className="about-details-header">
             <div>
               <p className="eyebrow eyebrow--light">About Redstone</p>
-              <h2 id="about-details-title">Technology should help your business move forward.</h2>
+              <h2 id="about-details-title">Well-run businesses manage technology intentionally.</h2>
               <p>Redstone Technology Solutions helps organisations build, manage, protect and improve the technology they depend on every day.</p>
-              <p>We combine technical expertise with responsive, human-centred service to deliver practical, reliable technology aligned with each client’s business goals. As a long-term technology partner, we help clients reduce risk, improve productivity and make better technology decisions.</p>
+              <p>We combine technical expertise with responsive, human-centred service and clear accountability. The goal is not merely to fix problems, but to help clients reduce risk, improve productivity, protect their reputation and use technology more effectively as the business grows.</p>
             </div>
             <button type="button" onClick={closeDetails} aria-label="Close About Redstone">
               <X size={20} weight="bold" aria-hidden="true" />
@@ -79,12 +79,12 @@ export default function AboutRedstoneDetails() {
           <div className="about-direction-grid">
             <section>
               <span>01 / Our vision</span>
-              <h3>To be the most trusted adviser and provider of managed technology solutions.</h3>
-              <p>Solutions that contribute directly to our clients’ success.</p>
+              <h3>To set the professional technology management standard for the businesses we serve.</h3>
+              <p>Dependable technology, informed decisions and service that contribute directly to client success.</p>
             </section>
             <section>
               <span>02 / Our mission</span>
-              <h3>Help clients achieve their business goals through innovative, dependable and turnkey technology.</h3>
+              <h3>Help clients achieve business goals through dependable, responsibly managed technology.</h3>
               <p>We build lasting partnerships through professionalism, expertise, reliability, integrity and an uncompromising commitment to exceptional customer service.</p>
             </section>
           </div>
