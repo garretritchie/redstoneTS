@@ -7,7 +7,9 @@ const teamMembers = [
   {
     name: "Garret Ritchie",
     title: "Managing Director",
-    image: "/team-garret-ritchie.png",
+    image: "/team-garret-ritchie-v2.jpg",
+    imageWidth: 640,
+    imageHeight: 640,
     imageAlt: "Garret Ritchie, Managing Director at Redstone Technology Solutions",
     responsibility: "Technology Strategy, Client Solutions & Operations",
     description: "Guides Redstone’s technical operations, client solutions, project delivery and long-term technology strategy.",
@@ -17,6 +19,8 @@ const teamMembers = [
     name: "Devon Leslie",
     title: "Director of Training Support & Business Adviser",
     image: "/team-devon-leslie.png",
+    imageWidth: 285,
+    imageHeight: 345,
     imageAlt: "Devon Leslie, Director of Training Support and Business Adviser at Redstone Technology Solutions",
     responsibility: "Training Support, Professional Development & Business Advisory",
     description: "Supports professional development and advises on business priorities and client outcomes.",
@@ -25,6 +29,8 @@ const teamMembers = [
     name: "Trey Curling",
     title: "Technical Supervisor",
     image: "/redstone-favicon.png",
+    imageWidth: 512,
+    imageHeight: 512,
     imageAlt: "Portrait placeholder for Trey Curling",
     imagePending: true,
     responsibility: "Technical Team Leadership",
@@ -34,6 +40,8 @@ const teamMembers = [
     name: "Demetris Robinson",
     title: "IT Specialist",
     image: "/redstone-favicon.png",
+    imageWidth: 512,
+    imageHeight: 512,
     imageAlt: "Portrait placeholder for Demetris Robinson",
     imagePending: true,
     responsibility: "Helpdesk & Server Maintenance",
@@ -43,6 +51,8 @@ const teamMembers = [
     name: "Jayson Greene",
     title: "IT Specialist",
     image: "/redstone-favicon.png",
+    imageWidth: 512,
+    imageHeight: 512,
     imageAlt: "Portrait placeholder for Jayson Greene",
     imagePending: true,
     responsibility: "Helpdesk & Server Maintenance",
@@ -142,7 +152,7 @@ export default function TeamSection() {
           {teamMembers.map((member, index) => (
             <article key={member.name} className={member.featured ? "team-card--featured" : undefined}>
               <div className={`team-card-portrait${member.imagePending ? " team-card-portrait--pending" : ""}`}>
-                <img src={member.image} alt={member.imageAlt} width="310" height="394" loading="lazy" decoding="async" />
+                <img src={member.image} alt={member.imageAlt} width={member.imageWidth} height={member.imageHeight} loading="lazy" decoding="async" />
               </div>
               <div className="team-card-heading">
                 <div className="team-card-name-line">
