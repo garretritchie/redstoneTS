@@ -1,4 +1,5 @@
 import { EnvelopeSimple, MapPin, Phone } from "@phosphor-icons/react/dist/ssr";
+import LegalPolicies from "./LegalPolicies";
 import { Logo } from "./SiteHeader";
 
 export default function SiteFooter() {
@@ -22,7 +23,7 @@ export default function SiteFooter() {
       </div>
       <div className="footer-bottom section-shell">
         <p>© 2026 Redstone Technology Solutions Ltd. All rights reserved.</p>
-        <div><a href="#top">Privacy Policy</a><a href="#top">Terms of Use</a><a href="#top">Cookie Policy</a></div>
+        <LegalPolicies />
       </div>
     </footer>
   );

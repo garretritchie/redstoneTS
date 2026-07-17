@@ -307,3 +307,17 @@ passed
 ## Final result
 
 passed
+
+## 2026-07-17 website legal centre
+
+- Replaced the three inactive footer legal links with a shared, accessible modal legal centre available from every site page.
+- Added tailored Privacy Policy, Terms of Use and Cookie Policy content covering the website contact form, infrastructure logs, Google Maps embed, external providers, website-only terms and Bahamian governing law.
+- Added direct hash links (`#privacy-policy`, `#terms-policy` and `#cookies-policy`) so each document can be opened from a shared URL.
+- Added a slow modal transition, blurred backdrop, policy switcher, internal vertical scrolling, native Escape handling, backdrop close and responsive mobile tabs.
+- Verified footer opening, policy switching, close/hash cleanup, direct-link opening, desktop presentation at 1440 x 900 and mobile presentation at 390 x 844.
+- Production build and lint passed; lint retains five existing image optimisation warnings and no errors.
+- Evidence: `qa/legal-centre/privacy-desktop.jpg`, `qa/legal-centre/terms-desktop.jpg`, `qa/legal-centre/cookies-mobile.jpg` and `qa/legal-centre/terms-direct-link.jpg`.
+
+## Final result
+
+passed
