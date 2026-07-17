@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowUpRight, CheckCircle, Certificate, X } from "@phosphor-icons/react";
+import { ArrowUpRight, CheckCircle, Certificate, UsersThree, X } from "@phosphor-icons/react";
 
 const teamMembers = [
   {
@@ -13,7 +13,7 @@ const teamMembers = [
     imageAlt: "Garret Ritchie, Managing Director at Redstone Technology Solutions",
     responsibility: "Technology Strategy, Client Solutions & Operations",
     description: "Guides Redstone’s technical operations, client solutions, project delivery and long-term technology strategy.",
-    featured: true,
+    profile: true,
   },
   {
     name: "Devon Leslie",
@@ -51,11 +51,10 @@ const teamMembers = [
   {
     name: "Jayson Greene",
     title: "IT Specialist",
-    image: "/redstone-favicon.png",
-    imageWidth: 512,
-    imageHeight: 512,
-    imageAlt: "Portrait placeholder for Jayson Greene",
-    imagePending: true,
+    image: "/team-jayson-greene.jpg",
+    imageWidth: 640,
+    imageHeight: 734,
+    imageAlt: "Jayson Greene, IT Specialist at Redstone Technology Solutions",
     responsibility: "Helpdesk & Server Maintenance",
     description: "Provides responsive user support and assists with the ongoing care of client server environments.",
   },
@@ -140,8 +139,7 @@ export default function TeamSection() {
         <div className="team-intro">
           <p className="eyebrow">Our team</p>
           <h2 id="team-title">Expertise you can reach.<br /><span>People you can trust.</span></h2>
-          <p>Redstone hires talented technology professionals who combine technical discipline with clear communication, sound judgment and genuine care for client outcomes.</p>
-          <p className="team-note">These are selected leadership and delivery roles—not a complete employee directory. They represent some of the people responsible for keeping our service personal, coordinated and accountable.</p>
+          <p>Redstone hires talented technology professionals who combine technical discipline with clear communication, sound judgment and genuine care for client outcomes. These selected roles are part of a wider team responsible for keeping our service personal, coordinated and accountable.</p>
           <button className="team-credentials-button" type="button" onClick={openCredentials} aria-haspopup="dialog">
             <Certificate size={20} weight="duotone" aria-hidden="true" />
             Explore our technical credentials
@@ -151,7 +149,7 @@ export default function TeamSection() {
 
         <div className="team-grid" aria-label="Selected Redstone leadership and delivery roles">
           {teamMembers.map((member, index) => (
-            <article key={member.name} className={member.featured ? "team-card--featured" : undefined}>
+            <article key={member.name}>
               <div className={`team-card-portrait${member.imagePending ? " team-card-portrait--pending" : ""}${member.imageFocus === "top" ? " team-card-portrait--top" : ""}`}>
                 <img src={member.image} alt={member.imageAlt} width={member.imageWidth} height={member.imageHeight} loading="lazy" decoding="async" />
               </div>
@@ -166,10 +164,20 @@ export default function TeamSection() {
                 <span>Responsible for</span>
                 <strong>{member.responsibility}</strong>
               </div>
-              <p className="team-card-description">{member.description}</p>
-              {member.featured ? <a className="team-card-profile-link" href="#director">View leadership profile <ArrowUpRight size={15} weight="bold" aria-hidden="true" /></a> : null}
+              {member.profile ? <a className="team-card-profile-link" href="#director">View leadership profile <ArrowUpRight size={15} weight="bold" aria-hidden="true" /></a> : null}
             </article>
           ))}
+          <article className="team-card--support">
+            <div className="team-card-portrait team-card-portrait--support" aria-hidden="true"><UsersThree size={31} weight="duotone" /></div>
+            <div className="team-card-heading">
+              <div className="team-card-name-line">
+                <span className="team-card-number">06</span>
+                <h3>Admin &amp; Business Operations</h3>
+              </div>
+              <p>The people behind the service</p>
+            </div>
+            <div className="team-card-responsibility"><span>Supporting</span><strong>Helpdesk Administration, Finance, Sales &amp; Marketing, and Human Resources</strong></div>
+          </article>
         </div>
       </div>
 
