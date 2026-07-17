@@ -374,3 +374,18 @@ passed
 ## Final result
 
 passed
+
+## 2026-07-17 About Redstone vision, mission and values modal
+
+- Added a concise “Vision, mission & the Redstone Code” action to the opening About page story instead of expanding the page with another long-form section.
+- The modal preserves the established Redstone popup language: slow entrance, blurred backdrop, charcoal narrative header, restrained red labels, thin bordered content panels and internal vertical scrolling.
+- Organised the supplied content into four reading layers: company purpose, vision, mission and six Redstone Code values.
+- Desktop evidence: `qa/about-redstone-details/overview-desktop.png` and `qa/about-redstone-details/code-desktop.png` at 1280 x 720.
+- Mobile evidence: `qa/about-redstone-details/overview-mobile.png` at 390 x 844, with a full-width heading treatment, readable body copy, internal scrolling and no horizontal overflow.
+- Primary interactions tested: modal open, close/reload state and internal scroll. Browser console review found zero errors.
+- Fonts, colors, spacing, icon treatment and modal behavior align with the existing leadership and team-credentials dialogs.
+- Findings: no actionable P0, P1 or P2 issues remain.
+
+## Final result
+
+passed

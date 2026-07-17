@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CheckCircle, ChatCircleText, Heart, Headset, ShieldCheck, UserFocus } from "@phosphor-icons/react/dist/ssr";
 import AssessmentBand from "../AssessmentBand";
+import AboutRedstoneDetails from "../AboutRedstoneDetails";
 import DirectorProfile from "../DirectorProfile";
 import PageHero from "../PageHero";
 import SiteFooter from "../SiteFooter";
@@ -46,7 +47,7 @@ export default function AboutPage() {
       <PageHero eyebrow="A local partner with a long view" title={<>Technology expertise.<br /><span>Human commitment.</span></>} description="Redstone combines disciplined technical operations with real relationships, clear communication and a service standard designed to make business leaders feel confident." primaryLabel="Meet with our team" secondaryLabel="Our leadership" secondaryHref="#director" />
 
       <section className="proof-section section-pad" aria-labelledby="about-proof-title">
-        <div className="section-shell proof-layout"><div className="section-heading"><p className="eyebrow">Why Redstone</p><h2 id="about-proof-title">More than IT.<br />A partner in your success.</h2></div><div className="proof-copy"><p>Redstone was built on a simple belief: businesses deserve an IT partner that takes their success personally.</p><p>Since 2006, our Bahamian team has combined proactive management, cybersecurity, cloud, strategy and project delivery to help organisations operate with less disruption and more confidence.</p></div><div className="proof-numbers"><div><strong>20+ years</strong><span>Serving The Bahamas</span></div><div><strong>24/7/365</strong><span>Managed visibility</span></div><div><strong>5</strong><span>Connected service practices</span></div><div><strong>1</strong><span>Accountable relationship</span></div></div></div>
+        <div className="section-shell proof-layout"><div className="section-heading"><p className="eyebrow">Why Redstone</p><h2 id="about-proof-title">More than IT.<br />A partner in your success.</h2></div><div className="proof-copy"><p>Redstone was built on a simple belief: businesses deserve an IT partner that takes their success personally.</p><p>Since 2006, our Bahamian team has combined proactive management, cybersecurity, cloud, strategy and project delivery to help organisations operate with less disruption and more confidence.</p><AboutRedstoneDetails /></div><div className="proof-numbers"><div><strong>20+ years</strong><span>Serving The Bahamas</span></div><div><strong>24/7/365</strong><span>Managed visibility</span></div><div><strong>5</strong><span>Connected service practices</span></div><div><strong>1</strong><span>Accountable relationship</span></div></div></div>
       </section>
 
       <section className="partnerships-section section-pad" id="partnerships" aria-labelledby="partnerships-title">
