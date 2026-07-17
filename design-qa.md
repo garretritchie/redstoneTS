@@ -87,6 +87,21 @@ blocked
 
 passed
 
+## 2026-07-17 cursor-responsive hero network
+
+- Used the supplied FTDC hero screenshot and the live `ftdcimaging.com` particle canvas as visual references for a connected-technology motion language, while preserving Redstone's existing typography, restrained red palette and editorial hero composition.
+- Added a real canvas network layer between the hero photograph and content. Fine connected lines drift continuously, shift with subtle parallax and pull toward the pointer; nodes remain small and visually subordinate to the lines.
+- Applied requestAnimationFrame scheduling, capped pixel density, resize/intersection observers and reduced-motion/coarse-pointer fallbacks to keep the effect responsive without burdening mobile devices.
+- Reframed the clean `grhero3` source across the complete media plane so both people remain visible at the reviewed desktop viewport, with no duplicated, stretched or artificial subject overlays.
+- Added a soft white-to-transparent contrast veil beneath the text. Browser inspection confirmed the heading at `rgb(16, 24, 32)`, supporting copy at `rgb(63, 72, 83)`, no horizontal overflow and descriptive hero alt text.
+- Reviewed the full hero at 1280 x 720 and the responsive state at 390 x 844. The mobile layout stacks copy above the image, keeps the animated layer understated and preserves clear text contrast.
+- Source visual truth: `C:/Users/garre/AppData/Local/Temp/codex-clipboard-d8d64cc9-7b71-43e9-90e0-c233cdb0c4b2.png` and `https://www.ftdcimaging.com/`.
+- Evidence: `qa/hero-network/reference-implementation-comparison.png`, `qa/hero-network/hero-network-desktop.png` and `qa/hero-network/hero-network-mobile.png`.
+
+## Final result
+
+passed
+
 ## 2026-07-17 multipage V2 information architecture
 
 - Preserved the completed one-page site as the pushed Git tag `one-page-final-v1`; the live site remains unchanged while V2 is reviewed.
