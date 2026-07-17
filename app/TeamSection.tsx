@@ -7,6 +7,8 @@ const teamMembers = [
   {
     name: "Garret Ritchie",
     title: "Managing Director",
+    image: "/team-garret-ritchie.png",
+    imageAlt: "Garret Ritchie, Managing Director at Redstone Technology Solutions",
     responsibility: "Technology Strategy, Client Solutions & Operations",
     description: "Guides Redstone’s technical operations, client solutions, project delivery and long-term technology strategy.",
     featured: true,
@@ -14,24 +16,35 @@ const teamMembers = [
   {
     name: "Devon Leslie",
     title: "Director of Training Support & Business Adviser",
+    image: "/team-devon-leslie.png",
+    imageAlt: "Devon Leslie, Director of Training Support and Business Adviser at Redstone Technology Solutions",
     responsibility: "Training Support, Professional Development & Business Advisory",
     description: "Supports professional development and advises on business priorities and client outcomes.",
   },
   {
     name: "Trey Curling",
     title: "Technical Supervisor",
+    image: "/redstone-favicon.png",
+    imageAlt: "Portrait placeholder for Trey Curling",
+    imagePending: true,
     responsibility: "Technical Team Leadership",
     description: "Leads technical coordination, service quality and the day-to-day delivery of client support.",
   },
   {
     name: "Demetris Robinson",
     title: "IT Specialist",
+    image: "/redstone-favicon.png",
+    imageAlt: "Portrait placeholder for Demetris Robinson",
+    imagePending: true,
     responsibility: "Helpdesk & Server Maintenance",
     description: "Supports end users and helps maintain the server systems our clients rely on every day.",
   },
   {
     name: "Jayson Greene",
     title: "IT Specialist",
+    image: "/redstone-favicon.png",
+    imageAlt: "Portrait placeholder for Jayson Greene",
+    imagePending: true,
     responsibility: "Helpdesk & Server Maintenance",
     description: "Provides responsive user support and assists with the ongoing care of client server environments.",
   },
@@ -128,9 +141,14 @@ export default function TeamSection() {
         <div className="team-grid" aria-label="Selected Redstone leadership and delivery roles">
           {teamMembers.map((member, index) => (
             <article key={member.name} className={member.featured ? "team-card--featured" : undefined}>
-              <span className="team-card-number">{String(index + 1).padStart(2, "0")}</span>
+              <div className={`team-card-portrait${member.imagePending ? " team-card-portrait--pending" : ""}`}>
+                <img src={member.image} alt={member.imageAlt} width="310" height="394" loading="lazy" decoding="async" />
+              </div>
               <div className="team-card-heading">
-                <h3>{member.name}</h3>
+                <div className="team-card-name-line">
+                  <span className="team-card-number">{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{member.name}</h3>
+                </div>
                 <p>{member.title}</p>
               </div>
               <div className="team-card-responsibility">
