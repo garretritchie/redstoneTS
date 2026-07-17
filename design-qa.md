@@ -336,3 +336,22 @@ passed
 ## Final result
 
 passed
+
+## 2026-07-17 selected team roles and credentials
+
+- Source visual truth: the existing Redstone About page section system at `http://localhost:3003/about#partnerships`, captured in `qa/team-section/existing-partnerships-reference.png`.
+- Implementation: `http://localhost:3003/about#team`, captured in `qa/team-section/team-desktop.png` at 1280 x 720 and `qa/team-section/team-mobile.png` at 390 x 844.
+- Full-view comparison evidence: `qa/team-section/existing-system-team-comparison.png` confirms the new section preserves the established split layout, editorial heading treatment, numbered grid, restrained red accents, charcoal feature panel and thin border system.
+- Focused interaction evidence: `qa/team-section/credentials-desktop.png` and `qa/team-section/credentials-mobile.png` confirm the modal heading, grouped certification lists, close control, readable text sizing and internal vertical scrolling.
+- Content hierarchy: Garret Ritchie is presented first as the featured Director card, followed by four selected leadership and delivery roles. The explanatory copy explicitly states that the section is not a complete employee directory.
+- Fonts and typography: display and body families, optical weights, line heights and small-label tracking match the existing About page language; no team-card body copy is below 13px on desktop and mobile reading text remains 15px or larger where appropriate.
+- Spacing and layout rhythm: desktop uses the same 0.72/1.28 split and border-grid rhythm as the partnerships section; mobile stacks the introduction, feature card and remaining profiles without horizontal overflow.
+- Colors and tokens: the section uses the existing ink, soft-gray, Redstone red and night tokens with accessible contrast in the dark feature card and modal header.
+- Image quality and asset fidelity: the section intentionally uses no staff imagery because no approved team portraits were supplied; it avoids placeholders and artificial avatars while remaining consistent with the source design system.
+- Copy and content: all five supplied names, roles and responsibilities are represented, and all 32 supplied certifications are grouped without inflating individual credentials or implying that every person holds every certification.
+- Primary interactions tested: credentials modal open, close, desktop scroll and mobile scroll. Browser console review found zero errors in both desktop and mobile states.
+- Findings: no actionable P0, P1 or P2 issues remain. The lack of team portraits is an intentional content constraint, not a visual defect.
+
+## Final result
+
+passed

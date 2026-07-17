@@ -5,6 +5,7 @@ import DirectorProfile from "../DirectorProfile";
 import PageHero from "../PageHero";
 import SiteFooter from "../SiteFooter";
 import SiteHeader from "../SiteHeader";
+import TeamSection from "../TeamSection";
 import TestimonialCarousel from "../TestimonialCarousel";
 
 export const metadata: Metadata = {
@@ -76,6 +77,8 @@ export default function AboutPage() {
         <TestimonialCarousel />
         <div className="human-copy"><p className="eyebrow eyebrow--light">Human-centred support</p><h2 id="human-title">Technology support that feels personal.</h2><p className="human-lede">The quality of an IT provider is measured by how people feel when they need help. Our team explains what is happening, owns the issue and stays involved until it is properly resolved.</p><div className="human-promises"><article><Headset size={23} weight="light" aria-hidden="true" /><div><strong>Responsive</strong><span>We are there when you need us.</span></div></article><article><Heart size={23} weight="light" aria-hidden="true" /><div><strong>Accountable</strong><span>We take the outcome personally.</span></div></article><article><ChatCircleText size={23} weight="light" aria-hidden="true" /><div><strong>Clear</strong><span>We explain, not overwhelm.</span></div></article><article><ShieldCheck size={23} weight="light" aria-hidden="true" /><div><strong>Disciplined</strong><span>Great service is our standard.</span></div></article></div></div>
       </section>
+
+      <TeamSection />
 
       <section className="outcomes-section section-pad" aria-labelledby="outcomes-title">
         <div className="section-shell outcomes-layout"><div className="outcomes-heading"><p className="eyebrow">What the relationship changes</p><h2 id="outcomes-title">Less disruption.<br />More confidence.</h2><p>The result is not only better technology. It is what your people and leaders experience every day.</p></div><div className="outcomes-grid">{outcomes.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><CheckCircle size={24} weight="light" aria-hidden="true" /><h3>{title}</h3><p>{text}</p></article>)}</div></div>

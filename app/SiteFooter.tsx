@@ -18,7 +18,7 @@ export default function SiteFooter() {
         <div className="footer-links">
           <div><h3>Managed Services</h3><a href="/managed-it#overwatch">Overwatch</a><a href="/managed-it#checkmark">Checkmark</a><a href="/managed-it#helpdesk">Helpdesk</a><a href="/managed-it#shield">Shield</a><a href="/managed-it#cirrus">Cirrus</a></div>
           <div><h3>Capabilities</h3><a href="/capabilities">Ad Hoc Projects</a><a href="/capabilities">Security & Compliance</a><a href="/capabilities">AI Web & Applications</a><a href="/capabilities">Workflow Automation</a><a href="/contact">Free Assessment</a></div>
-          <div><h3>Redstone</h3><a href="/about">Why Redstone</a><a href="/about#partnerships">Partnerships</a><a href="/capabilities#process">Our Approach</a><a href="/about#director">Leadership</a><a href="tel:+12426018324">Client Support</a><a href="/contact">Contact</a></div>
+          <div><h3>Redstone</h3><a href="/about">Why Redstone</a><a href="/about#team">Our Team</a><a href="/about#partnerships">Partnerships</a><a href="/capabilities#process">Our Approach</a><a href="/about#director">Leadership</a><a href="tel:+12426018324">Client Support</a><a href="/contact">Contact</a></div>
         </div>
       </div>
       <div className="footer-bottom section-shell">
