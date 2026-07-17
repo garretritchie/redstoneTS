@@ -5367,6 +5367,10 @@ h3 {
   opacity: 0.68;
 }
 
+.team-card-portrait--top img {
+  object-position: center top;
+}
+
 .team-grid article:hover .team-card-portrait--pending img {
   opacity: 0.9;
 }
