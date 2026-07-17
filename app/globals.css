@@ -5266,6 +5266,12 @@ h3 {
   color: #ffffff;
 }
 
+.team-grid .team-card--featured:hover {
+  background: #171d24;
+  color: #ffffff;
+  box-shadow: 0 20px 48px rgba(8, 13, 18, 0.26);
+}
+
 .team-card--featured .team-card-number {
   grid-row: 1 / -1;
   color: #ff606b;

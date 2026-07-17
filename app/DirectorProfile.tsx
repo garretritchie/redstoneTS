@@ -54,7 +54,7 @@ export default function DirectorProfile() {
           <aside className="director-profile-visual">
             <span className="director-profile-number">01 / Leadership profile</span>
             <div className="director-profile-portrait">
-              <img src="/director-garret-natural-cutout.png" alt="Garret Ritchie, Director of Redstone Technology Solutions in Nassau, The Bahamas" width="1046" height="1155" loading="lazy" decoding="async" />
+              <img src="/director-garret-natural-cutout.png" alt="Garret Ritchie, Managing Director of Redstone Technology Solutions in Nassau, The Bahamas" width="1046" height="1155" loading="lazy" decoding="async" />
             </div>
             <div className="director-profile-visual-contact" aria-label="Contact Garret Ritchie">
               <span>Leadership contact</span>
@@ -76,9 +76,9 @@ export default function DirectorProfile() {
 
             <p className="director-profile-kicker">Technology leadership / Human-centred systems</p>
             <h2 id="director-profile-title">Garret Ritchie</h2>
-            <p className="director-profile-role">Director, Technology Strategist, Systems Builder and Educator.</p>
+            <p className="director-profile-role">Managing Director, Technology Strategist, Systems Builder and Educator.</p>
             <p className="director-profile-intro">
-              Garret is a Bahamian technology entrepreneur with more than 25 years of experience helping organisations solve practical business problems through technology. As Director of Redstone, he guides technical operations, client solutions, project delivery and team execution.
+              Garret is a Bahamian technology entrepreneur with more than 25 years of experience helping organisations solve practical business problems through technology. As Managing Director of Redstone, he guides technical operations, client solutions, project delivery and team execution.
             </p>
             <p className="director-profile-intro">
               His work connects managed IT, infrastructure, cybersecurity, artificial intelligence, software development, automation and user experience. He approaches them as parts of one operating system - bringing people, technology and business priorities together so the whole organisation can work better.
