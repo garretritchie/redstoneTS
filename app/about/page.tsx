@@ -22,6 +22,22 @@ const outcomes = [
   ["More confidence", "Leadership can see the environment, understand the risks and plan what comes next."],
 ];
 
+const technologyPartners = [
+  ["Microsoft", "Cloud & productivity"],
+  ["Sophos", "Cybersecurity"],
+  ["Cisco", "Networking & infrastructure"],
+  ["Juniper", "Networking & infrastructure"],
+  ["Veeam", "Backup & resilience"],
+  ["Wasabi", "Cloud storage"],
+  ["CompTIA", "Professional ecosystem"],
+  ["Dell", "Business infrastructure"],
+  ["HP", "Business infrastructure"],
+  ["VMware", "Virtualisation"],
+  ["Digium", "Business communications"],
+  ["Asterisk", "Business communications"],
+  ["Ubiquiti", "Networking & connectivity"],
+];
+
 export default function AboutPage() {
   return (
     <main id="top">
@@ -30,6 +46,30 @@ export default function AboutPage() {
 
       <section className="proof-section section-pad" aria-labelledby="about-proof-title">
         <div className="section-shell proof-layout"><div className="section-heading"><p className="eyebrow">Why Redstone</p><h2 id="about-proof-title">More than IT.<br />A partner in your success.</h2></div><div className="proof-copy"><p>Redstone was built on a simple belief: businesses deserve an IT partner that takes their success personally.</p><p>Since 2006, our Bahamian team has combined proactive management, cybersecurity, cloud, strategy and project delivery to help organisations operate with less disruption and more confidence.</p></div><div className="proof-numbers"><div><strong>20+ years</strong><span>Serving The Bahamas</span></div><div><strong>24/7/365</strong><span>Managed visibility</span></div><div><strong>5</strong><span>Connected service practices</span></div><div><strong>1</strong><span>Accountable relationship</span></div></div></div>
+      </section>
+
+      <section className="partnerships-section section-pad" id="partnerships" aria-labelledby="partnerships-title">
+        <div className="section-shell partnerships-layout">
+          <div className="partnerships-intro">
+            <p className="eyebrow">Technology partners &amp; affiliations</p>
+            <h2 id="partnerships-title">Proven technology.<br /><span>One accountable partner.</span></h2>
+            <p>We are proud to be registered and affiliated with organisations across cloud, cybersecurity, infrastructure, networking, continuity and professional development.</p>
+            <p className="partnerships-note">This broad ecosystem helps Redstone recommend and support the right-fit technology for each client environment—without forcing every business into the same stack.</p>
+          </div>
+          <div className="partnerships-grid" aria-label="Redstone technology partners and affiliations">
+            {technologyPartners.map(([name, category], index) => (
+              <article key={name}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{name}</h3>
+                <p>{category}</p>
+              </article>
+            ))}
+            <div className="partnerships-summary">
+              <span>Connected by Redstone</span>
+              <p>One integrated environment.<br />One accountable team.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="human-section" aria-labelledby="human-title">
