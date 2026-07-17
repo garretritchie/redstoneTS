@@ -2076,6 +2076,46 @@ h3 {
   color: white;
 }
 
+/* Testimonial controls sit on the dark human-support panel. Keep every
+   interactive and supporting element comfortably legible in that context. */
+.human-section > .testimonial-carousel .testimonial-credit span {
+  color: #b8c2cb;
+}
+
+.human-section > .testimonial-carousel .testimonial-controls {
+  border-top-color: #46515c;
+}
+
+.human-section > .testimonial-carousel .testimonial-dots button {
+  background: #84909a;
+}
+
+.human-section > .testimonial-carousel .testimonial-dots button.is-active {
+  background: #f04a53;
+}
+
+.human-section > .testimonial-carousel .testimonial-actions > span {
+  color: #dce2e7;
+}
+
+.human-section > .testimonial-carousel .testimonial-actions button {
+  border-color: #7f8b96;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f7f9fa;
+}
+
+.human-section > .testimonial-carousel .testimonial-actions button:hover {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: var(--night);
+}
+
+.human-section > .testimonial-carousel .testimonial-actions button:focus-visible,
+.human-section > .testimonial-carousel .testimonial-dots button:focus-visible {
+  outline: 3px solid rgba(240, 74, 83, 0.5);
+  outline-offset: 3px;
+}
+
 @keyframes testimonial-in-next {
   from {
     opacity: 0;
