@@ -87,6 +87,25 @@ blocked
 
 passed
 
+## 2026-07-17 site-wide background network
+
+- Source visual truth: the existing static charcoal perimeter captured at `http://localhost:3003/` in `qa/site-background-network/before-desktop.png`, paired with the established cursor-responsive connected-line treatment already used in the homepage hero.
+- Implementation: `qa/site-background-network/after-desktop.png` at 1280 x 720, `qa/site-background-network/after-scrolled.png` at scroll position 1500 and `qa/site-background-network/mobile.png` at 390 x 844.
+- Full-view comparison evidence: `qa/site-background-network/before-after-comparison.png` confirms that the white content canvas, rounded frame, typography and hero composition remain unchanged while the outer charcoal perimeter gains subtle line movement and red cursor emphasis.
+- Focused region comparison: the top and side perimeter strips were inspected directly because these are the only visible portions of the background layer beneath the opaque content container. The canvas remains below `main#top` with fixed positioning and no pointer interception.
+- Fonts and typography: unaffected; the animation is isolated behind the site canvas.
+- Spacing and layout rhythm: unchanged; no container dimensions, margins, radii or section spacing were modified.
+- Colors and tokens: the background uses low-opacity cool-gray lines and restrained Redstone red emphasis on the existing `#242b33` charcoal field.
+- Image quality and asset fidelity: no raster assets were added or altered; the effect is a native canvas motion layer derived from the approved hero interaction.
+- Copy and content: unaffected.
+- Responsive and accessibility behavior: the layer is disabled at 700px and below, respects reduced-motion and coarse-pointer preferences, caps pixel density and pauses when the document is hidden.
+- Route verification: `/`, `/managed-it`, `/capabilities`, `/about` and `/contact` all render the fixed canvas below the content surface with no horizontal overflow. Browser console review found zero errors.
+- Findings: no actionable P0, P1 or P2 issues remain. The restrained visibility at 1280px is intentional because the content frame leaves only a narrow perimeter; the effect becomes more apparent on wider displays.
+
+## Final result
+
+passed
+
 ## 2026-07-17 cursor-responsive hero network
 
 - Used the supplied FTDC hero screenshot and the live `ftdcimaging.com` particle canvas as visual references for a connected-technology motion language, while preserving Redstone's existing typography, restrained red palette and editorial hero composition.
