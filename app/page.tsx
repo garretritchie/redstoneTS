@@ -58,7 +58,7 @@ export default function Home() {
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-media">
-          <img src="/redstone-hero-meeting-v2.webp" alt="Redstone technology advisor meeting with a business leader in Nassau" width="1448" height="1086" fetchPriority="high" decoding="async" />
+          <img src="/redstone-hero-meeting-v3.webp" alt="Redstone technology advisor welcoming a business leader during a meeting in Nassau, The Bahamas" width="1774" height="887" fetchPriority="high" decoding="async" />
         </div>
         <div className="hero-inner">
           <div className="hero-copy">
