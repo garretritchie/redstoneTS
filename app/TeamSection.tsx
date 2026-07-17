@@ -6,15 +6,15 @@ import { ArrowUpRight, CheckCircle, Certificate, X } from "@phosphor-icons/react
 const teamMembers = [
   {
     name: "Garret Ritchie",
-    title: "Director",
+    title: "Managing Director",
     responsibility: "Technology Strategy, Client Solutions & Operations",
     description: "Guides Redstone’s technical operations, client solutions, project delivery and long-term technology strategy.",
     featured: true,
   },
   {
     name: "Devon Leslie",
-    title: "Partner",
-    responsibility: "Training Support & Business Adviser",
+    title: "Director of Training Support & Business Adviser",
+    responsibility: "Training Support, Professional Development & Business Advisory",
     description: "Supports professional development and advises on business priorities and client outcomes.",
   },
   {
