@@ -21,6 +21,7 @@ const teamMembers = [
     image: "/team-devon-leslie.png",
     imageWidth: 285,
     imageHeight: 345,
+    imageFocus: "top",
     imageAlt: "Devon Leslie, Director of Training Support and Business Adviser at Redstone Technology Solutions",
     responsibility: "Training Support, Professional Development & Business Advisory",
     description: "Supports professional development and advises on business priorities and client outcomes.",
@@ -151,7 +152,7 @@ export default function TeamSection() {
         <div className="team-grid" aria-label="Selected Redstone leadership and delivery roles">
           {teamMembers.map((member, index) => (
             <article key={member.name} className={member.featured ? "team-card--featured" : undefined}>
-              <div className={`team-card-portrait${member.imagePending ? " team-card-portrait--pending" : ""}`}>
+              <div className={`team-card-portrait${member.imagePending ? " team-card-portrait--pending" : ""}${member.imageFocus === "top" ? " team-card-portrait--top" : ""}`}>
                 <img src={member.image} alt={member.imageAlt} width={member.imageWidth} height={member.imageHeight} loading="lazy" decoding="async" />
               </div>
               <div className="team-card-heading">
