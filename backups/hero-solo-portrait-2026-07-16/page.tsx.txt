@@ -40,57 +40,6 @@ const assessmentHref = "#contact";
 // Replace this request-access destination when the Business Operating System is ready.
 const clientPortalHref = "#contact";
 
-const businessSchema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
-  "@id": "https://www.redstonets.com/#business",
-  name: "Redstone Technology Solutions",
-  url: "https://www.redstonets.com/",
-  logo: "https://www.redstonets.com/redstone-logo.png",
-  image: "https://www.redstonets.com/og.png",
-  description:
-    "A Bahamian managed IT services provider delivering proactive monitoring, infrastructure support, helpdesk, cybersecurity, cloud services and technology strategy.",
-  telephone: "+1-242-601-6014",
-  email: "msp@redstonets.com",
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "1st Floor, Church Street Building, Shirley Street",
-    addressLocality: "Nassau",
-    addressRegion: "New Providence",
-    addressCountry: "BS",
-  },
-  areaServed: {
-    "@type": "Country",
-    name: "The Bahamas",
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "17:00",
-    },
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Business Technology Services",
-    itemListElement: [
-      "Remote Monitoring and Management",
-      "Core Infrastructure Support and Maintenance",
-      "End User Helpdesk Support",
-      "Cybersecurity Services",
-      "Cloud Services",
-      "Security and Compliance as a Service",
-      "AI-Powered Web and Application Development",
-      "Workflow Automation and Optimisation",
-    ].map((name) => ({
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name, areaServed: "The Bahamas" },
-    })),
-  },
-};
-
 const process = [
   {
     number: "01",
@@ -191,10 +140,6 @@ function ArrowLink({ href, children, inverse = false }: { href: string; children
 export default function Home() {
   return (
     <main id="top">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
-      />
       <header className="site-header">
         <div className="header-inner">
           <Logo />
@@ -234,16 +179,10 @@ export default function Home() {
       <SectionNavigator />
 
       <section className="hero" aria-labelledby="hero-title">
-        <div className="hero-media">
-          <img
-            src="/redstone-hero-meeting-v2.webp"
-            alt="Redstone technology advisor meeting with a business leader in Nassau"
-            width="1448"
-            height="1086"
-            fetchPriority="high"
-            decoding="async"
-          />
+        <div className="hero-media" aria-hidden="true">
+          <img src="/redstone-hero-background.png" alt="" />
         </div>
+        <img className="hero-subject-cutout" src="/redstone-hero-man-cutout.png" alt="" aria-hidden="true" />
         <div className="hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">Managed IT for serious businesses</p>
@@ -252,7 +191,7 @@ export default function Home() {
               <span>Effortless IT<span className="red-dot">.</span></span>
             </h1>
             <p className="hero-lede">
-              Redstone delivers managed IT services in The Bahamas, bringing your support, infrastructure, cybersecurity, cloud services and technology planning together under one responsive, accountable team.
+              Redstone brings your support, infrastructure, cybersecurity, cloud services and technology planning together under one responsive, accountable team.
             </p>
             <div className="hero-actions">
               <a className="button" href={assessmentHref}>
@@ -429,7 +368,7 @@ export default function Home() {
         <div className="section-shell director-layout">
           <div className="director-visual">
             <div className="director-portrait">
-              <img src="/director-garret-natural-cutout.png" alt="Garret Ritchie, Director of Redstone Technology Solutions in Nassau, The Bahamas" width="1046" height="1155" loading="lazy" decoding="async" />
+              <img src="/director-garret-natural-cutout.png" alt="Garret Ritchie, Director of Redstone Technology Solutions" />
             </div>
             <div className="director-marker"><GlobeHemisphereWest size={34} weight="light" aria-hidden="true" /><span>A local partner<br />with a long view.</span></div>
           </div>

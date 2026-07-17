@@ -1,7 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
-import { headers } from "next/headers";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#101820",
+};
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -15,35 +21,79 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("host") ?? "redstonets.com";
-  const protocol = host.includes("localhost") ? "http" : "https";
-  const origin = `${protocol}://${host}`;
-
-  return {
-    title: "Redstone Technology Solutions | Managed IT in The Bahamas",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.redstonets.com"),
+  title: {
+    default: "Managed IT Services Bahamas | Redstone Technology Solutions",
+    template: "%s | Redstone Technology Solutions",
+  },
+  description:
+    "Managed IT services in The Bahamas, including cybersecurity, cloud, helpdesk, infrastructure support, monitoring and technology strategy for businesses.",
+  applicationName: "Redstone Technology Solutions",
+  authors: [{ name: "Redstone Technology Solutions", url: "https://www.redstonets.com" }],
+  creator: "Redstone Technology Solutions",
+  publisher: "Redstone Technology Solutions",
+  category: "Managed Information Technology Services",
+  keywords: [
+    "managed IT services Bahamas",
+    "IT support Nassau",
+    "cybersecurity Bahamas",
+    "business IT support",
+    "remote monitoring and management",
+    "Microsoft 365 Bahamas",
+    "cloud services Bahamas",
+    "IT helpdesk services",
+    "technology consulting Bahamas",
+    "security compliance services",
+    "workflow automation",
+    "AI application development",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/redstone-favicon.ico", sizes: "any" },
+      { url: "/redstone-favicon.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/redstone-favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+  },
+  openGraph: {
+    title: "Managed IT Services in The Bahamas | Redstone",
     description:
-      "Responsive managed IT, cybersecurity, cloud services and technology strategy for businesses in The Bahamas.",
-    icons: {
-      icon: "/redstone-logo.png",
-      shortcut: "/redstone-logo.png",
-    },
-    openGraph: {
-      title: "Mind-blowing service. Effortless IT.",
-      description:
-        "One responsive, accountable team for your support, infrastructure, cybersecurity, cloud and technology planning.",
-      type: "website",
-      images: [{ url: `${origin}/og.png`, width: 1728, height: 914, alt: "Mind-blowing service. Effortless IT." }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Mind-blowing service. Effortless IT.",
-      description: "One accountable team for the technology your business depends on.",
-      images: [`${origin}/og.png`],
-    },
-  };
-}
+      "One responsive, accountable team for IT support, infrastructure, cybersecurity, cloud services and technology planning.",
+    url: "/",
+    siteName: "Redstone Technology Solutions",
+    locale: "en_BS",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1729,
+        height: 910,
+        alt: "Redstone Technology Solutions — mind-blowing service and effortless IT for businesses in The Bahamas",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Managed IT Services in The Bahamas | Redstone",
+    description: "Managed IT, cybersecurity, cloud and human support from one accountable Bahamian technology partner.",
+    images: ["/og.png"],
+  },
+};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
