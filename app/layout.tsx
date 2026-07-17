@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
+import SiteBackgroundNetwork from "./SiteBackgroundNetwork";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -98,7 +99,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>{children}</body>
+      <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
+        <SiteBackgroundNetwork />
+        {children}
+      </body>
     </html>
   );
 }
