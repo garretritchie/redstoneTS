@@ -103,6 +103,20 @@ passed
 
 passed
 
+## 2026-07-17 site-wide spacing and readability pass
+
+- Normalised the main content canvas to a consistent 48px desktop edge gutter, 28px tablet gutter and 20px phone gutter.
+- Reduced oversized section padding, hero height, card minimum heights and footer depth so each page scans more comfortably without losing the premium editorial rhythm.
+- Increased undersized supporting copy in service, coverage and process cards while retaining restrained heading weights and clear hierarchy.
+- Corrected the testimonial layout by giving the carousel its own 68px desktop inset and 20px mobile inset, reducing quote size and line length, and tightening the adjacent heading scale.
+- Verified the home, managed IT, capabilities, about and contact routes at 1555 x 900, plus the home, navigation, testimonial and contact flow at 390 x 844.
+- Production build and lint passed. Lint retains five existing `img` optimisation warnings and no errors.
+- Evidence: `qa/spacing-audit/03-home-after.jpg`, `qa/spacing-audit/04-home-testimonial-after.jpg`, `qa/spacing-audit/05-managed-it-desktop.jpg`, `qa/spacing-audit/06-capabilities-desktop.jpg`, `qa/spacing-audit/07-about-desktop.jpg`, `qa/spacing-audit/08-contact-desktop.jpg`, `qa/spacing-audit/09-home-mobile.jpg`, `qa/spacing-audit/10-testimonial-mobile.jpg`, `qa/spacing-audit/11-mobile-menu.jpg`, `qa/spacing-audit/12-contact-mobile.jpg` and `qa/spacing-audit/13-contact-form-mobile.jpg`.
+
+## Final result
+
+passed
+
 ## 2026-07-16 SEO and search-readiness pass
 
 - Added a production canonical URL, Bahamas-focused title and description, natural keyword targeting, index/follow directives, and complete Open Graph and X sharing metadata.
