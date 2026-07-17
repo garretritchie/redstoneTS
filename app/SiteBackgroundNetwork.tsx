@@ -18,11 +18,13 @@ const CURSOR_RADIUS = 340;
 
 export default function SiteBackgroundNetwork() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const brickGlowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    const brickGlow = brickGlowRef.current;
     const context = canvas?.getContext("2d");
-    if (!canvas || !context || window.matchMedia("(max-width: 700px)").matches) return;
+    if (!canvas || !brickGlow || !context || window.matchMedia("(max-width: 700px)").matches) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const coarsePointer = window.matchMedia("(hover: none), (pointer: coarse)").matches;
@@ -166,14 +168,19 @@ export default function SiteBackgroundNetwork() {
     };
 
     const handleMouseMove = (event: MouseEvent) => {
+      if (staticExperience) return;
+
       pendingMouseX = event.clientX;
       pendingMouseY = event.clientY;
       isHovering = true;
+      brickGlow.classList.add("is-active");
 
       if (!pointerFrame) {
         pointerFrame = window.requestAnimationFrame(() => {
           mouseX = pendingMouseX;
           mouseY = pendingMouseY;
+          brickGlow.style.setProperty("--brick-glow-x", `${mouseX}px`);
+          brickGlow.style.setProperty("--brick-glow-y", `${mouseY}px`);
           pointerFrame = 0;
         });
       }
@@ -181,6 +188,7 @@ export default function SiteBackgroundNetwork() {
 
     const handleMouseLeave = () => {
       isHovering = false;
+      brickGlow.classList.remove("is-active");
     };
 
     const handleVisibilityChange = () => {
@@ -210,5 +218,10 @@ export default function SiteBackgroundNetwork() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="site-background-network" aria-hidden="true" />;
+  return (
+    <>
+      <div ref={brickGlowRef} className="site-background-brick-glow" aria-hidden="true" />
+      <canvas ref={canvasRef} className="site-background-network" aria-hidden="true" />
+    </>
+  );
 }

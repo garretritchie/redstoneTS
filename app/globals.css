@@ -32,7 +32,7 @@ body {
   overflow-x: clip;
   background-color: #0d1116;
   background-image:
-    linear-gradient(rgba(6, 9, 13, 0.08), rgba(6, 9, 13, 0.16)),
+    linear-gradient(145deg, rgba(5, 8, 12, 0.58), rgba(8, 12, 17, 0.76)),
     url("/redstone-site-wallpaper.png");
   background-position: 0 0, center top;
   background-repeat: repeat, repeat;
@@ -43,6 +43,40 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+.site-background-brick-glow {
+  --brick-glow-x: 50vw;
+  --brick-glow-y: 50vh;
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("/redstone-site-wallpaper-glow.png");
+  background-position: center top;
+  background-repeat: repeat;
+  background-size: 780px 780px;
+  background-attachment: fixed;
+  opacity: 0;
+  filter: saturate(1.08) brightness(1.12);
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(
+    300px circle at var(--brick-glow-x) var(--brick-glow-y),
+    #000 0%,
+    rgba(0, 0, 0, 0.78) 38%,
+    transparent 78%
+  );
+  mask-image: radial-gradient(
+    300px circle at var(--brick-glow-x) var(--brick-glow-y),
+    #000 0%,
+    rgba(0, 0, 0, 0.78) 38%,
+    transparent 78%
+  );
+  transition: opacity 280ms ease;
+}
+
+.site-background-brick-glow.is-active {
+  opacity: 0.58;
 }
 
 .site-background-network {
