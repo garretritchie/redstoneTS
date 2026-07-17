@@ -16,6 +16,7 @@ import {
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
 import AssessmentBand from "./AssessmentBand";
+import HeroSpotlight from "./HeroSpotlight";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import TestimonialCarousel from "./TestimonialCarousel";
@@ -58,8 +59,9 @@ export default function Home() {
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-media">
-          <img src="/redstone-hero-meeting-v3.webp" alt="Redstone technology advisor welcoming a business leader during a meeting in Nassau, The Bahamas" width="1774" height="887" fetchPriority="high" decoding="async" />
+          <img src="/redstone-hero-meeting-v3.webp" alt="Two business leaders meeting with a Redstone technology advisor in Nassau, The Bahamas" width="1774" height="887" fetchPriority="high" decoding="async" />
         </div>
+        <HeroSpotlight />
         <div className="hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">Managed IT for serious businesses</p>
