@@ -30,7 +30,14 @@ body {
   position: relative;
   margin: 0;
   overflow-x: clip;
-  background: #242b33;
+  background-color: #0d1116;
+  background-image:
+    linear-gradient(rgba(6, 9, 13, 0.08), rgba(6, 9, 13, 0.16)),
+    url("/redstone-site-wallpaper.png");
+  background-position: 0 0, center top;
+  background-repeat: repeat, repeat;
+  background-size: auto, 780px 780px;
+  background-attachment: fixed, fixed;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 16px;
