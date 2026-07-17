@@ -294,3 +294,16 @@ passed
 ## Final result
 
 passed
+
+## 2026-07-17 hero image replacement
+
+- Replaced the homepage hero photograph with the supplied `grhero3.png` meeting scene while preserving the previous V2 asset for an easy rollback.
+- Converted the 1774 x 887 source from a 1.84 MB PNG to a 93.6 KB WebP without resizing or stretching it.
+- Updated the intrinsic image dimensions and alternative text to match the new source.
+- Verified the existing left-edge mask and responsive cover treatment at 1920 x 1080, 1555 x 900 and 390 x 844.
+- Confirmed the handshake remains visible, the advisor is clearly framed and the right-side visitor crop reads naturally at all reviewed sizes.
+- Evidence: `qa/hero-v3/hero-v3-wide.jpg`, `qa/hero-v3/hero-v3-desktop-initial.jpg`, `qa/hero-v3/hero-v3-mobile.jpg` and `qa/hero-v3/hero-v3-mobile-image.jpg`.
+
+## Final result
+
+passed
