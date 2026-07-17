@@ -103,6 +103,19 @@ passed
 
 passed
 
+## 2026-07-17 technology partnerships section
+
+- Added a dedicated About-page credibility section between the company proof points and client-service story.
+- Presented all 13 supplied technology partners and affiliations as a compact, category-labelled index rather than an oversized logo wall.
+- Added a closing Redstone integration panel to balance the final grid row and reinforce the one-accountable-partner message.
+- Added a direct Partnerships link to the Redstone column in the footer.
+- Verified the section at 1440 x 900 and 390 x 844, including the complete mobile grid and transition into the testimonial section.
+- Evidence: `qa/partnerships/about-partnerships-desktop.jpg`, `qa/partnerships/about-partnerships-mobile.jpg` and `qa/partnerships/about-partnerships-mobile-lower.jpg`.
+
+## Final result
+
+passed
+
 ## 2026-07-17 site-wide spacing and readability pass
 
 - Normalised the main content canvas to a consistent 48px desktop edge gutter, 28px tablet gutter and 20px phone gutter.
