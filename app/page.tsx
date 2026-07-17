@@ -3,42 +3,22 @@ import {
   ArrowUpRight,
   Brain,
   Briefcase,
-  ChartLineUp,
-  ChatCircleText,
   CheckCircle,
-  Compass,
-  EnvelopeSimple,
+  CloudArrowUp,
   FlowArrow,
   GearSix,
-  GlobeHemisphereWest,
-  HardDrives,
   Headset,
-  Heart,
   Lightning,
-  List,
-  LockKey,
-  MagnifyingGlass,
-  MapPin,
-  NavigationArrow,
-  Phone,
+  Pulse,
   SealCheck,
   ShieldCheck,
-  TrendUp,
-  UserFocus,
+  Sparkle,
   UsersThree,
-  Wrench,
 } from "@phosphor-icons/react/dist/ssr";
+import AssessmentBand from "./AssessmentBand";
+import SiteFooter from "./SiteFooter";
+import SiteHeader from "./SiteHeader";
 import TestimonialCarousel from "./TestimonialCarousel";
-import ServiceExplorer from "./ServiceExplorer";
-import SectionNavigator from "./SectionNavigator";
-import HeaderBehavior from "./HeaderBehavior";
-import DirectorProfile from "./DirectorProfile";
-import ContactForm from "./ContactForm";
-
-const assessmentHref = "#contact";
-
-// Replace this request-access destination when the Business Operating System is ready.
-const clientPortalHref = "#contact";
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -48,490 +28,95 @@ const businessSchema = {
   url: "https://www.redstonets.com/",
   logo: "https://www.redstonets.com/redstone-logo.png",
   image: "https://www.redstonets.com/og.png",
-  description:
-    "A Bahamian managed IT services provider delivering proactive monitoring, infrastructure support, helpdesk, cybersecurity, cloud services and technology strategy.",
+  description: "A Bahamian managed IT services provider delivering proactive monitoring, infrastructure support, helpdesk, cybersecurity, cloud services and technology strategy.",
   telephone: "+1-242-601-6014",
   email: "msp@redstonets.com",
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "1st Floor, Church Street Building, Shirley Street",
-    addressLocality: "Nassau",
-    addressRegion: "New Providence",
-    addressCountry: "BS",
-  },
-  areaServed: {
-    "@type": "Country",
-    name: "The Bahamas",
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "17:00",
-    },
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Business Technology Services",
-    itemListElement: [
-      "Remote Monitoring and Management",
-      "Core Infrastructure Support and Maintenance",
-      "End User Helpdesk Support",
-      "Cybersecurity Services",
-      "Cloud Services",
-      "Security and Compliance as a Service",
-      "AI-Powered Web and Application Development",
-      "Workflow Automation and Optimisation",
-    ].map((name) => ({
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name, areaServed: "The Bahamas" },
-    })),
-  },
+  address: { "@type": "PostalAddress", streetAddress: "1st Floor, Church Street Building, Shirley Street", addressLocality: "Nassau", addressRegion: "New Providence", addressCountry: "BS" },
+  areaServed: { "@type": "Country", name: "The Bahamas" },
 };
 
-const process = [
-  {
-    number: "01",
-    name: "Assess",
-    title: "We learn your business.",
-    text: "Your goals, environment, risks and immediate priorities become the foundation for every decision.",
-    icon: MagnifyingGlass,
-  },
-  {
-    number: "02",
-    name: "Stabilise",
-    title: "We strengthen the foundation.",
-    text: "Urgent concerns are addressed, standards established and your environment properly documented.",
-    icon: Wrench,
-  },
-  {
-    number: "03",
-    name: "Manage",
-    title: "We take responsibility.",
-    text: "Monitoring, maintenance, support, protection and vendor coordination happen every day.",
-    icon: GearSix,
-  },
-  {
-    number: "04",
-    name: "Improve",
-    title: "We make it better over time.",
-    text: "Recurring issues are reduced while performance, security and reliability keep improving.",
-    icon: TrendUp,
-  },
-  {
-    number: "05",
-    name: "Plan",
-    title: "We prepare for what is next.",
-    text: "Roadmaps, budgets and lifecycle decisions stay aligned with where your business is going.",
-    icon: Compass,
-  },
+const services = [
+  { brand: "Overwatch", name: "Remote Monitoring & Management", role: "See issues early.", icon: Pulse },
+  { brand: "Checkmark", name: "Core Infrastructure Support", role: "Keep the foundation stable.", icon: GearSix },
+  { brand: "Helpdesk", name: "End User Support", role: "Get people productive again.", icon: Headset },
+  { brand: "Shield", name: "Security Services", role: "Protect every layer.", icon: ShieldCheck },
+  { brand: "Cirrus", name: "Cloud Services", role: "Modernise with confidence.", icon: CloudArrowUp },
 ];
 
 const capabilities = [
-  {
-    name: "Ad Hoc Technology Projects",
-    text: "Infrastructure upgrades, office moves, hardware deployments and complex technology changes—planned and delivered with control.",
-    icon: Briefcase,
-  },
-  {
-    name: "Security & Compliance as a Service",
-    text: "Ongoing security governance, risk reviews, policy guidance and compliance support that turn requirements into an operating discipline.",
-    icon: SealCheck,
-  },
-  {
-    name: "AI-Powered Web & Application Development",
-    text: "Premium websites, applications and intelligent business platforms designed around the way your organisation actually works.",
-    icon: Brain,
-  },
-  {
-    name: "Workflow Automation & Optimisation",
-    text: "Practical automation that connects information, removes repetitive work and gives teams a clearer, faster way to operate.",
-    icon: FlowArrow,
-  },
-  {
-    name: "vCIO & Technology Strategy",
-    text: "Executive-level guidance, budgeting, roadmaps and lifecycle planning without the cost or complexity of a full-time CIO.",
-    icon: ChartLineUp,
-  },
-  {
-    name: "Systems Integration & Modernisation",
-    text: "Bring disconnected platforms, data and processes together so the business operates as one coordinated system.",
-    icon: HardDrives,
-  },
+  { name: "Ad Hoc Technology Projects", icon: Briefcase },
+  { name: "Security & Compliance as a Service", icon: ShieldCheck },
+  { name: "AI-Powered Web & Application Development", icon: Brain },
+  { name: "Workflow Automation & Optimisation", icon: FlowArrow },
 ];
-
-const outcomes = [
-  ["Fewer recurring problems", "Issues are documented and solved at the root—not allowed to keep interrupting the same people."],
-  ["Faster, clearer support", "Your team knows where to go and always receives a professional, human response."],
-  ["Stronger security", "Users, devices, systems and business information are protected by coordinated controls."],
-  ["One clear owner", "No confusion between vendors, providers and internal staff when something needs attention."],
-  ["Better decisions", "Projects and investments are evaluated through business impact, risk and long-term value."],
-  ["More confidence", "Leadership can see the environment, understand the risks and plan what comes next."],
-];
-
-function Logo({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <a className={`brand ${inverse ? "brand--inverse" : ""}`} href="#top" aria-label="Redstone Technology Solutions, home">
-      <img src="/redstone-logo.png" alt="Redstone Technology Solutions" width="286" height="50" />
-    </a>
-  );
-}
-
-function ArrowLink({ href, children, inverse = false }: { href: string; children: React.ReactNode; inverse?: boolean }) {
-  return (
-    <a className={`text-link ${inverse ? "text-link--inverse" : ""}`} href={href}>
-      <span>{children}</span>
-      <ArrowRight size={17} weight="bold" aria-hidden="true" />
-    </a>
-  );
-}
 
 export default function Home() {
   return (
     <main id="top">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
-      />
-      <header className="site-header">
-        <div className="header-inner">
-          <Logo />
-          <nav className="desktop-nav" aria-label="Primary navigation">
-            <a href="#services">Managed IT</a>
-            <a href="#solutions">Capabilities</a>
-            <a href="#process">How We Work</a>
-            <a href="#why-redstone">Why Redstone</a>
-            <a href="#about">About</a>
-          </nav>
-          <div className="header-actions">
-            <a className="support-link" href="tel:+12426018324">
-              <Headset size={18} weight="light" aria-hidden="true" />
-              <span>Support<strong>603-TECH</strong></span>
-            </a>
-            <a className="button button--small button--portal" href={clientPortalHref}>
-              <LockKey size={16} weight="bold" aria-hidden="true" /> Client Portal <ArrowUpRight size={15} weight="bold" aria-hidden="true" />
-            </a>
-          </div>
-          <details className="mobile-nav">
-            <summary aria-label="Open navigation">
-              <List size={25} weight="bold" aria-hidden="true" />
-            </summary>
-            <nav aria-label="Mobile navigation">
-              <a href="#services">Managed IT</a>
-              <a href="#solutions">Capabilities</a>
-              <a href="#process">How We Work</a>
-              <a href="#why-redstone">Why Redstone</a>
-              <a href="#about">About</a>
-              <a href="tel:+12426018324">Client Support</a>
-              <a className="button button--portal" href={clientPortalHref}><LockKey size={16} weight="bold" aria-hidden="true" />Client Portal</a>
-            </nav>
-          </details>
-        </div>
-      </header>
-      <HeaderBehavior />
-      <SectionNavigator />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
+      <SiteHeader />
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-media">
-          <img
-            src="/redstone-hero-meeting-v2.webp"
-            alt="Redstone technology advisor meeting with a business leader in Nassau"
-            width="1448"
-            height="1086"
-            fetchPriority="high"
-            decoding="async"
-          />
+          <img src="/redstone-hero-meeting-v2.webp" alt="Redstone technology advisor meeting with a business leader in Nassau" width="1448" height="1086" fetchPriority="high" decoding="async" />
         </div>
         <div className="hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">Managed IT for serious businesses</p>
-            <h1 id="hero-title">
-              Mind-blowing service.
-              <span>Effortless IT<span className="red-dot">.</span></span>
-            </h1>
-            <p className="hero-lede">
-              Redstone delivers managed IT services in The Bahamas, bringing your support, infrastructure, cybersecurity, cloud services and technology planning together under one responsive, accountable team.
-            </p>
+            <h1 id="hero-title">Mind-blowing service.<span>Effortless IT<span className="red-dot">.</span></span></h1>
+            <p className="hero-lede">Redstone delivers managed IT services in The Bahamas, bringing support, infrastructure, cybersecurity, cloud and technology planning together under one accountable team.</p>
             <div className="hero-actions">
-              <a className="button" href={assessmentHref}>
-                Request a Free Assessment <ArrowRight size={18} weight="bold" aria-hidden="true" />
-              </a>
-              <ArrowLink href="#services">Explore our services</ArrowLink>
+              <a className="button" href="/contact">Request a Free Assessment <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
+              <a className="text-link" href="/managed-it">Explore managed IT <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
             </div>
-            <div className="hero-trust" aria-label="Redstone service promise">
-              <SealCheck size={22} weight="duotone" aria-hidden="true" />
-              <strong>Local. Proactive. Human.</strong>
-              <span>Nassau, The Bahamas</span>
-            </div>
+            <div className="hero-trust" aria-label="Redstone service promise"><SealCheck size={22} weight="duotone" aria-hidden="true" /><strong>Local. Proactive. Human.</strong><span>Nassau, The Bahamas</span></div>
           </div>
         </div>
       </section>
 
       <section className="promise-strip" aria-label="The Redstone service promise">
         <div className="promise-grid">
-          <article>
-            <UsersThree size={27} weight="light" aria-hidden="true" />
-            <div><strong>Experts who know your business</strong><span>Real people. Real context.</span></div>
-          </article>
-          <article>
-            <Lightning size={27} weight="light" aria-hidden="true" />
-            <div><strong>Help when you need it</strong><span>Fast, clear, accountable.</span></div>
-          </article>
-          <article>
-            <ShieldCheck size={27} weight="light" aria-hidden="true" />
-            <div><strong>Problems prevented</strong><span>Not simply repaired.</span></div>
-          </article>
-          <article>
-            <FlowArrow size={27} weight="light" aria-hidden="true" />
-            <div><strong>Technology aligned</strong><span>To the way you do business.</span></div>
-          </article>
+          <article><UsersThree size={27} weight="light" aria-hidden="true" /><div><strong>Experts who know your business</strong><span>Real people. Real context.</span></div></article>
+          <article><Lightning size={27} weight="light" aria-hidden="true" /><div><strong>Help when you need it</strong><span>Fast, clear, accountable.</span></div></article>
+          <article><ShieldCheck size={27} weight="light" aria-hidden="true" /><div><strong>Problems prevented</strong><span>Not simply repaired.</span></div></article>
+          <article><FlowArrow size={27} weight="light" aria-hidden="true" /><div><strong>Technology aligned</strong><span>To the way you do business.</span></div></article>
         </div>
       </section>
 
-      <section className="proof-section section-pad" id="why-redstone" aria-labelledby="proof-title">
+      <section className="proof-section section-pad home-proof" id="why-redstone" aria-labelledby="proof-title">
         <div className="section-shell proof-layout">
-          <div className="section-heading">
-            <p className="eyebrow">Built around your business</p>
-            <h2 id="proof-title">Order from chaos.<br />Confidence from technology.</h2>
-          </div>
-          <div className="proof-copy">
-            <p>
-              The best IT partner is not the one with the longest list of tools. It is the one that takes responsibility, understands what matters and quietly keeps your business moving.
-            </p>
-            <p>
-              Bahamian-owned and serving organisations since 2006, Redstone turns disconnected technology into a secure, dependable business foundation.
-            </p>
-          </div>
-          <div className="proof-numbers" aria-label="Redstone at a glance">
-            <div><strong>24/7/365</strong><span>Continuous environment monitoring</span></div>
-            <div><strong>5</strong><span>Connected managed services</span></div>
-            <div><strong>1</strong><span>Accountable technology partner</span></div>
-            <div><strong>20+ years</strong><span>Serving the Bahamian market</span></div>
-          </div>
+          <div className="section-heading"><p className="eyebrow">Built around your business</p><h2 id="proof-title">Order from chaos.<br />Confidence from technology.</h2></div>
+          <div className="proof-copy"><p>The best IT partner takes responsibility, understands what matters and quietly keeps your business moving.</p><p>Bahamian-owned and serving organisations since 2006, Redstone turns disconnected technology into a secure, dependable business foundation.</p><a className="text-link" href="/about">Why businesses choose Redstone <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div>
+          <div className="proof-numbers" aria-label="Redstone at a glance"><div><strong>24/7/365</strong><span>Continuous monitoring</span></div><div><strong>5</strong><span>Connected managed services</span></div><div><strong>1</strong><span>Accountable partner</span></div><div><strong>20+ years</strong><span>Serving The Bahamas</span></div></div>
         </div>
       </section>
 
-      <section className="services-section section-pad" id="services" aria-labelledby="services-title">
+      <section className="home-services section-pad" aria-labelledby="home-services-title">
         <div className="section-shell">
-          <div className="services-heading">
-            <div>
-              <p className="eyebrow eyebrow--light">The Redstone managed system</p>
-              <h2 id="services-title">Five services.<br /><span>One complete coverage system.</span></h2>
-            </div>
-            <p>
-              Each service has a distinct role. Together, they monitor, maintain, support, protect and modernise your entire technology environment - with no gaps between providers.
-            </p>
-          </div>
-          <ServiceExplorer />
-          <div className="services-footer">
-            <div className="services-unified">
-              <FlowArrow size={24} weight="duotone" aria-hidden="true" />
-              <p><strong>Five specialist practices. One accountable team.</strong><span>Monitor. Maintain. Support. Protect. Modernise.</span></p>
-            </div>
-            <ArrowLink href={assessmentHref} inverse>Explore all managed services</ArrowLink>
+          <div className="home-section-heading"><div><p className="eyebrow eyebrow--light">The Redstone managed system</p><h2 id="home-services-title">Five services.<br /><span>One coverage system.</span></h2></div><div><p>Monitoring, maintenance, support, protection and cloud modernisation work together—without gaps between providers.</p><a className="text-link text-link--inverse" href="/managed-it">Explore the complete system <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div></div>
+          <div className="home-services-grid">
+            {services.map(({ brand, name, role, icon: Icon }, index) => <a href="/managed-it" key={brand}><span>0{index + 1}</span><Icon size={30} weight="light" aria-hidden="true" /><small>{brand}</small><h3>{name}</h3><p>{role}</p><ArrowUpRight className="home-card-arrow" size={18} weight="bold" aria-hidden="true" /></a>)}
           </div>
         </div>
       </section>
 
-      <section className="capabilities-section section-pad" id="solutions" aria-labelledby="solutions-title">
-        <div className="section-shell">
-          <div className="capabilities-heading">
-            <p className="eyebrow">Beyond managed services</p>
-            <h2 id="solutions-title">Specialist capabilities.<br />Still one trusted partner.</h2>
-            <p>
-              When your business needs more than day-to-day IT, Redstone can design, deliver and continuously improve the projects, compliance programmes, applications and workflows that move it forward.
-            </p>
+      <section className="home-pathways section-pad" aria-labelledby="pathways-title">
+        <div className="section-shell home-pathways-grid">
+          <div className="home-pathways-intro"><p className="eyebrow">Beyond managed services</p><h2 id="pathways-title">Specialist capability.<br />Still one trusted partner.</h2><p>Projects, compliance, intelligent applications and workflow improvement stay connected to the technology foundation beneath them.</p><a className="button" href="/capabilities">Explore our capabilities <ArrowRight size={18} weight="bold" aria-hidden="true" /></a></div>
+          <div className="home-capability-list">
+            {capabilities.map(({ name, icon: Icon }, index) => <a href="/capabilities" key={name}><span>0{index + 1}</span><Icon size={27} weight="light" aria-hidden="true" /><strong>{name}</strong><ArrowUpRight size={17} weight="bold" aria-hidden="true" /></a>)}
           </div>
-          <div className="capabilities-list">
-            {capabilities.map((capability, index) => {
-              const Icon = capability.icon;
-              return (
-                <article key={capability.name}>
-                  <span>0{index + 1}</span>
-                  <Icon size={28} weight="light" aria-hidden="true" />
-                  <div><h3>{capability.name}</h3><p>{capability.text}</p></div>
-                  <a href={assessmentHref} aria-label={`Discuss ${capability.name} with Redstone`}><ArrowUpRight size={20} weight="bold" aria-hidden="true" /></a>
-                </article>
-              );
-            })}
-          </div>
+          <aside className="home-process-preview"><Sparkle size={28} weight="duotone" aria-hidden="true" /><p className="eyebrow">How we work</p><h3>Assess. Stabilise. Manage. Improve. Plan.</h3><p>A disciplined operating rhythm turns technology from a collection of tools into a business system that keeps getting better.</p><a className="text-link" href="/capabilities#process">See our approach <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></aside>
         </div>
       </section>
 
-      <section className="process-section section-pad" id="process" aria-labelledby="process-title">
-        <div className="section-shell">
-          <div className="process-intro">
-            <div>
-              <p className="eyebrow">How Redstone works</p>
-              <h2 id="process-title">A proven path to<br />better-managed technology.</h2>
-            </div>
-            <p>
-              Managed IT should be more than a collection of subscriptions. Our process moves your business from uncertainty and recurring problems to a stable, secure environment that improves over time.
-            </p>
-          </div>
-          <div className="process-grid">
-            {process.map((step) => {
-              const Icon = step.icon;
-              return (
-                <article key={step.name}>
-                  <div className="process-number"><span>{step.number}</span><Icon size={25} weight="light" aria-hidden="true" /></div>
-                  <p className="process-name">{step.name}</p>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
+      <section className="human-section home-testimonial" aria-labelledby="human-title">
+        <TestimonialCarousel />
+        <div className="human-copy"><p className="eyebrow eyebrow--light">Human-centred support</p><h2 id="human-title">Technology support that feels personal.</h2><p className="human-lede">Our team explains what is happening, owns the issue and stays involved until it is properly resolved.</p><div className="human-promises"><article><Headset size={23} weight="light" aria-hidden="true" /><div><strong>Responsive</strong><span>There when you need us.</span></div></article><article><CheckCircle size={23} weight="light" aria-hidden="true" /><div><strong>Accountable</strong><span>We take outcomes personally.</span></div></article></div><a className="text-link text-link--inverse" href="/about">Meet Redstone <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div>
       </section>
 
-      <section className="human-section" aria-labelledby="human-title">
-        <div className="human-quote">
-          <TestimonialCarousel />
-        </div>
-        <div className="human-copy" id="about">
-          <p className="eyebrow eyebrow--light">Human-centred support</p>
-          <h2 id="human-title">Technology support that feels personal.</h2>
-          <p className="human-lede">
-            The quality of an IT provider is measured by how people feel when they need help. Our team explains what is happening, owns the issue and stays involved until it is properly resolved.
-          </p>
-          <div className="human-promises">
-            <article><UserFocus size={25} weight="light" aria-hidden="true" /><div><strong>Responsive</strong><span>We are there when you need us.</span></div></article>
-            <article><Heart size={25} weight="light" aria-hidden="true" /><div><strong>Accountable</strong><span>We take the outcome personally.</span></div></article>
-            <article><ChatCircleText size={25} weight="light" aria-hidden="true" /><div><strong>Clear</strong><span>We explain, not overwhelm.</span></div></article>
-            <article><LockKey size={25} weight="light" aria-hidden="true" /><div><strong>Disciplined</strong><span>Great service is our operating standard.</span></div></article>
-          </div>
-        </div>
-      </section>
-
-      <section className="outcomes-section section-pad" aria-labelledby="outcomes-title">
-        <div className="section-shell outcomes-layout">
-          <div className="outcomes-heading">
-            <p className="eyebrow">What better-managed IT changes</p>
-            <h2 id="outcomes-title">Less disruption.<br />More confidence.</h2>
-            <p>The real value is not in software licences or technical reports. It is in what your people and leaders experience every day.</p>
-          </div>
-          <div className="outcomes-grid">
-            {outcomes.map(([title, text], index) => (
-              <article key={title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="director-section section-pad" id="director" aria-labelledby="director-title">
-        <div className="section-shell director-layout">
-          <div className="director-visual">
-            <div className="director-portrait">
-              <img src="/director-garret-natural-cutout.png" alt="Garret Ritchie, Director of Redstone Technology Solutions in Nassau, The Bahamas" width="1046" height="1155" loading="lazy" decoding="async" />
-            </div>
-            <div className="director-marker"><GlobeHemisphereWest size={34} weight="light" aria-hidden="true" /><span>A local partner<br />with a long view.</span></div>
-          </div>
-          <div className="director-message">
-            <p className="eyebrow">A message from our director</p>
-            <h2 id="director-title">“Technology should give business leaders confidence—not another problem to manage.”</h2>
-            <p>
-              Redstone was built on a simple principle: businesses deserve an IT partner that takes their success personally. Our goal is not simply to support your technology, but to become a trusted adviser that helps your organisation operate more securely, efficiently and confidently.
-            </p>
-            <div className="signature"><strong>Garret Ritchie</strong><span>Director, Redstone Technology Solutions</span></div>
-            <DirectorProfile />
-          </div>
-        </div>
-      </section>
-
-      <section className="assessment-section" id="assessment" aria-labelledby="assessment-title">
-        <div className="assessment-card">
-          <div className="assessment-copy">
-            <p className="eyebrow eyebrow--light">Start with clarity</p>
-            <h2 id="assessment-title">Find out what your technology environment is not telling you.</h2>
-            <p>
-              Get a practical review of your network, infrastructure, security posture and operational risks—with clear recommendations and no pressure.
-            </p>
-            <div className="assessment-actions">
-              <a className="button" href={assessmentHref}>Request Your Free Assessment <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
-              <a className="assessment-phone" href="tel:+12426016014"><Phone size={19} weight="fill" aria-hidden="true" /> (242) 601-6014</a>
-            </div>
-          </div>
-          <div className="assessment-points" aria-label="Assessment benefits">
-            <p><CheckCircle size={21} weight="fill" aria-hidden="true" /> A practical, business-first review</p>
-            <p><CheckCircle size={21} weight="fill" aria-hidden="true" /> Clear priorities and recommendations</p>
-            <p><CheckCircle size={21} weight="fill" aria-hidden="true" /> No generic sales presentation</p>
-            <p><CheckCircle size={21} weight="fill" aria-hidden="true" /> No obligation and no pressure</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="contact-section section-pad" id="contact" aria-labelledby="contact-title">
-        <div className="section-shell">
-          <div className="contact-layout">
-            <div className="contact-location-column">
-              <div className="contact-intro">
-              <p className="eyebrow">Visit or contact Redstone</p>
-              <h2 id="contact-title">Local when it matters.<br />Easy to reach.</h2>
-                <p>Meet with our team at our Nassau office or send us a note. We will connect you with someone who understands the business and technical context.</p>
-              </div>
-
-              <article className="location-card">
-                <div className="location-map">
-                  <iframe
-                    title="Map showing Redstone Technology Solutions on Shirley Street in Nassau"
-                    src="https://www.google.com/maps?q=Church+Street+Plaza,+Shirley+Street,+Nassau,+The+Bahamas&output=embed"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="location-details">
-                  <div className="location-icon"><MapPin size={25} weight="duotone" aria-hidden="true" /></div>
-                  <div>
-                    <span>Redstone Technology Solutions</span>
-                    <h3>1st Floor, Church St. Building</h3>
-                    <p>Shirley Street<br />New Providence, The Bahamas</p>
-                  </div>
-                  <a className="location-directions" href="https://maps.app.goo.gl/Y4spaFH54bomZCFZ6" target="_blank" rel="noreferrer">
-                    Get directions <NavigationArrow size={17} weight="fill" aria-hidden="true" />
-                  </a>
-                </div>
-                <div className="location-hours">
-                  <span>Office hours</span>
-                  <strong>Monday–Friday · 9:00 AM–5:00 PM</strong>
-                </div>
-              </article>
-            </div>
-
-            <ContactForm />
-          </div>
-        </div>
-      </section>
-
-      <footer className="site-footer">
-        <div className="footer-main section-shell">
-          <div className="footer-brand">
-            <Logo inverse />
-            <p>Managed technology. Exceptional service. Lasting partnerships.</p>
-            <div className="footer-contact">
-              <a href="tel:+12426016014"><Phone size={18} weight="light" aria-hidden="true" />(242) 601-6014</a>
-              <span><EnvelopeSimple size={18} weight="light" aria-hidden="true" />msp@redstoneTS.com</span>
-              <a href="https://maps.app.goo.gl/Y4spaFH54bomZCFZ6" target="_blank" rel="noreferrer"><MapPin size={18} weight="light" aria-hidden="true" />1st Floor Church St. Bldg, Shirley Street</a>
-            </div>
-          </div>
-          <div className="footer-links">
-            <div><h3>Managed Services</h3><a href="#services">Overwatch</a><a href="#services">Checkmark</a><a href="#services">Helpdesk</a><a href="#services">Shield</a><a href="#services">Cirrus</a></div>
-            <div><h3>Solutions</h3><a href="#solutions">Ad Hoc Projects</a><a href="#solutions">Security & Compliance</a><a href="#solutions">AI Web & Applications</a><a href="#solutions">Workflow Automation</a><a href={assessmentHref}>Free Assessment</a></div>
-            <div><h3>Redstone</h3><a href="#why-redstone">Why Redstone</a><a href="#process">Our Approach</a><a href="#about">About</a><a href="tel:+12426018324">Client Support</a><a href="#contact">Contact</a></div>
-          </div>
-        </div>
-        <div className="footer-bottom section-shell">
-          <p>© 2026 Redstone Technology Solutions Ltd. All rights reserved.</p>
-          <div><a href="#top">Privacy Policy</a><a href="#top">Terms of Use</a><a href="#top">Cookie Policy</a></div>
-        </div>
-      </footer>
+      <AssessmentBand />
+      <SiteFooter />
     </main>
   );
 }

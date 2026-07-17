@@ -203,7 +203,7 @@ export default function ServiceExplorer() {
         {services.map((service, index) => {
           const Icon = service.icon;
           return (
-            <article className="service-card" key={service.brand}>
+            <article className="service-card" id={service.brand.toLowerCase()} key={service.brand}>
               <button
                 className="service-card-hitarea"
                 type="button"
