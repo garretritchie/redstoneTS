@@ -65,8 +65,8 @@ export default function Home() {
         <div className="hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">Technology management for serious businesses</p>
-            <h1 id="hero-title">Serious business.<span>Properly managed technology<span className="red-dot">.</span></span></h1>
-            <p className="hero-lede">Redstone helps ambitious organisations monitor, maintain, support, secure and improve the technology behind their operations—so they can reduce risk, work with confidence and compete more effectively.</p>
+            <h1 id="hero-title">Expert Technology Management...<span>for businesses that take success seriously<span className="red-dot">.</span></span></h1>
+            <p className="hero-lede">We manage the systems, support, security, and technology strategy behind your operations—so your business can move forward with less risk and greater confidence.</p>
             <div className="hero-actions">
               <a className="button" href="/contact">Assess your technology standard <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
               <a className="text-link" href="/managed-it">Explore managed IT <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
