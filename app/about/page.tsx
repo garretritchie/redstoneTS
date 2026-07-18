@@ -81,12 +81,12 @@ export default function AboutPage() {
 
       <TeamSection />
 
-      <section className="outcomes-section section-pad" aria-labelledby="outcomes-title">
-        <div className="section-shell outcomes-layout"><div className="outcomes-heading"><p className="eyebrow">What the relationship changes</p><h2 id="outcomes-title">Less disruption.<br />More confidence.</h2><p>What worked when the business was smaller may no longer be enough. As more people, customers and critical processes depend on technology, the support model should grow to match the organisation you are becoming.</p></div><div className="outcomes-grid">{outcomes.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><CheckCircle size={24} weight="light" aria-hidden="true" /><h3>{title}</h3><p>{text}</p></article>)}</div></div>
-      </section>
-
       <section className="director-section section-pad" id="director" aria-labelledby="director-title">
         <div className="section-shell director-layout"><div className="director-visual"><div className="director-portrait"><img src="/director-garret-natural-cutout.png" alt="Garret Ritchie, Managing Director of Redstone Technology Solutions in Nassau, The Bahamas" width="1046" height="1155" loading="lazy" decoding="async" /></div><span className="director-marker"><UserFocus size={22} weight="duotone" aria-hidden="true" />A local partner<br />with a long view.</span></div><div className="director-message"><p className="eyebrow">A message from our director</p><h2 id="director-title">“Technology should give business leaders confidence—not another problem to manage.”</h2><p>Redstone’s goal is not simply to support your technology, but to become a trusted adviser that helps your organisation operate more securely, efficiently and confidently.</p><div className="director-signature"><strong>Garret Ritchie</strong><span>Managing Director, Redstone Technology Solutions</span></div><DirectorProfile /></div></div>
+      </section>
+
+      <section className="outcomes-section section-pad" aria-labelledby="outcomes-title">
+        <div className="section-shell outcomes-layout"><div className="outcomes-heading"><p className="eyebrow">What the relationship changes</p><h2 id="outcomes-title">Less disruption.<br />More confidence.</h2><p>What worked when the business was smaller may no longer be enough. As more people, customers and critical processes depend on technology, the support model should grow to match the organisation you are becoming.</p></div><div className="outcomes-grid">{outcomes.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><CheckCircle size={24} weight="light" aria-hidden="true" /><h3>{title}</h3><p>{text}</p></article>)}</div></div>
       </section>
 
       <AssessmentBand />
