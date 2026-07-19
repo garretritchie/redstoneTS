@@ -532,7 +532,7 @@ h3 {
 
 .hero {
   position: relative;
-  min-height: 780px;
+  min-height: 720px;
   overflow: visible;
   border-radius: 17px 17px 0 0;
   background: #f8f9fa;
@@ -596,16 +596,16 @@ h3 {
   position: relative;
   z-index: 2;
   width: min(1512px, calc(100% - 64px));
-  min-height: 780px;
+  min-height: 720px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  padding-top: 118px;
+  padding-top: 104px;
 }
 
 .hero-copy {
   width: min(620px, 46vw);
-  padding: 64px 0 54px 28px;
+  padding: 54px 0 42px 28px;
 }
 
 .hero h1 {
@@ -635,7 +635,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 32px;
-  margin-bottom: 38px;
+  margin-bottom: 30px;
 }
 
 .hero-trust {
@@ -3499,7 +3499,7 @@ h3 {
 
   .hero,
   .hero-inner {
-    min-height: 760px;
+    min-height: 700px;
   }
 
   .hero-media {
