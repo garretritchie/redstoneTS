@@ -87,7 +87,7 @@ export default function Home() {
 
       <section className="proof-section section-pad home-proof" id="why-redstone" aria-labelledby="proof-title">
         <div className="section-shell proof-layout">
-          <div className="section-heading"><p className="eyebrow">A professional operating standard</p><h2 id="proof-title">Well-run business.<br />Well-run technology.</h2></div>
+          <div className="section-heading"><p className="eyebrow">A professional operating standard</p><h2 id="proof-title">Managed technology designed to move your business forward.</h2></div>
           <div className="proof-copy"><p>Technology affects productivity, security, customer service and growth. It should be managed as intentionally as every other business-critical function.</p><p>Since 2006, Redstone has helped Bahamian organisations replace fragmented, reactive support with clear standards, ongoing oversight and one accountable relationship.</p><a className="text-link" href="/about">Why businesses choose Redstone <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div>
           <div className="proof-numbers" aria-label="Redstone at a glance"><div><strong>24/7/365</strong><span>Continuous monitoring</span></div><div><strong>5</strong><span>Connected managed services</span></div><div><strong>1</strong><span>Accountable partner</span></div><div><strong>20+ years</strong><span>Serving The Bahamas</span></div></div>
         </div>
