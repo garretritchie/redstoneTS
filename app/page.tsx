@@ -65,7 +65,7 @@ export default function Home() {
         <div className="hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">Technology management for serious businesses</p>
-            <h1 id="hero-title">Expert Technology Management...<span>for businesses that take success seriously<span className="red-dot">.</span></span></h1>
+            <h1 id="hero-title">Well-run businesses deserve well-run technology<span className="red-dot">.</span></h1>
             <p className="hero-lede">We manage the systems, support, security, and technology strategy behind your operations—so your business can move forward with less risk and greater confidence.</p>
             <div className="hero-actions">
               <a className="button" href="/contact">Assess your technology standard <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
