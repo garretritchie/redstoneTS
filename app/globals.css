@@ -2443,26 +2443,32 @@ h3 {
   font-size: 16px;
 }
 
-.signature {
+.signature,
+.director-signature {
   margin-top: 38px;
   border-left: 2px solid var(--red);
   padding-left: 18px;
 }
 
 .signature strong,
-.signature span {
+.signature span,
+.director-signature strong,
+.director-signature span {
   display: block;
 }
 
-.signature strong {
+.signature strong,
+.director-signature strong {
   margin-bottom: 2px;
   font-size: 14px;
   font-weight: 600;
 }
 
-.signature span {
+.signature span,
+.director-signature span {
   color: #626c76;
   font-size: 13px;
+  line-height: 1.45;
 }
 
 .director-profile-link {
@@ -4108,6 +4114,15 @@ h3 {
 
   .director-message > p:not(.eyebrow) {
     font-size: 14px;
+  }
+
+  .director-signature {
+    margin-top: 24px;
+    padding-left: 14px;
+  }
+
+  .director-signature strong {
+    margin-bottom: 4px;
   }
 
   .director-profile-dialog {
