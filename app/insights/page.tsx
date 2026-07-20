@@ -34,7 +34,7 @@ export default function InsightsPage() {
   return (
     <main id="top">
       <SiteHeader />
-      <PageHero eyebrow="Insights from Redstone" title={<>Practical thinking for<br /><span>better-run technology.</span></>} description="Clear guidance for business owners, executives, operations leaders and internal IT teams who want technology managed with more discipline, security and business context." primaryLabel="Start a technology conversation" primaryHref="/contact" secondaryLabel="Explore services" secondaryHref="/managed-it" />
+      <PageHero eyebrow="Insights from Redstone" title={<>Practical thinking for<br /><span>better-run technology.</span></>} description="Clear guidance for business owners, executives, operations leaders and internal IT teams who want technology managed with more discipline, security and business context." primaryLabel="Start a technology conversation" primaryHref="/contact" secondaryLabel="Explore services" secondaryHref="/managed-it" tone="dark" />
 
       <section className="insights-index section-pad" aria-labelledby="insights-title">
         <div className="section-shell insights-index-layout">
