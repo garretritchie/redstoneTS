@@ -22,6 +22,44 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.redstonets.com/#organization",
+      name: "Redstone Technology Solutions",
+      url: "https://www.redstonets.com/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.redstonets.com/redstone-logo.png",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+1-242-601-6014",
+        contactType: "customer support",
+        areaServed: "BS",
+        availableLanguage: "English",
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1st Floor, Church Street Building, Shirley Street",
+        addressLocality: "Nassau",
+        addressRegion: "New Providence",
+        addressCountry: "BS",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.redstonets.com/#website",
+      url: "https://www.redstonets.com/",
+      name: "Redstone Technology Solutions",
+      publisher: { "@id": "https://www.redstonets.com/#organization" },
+      inLanguage: "en",
+    },
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.redstonets.com"),
   title: {
@@ -35,6 +73,8 @@ export const metadata: Metadata = {
   creator: "Redstone Technology Solutions",
   publisher: "Redstone Technology Solutions",
   category: "Managed Information Technology Services",
+  classification: "Managed IT Services, Cybersecurity, Cloud Services, IT Support",
+  manifest: "/site.webmanifest",
   keywords: [
     "managed IT services Bahamas",
     "IT support Nassau",
@@ -48,6 +88,9 @@ export const metadata: Metadata = {
     "security compliance services",
     "workflow automation",
     "AI application development",
+    "local IT support Bahamas",
+    "co-managed IT services",
+    "IT project support Bahamas",
   ],
   alternates: {
     canonical: "/",
@@ -65,11 +108,21 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/redstone-favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
       { url: "/redstone-favicon.png", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/redstone-favicon.ico",
+    shortcut: "/favicon.ico",
     apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+  },
+  other: {
+    "geo.region": "BS-NP",
+    "geo.placename": "Nassau, New Providence, The Bahamas",
+    "ICBM": "25.0600, -77.3450",
+    "business:contact_data:country_name": "The Bahamas",
+    "business:contact_data:locality": "Nassau",
+    "business:contact_data:region": "New Providence",
   },
   openGraph: {
     title: "Managed IT Services in The Bahamas | Redstone",
@@ -100,6 +153,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} />
         <SiteBackgroundNetwork />
         {children}
       </body>
