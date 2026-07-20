@@ -114,21 +114,25 @@ const credentialGroups = [
 ];
 
 export default function TeamSection() {
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const credentialsDialogRef = useRef<HTMLDialogElement>(null);
+  const applicationDialogRef = useRef<HTMLDialogElement>(null);
 
-  const openCredentials = () => dialogRef.current?.showModal();
-  const closeCredentials = () => dialogRef.current?.close();
+  const openCredentials = () => credentialsDialogRef.current?.showModal();
+  const closeCredentials = () => credentialsDialogRef.current?.close();
+  const openApplication = () => applicationDialogRef.current?.showModal();
+  const closeApplication = () => applicationDialogRef.current?.close();
 
   useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
+    const dialogs = [credentialsDialogRef.current, applicationDialogRef.current].filter(Boolean) as HTMLDialogElement[];
+    if (!dialogs.length) return;
 
     const closeOnBackdrop = (event: MouseEvent) => {
-      if (event.target === dialog) closeCredentials();
+      const dialog = event.currentTarget as HTMLDialogElement;
+      if (event.target === dialog) dialog.close();
     };
 
-    dialog.addEventListener("click", closeOnBackdrop);
-    return () => dialog.removeEventListener("click", closeOnBackdrop);
+    dialogs.forEach((dialog) => dialog.addEventListener("click", closeOnBackdrop));
+    return () => dialogs.forEach((dialog) => dialog.removeEventListener("click", closeOnBackdrop));
   }, []);
 
   return (
@@ -143,11 +147,11 @@ export default function TeamSection() {
             Explore our technical credentials
             <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
           </button>
-          <a className="team-application-link" href="https://form.jotform.com/222757234705053" target="_blank" rel="noreferrer">
+          <button className="team-application-link" type="button" onClick={openApplication} aria-haspopup="dialog" aria-controls="team-application-dialog">
             Interested in joining Redstone?
             <span>Apply here</span>
             <ArrowUpRight size={15} weight="bold" aria-hidden="true" />
-          </a>
+          </button>
         </div>
 
         <div className="team-grid" aria-label="Selected Redstone leadership and delivery roles">
@@ -184,7 +188,7 @@ export default function TeamSection() {
         </div>
       </div>
 
-      <dialog className="team-credentials-dialog" ref={dialogRef} aria-labelledby="team-credentials-title">
+      <dialog className="team-credentials-dialog" ref={credentialsDialogRef} aria-labelledby="team-credentials-title">
         <div className="team-credentials-shell">
           <header>
             <div>
@@ -214,6 +218,29 @@ export default function TeamSection() {
             <Certificate size={23} weight="duotone" aria-hidden="true" />
             <p>Individual credentials vary by team member and may evolve as certifications are renewed or expanded.</p>
           </footer>
+        </div>
+      </dialog>
+
+      <dialog className="team-application-dialog" id="team-application-dialog" ref={applicationDialogRef} aria-labelledby="team-application-title">
+        <div className="team-application-shell">
+          <header className="team-application-header">
+            <div>
+              <p className="eyebrow">Careers at Redstone</p>
+              <h2 id="team-application-title">Apply to join our team.</h2>
+              <p>Use the secure form below to share your information with Redstone. The form may take a moment to load.</p>
+            </div>
+            <button type="button" onClick={closeApplication} aria-label="Close application form">
+              <X size={20} weight="bold" aria-hidden="true" />
+            </button>
+          </header>
+          <div className="team-application-frame-wrap">
+            <iframe
+              className="team-application-frame"
+              src="https://form.jotform.com/222757234705053"
+              title="Redstone team application form"
+              loading="lazy"
+            />
+          </div>
         </div>
       </dialog>
     </section>
