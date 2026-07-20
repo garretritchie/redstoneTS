@@ -143,6 +143,11 @@ export default function TeamSection() {
             Explore our technical credentials
             <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
           </button>
+          <a className="team-application-link" href="https://form.jotform.com/222757234705053" target="_blank" rel="noreferrer">
+            Interested in joining Redstone?
+            <span>Apply here</span>
+            <ArrowUpRight size={15} weight="bold" aria-hidden="true" />
+          </a>
         </div>
 
         <div className="team-grid" aria-label="Selected Redstone leadership and delivery roles">
