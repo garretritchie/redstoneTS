@@ -14,10 +14,10 @@ export function Logo({ inverse = false }: { inverse?: boolean }) {
 }
 
 const navItems = [
-  ["Managed IT", "/managed-it"],
-  ["Capabilities", "/capabilities"],
-  ["How We Work", "/capabilities#process"],
-  ["Why Redstone", "/about"],
+  ["Managed IT Services", "/managed-it"],
+  ["Projects & Solutions", "/capabilities"],
+  ["Our Process", "/capabilities#process"],
+  ["About Redstone", "/about"],
   ["Contact", "/contact"],
 ];
 
