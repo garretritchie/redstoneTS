@@ -4,10 +4,11 @@ import { useEffect, useRef } from "react";
 import { ArrowUpRight, CheckCircle, EnvelopeSimple, GlobeHemisphereWest, LinkedinLogo, Phone, X } from "@phosphor-icons/react";
 
 const credentials = [
+  "Microsoft Certified Systems Engineer",
+  "Microsoft Certified Systems Administrator",
   "Certified Information Systems Security Officer",
   "Certified Ethical Hacker",
   "Certified Penetration Testing Engineer",
-  "Microsoft MCSE / MCSA",
   "CompTIA A+ / Network+",
   "Cisco CCENT",
 ];

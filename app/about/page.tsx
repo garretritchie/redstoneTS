@@ -44,7 +44,7 @@ export default function AboutPage() {
   return (
     <main id="top">
       <SiteHeader />
-      <PageHero eyebrow="Technology managed with intention" title={<>Higher standards.<br /><span>Better business confidence.</span></>} description="We believe technology should be managed as intentionally as finance, operations and customer service—with clear responsibility, proven standards and decisions grounded in business impact." primaryLabel="Talk with a technology adviser" secondaryLabel="Our leadership" secondaryHref="#director" />
+      <PageHero eyebrow="Technology managed with intention" title={<>Higher standards.<br /><span>Better business confidence.</span></>} description="We believe technology should be managed as intentionally as finance, operations and customer service—with clear responsibility, proven standards and decisions grounded in business impact." primaryLabel="Book a technology conversation" secondaryLabel="Our leadership" secondaryHref="#director" />
 
       <section className="proof-section section-pad" aria-labelledby="about-proof-title">
         <div className="section-shell proof-layout"><div className="section-heading"><p className="eyebrow">Why Redstone</p><h2 id="about-proof-title">A higher standard<br />for technology.</h2></div><div className="proof-copy"><p>Business-critical systems should not depend on guesswork. Redstone combines prevention, responsive service and disciplined technical management so clients understand what is being managed, why it matters and who is accountable.</p><p>We work best with organisations that manage technology intentionally, invest according to business impact and value long-term outcomes over shortcuts. We can lead the complete technology function or strengthen the internal team already in place.</p><AboutRedstoneDetails /></div><div className="proof-numbers"><div><strong>20+ years</strong><span>Serving The Bahamas</span></div><div><strong>24/7/365</strong><span>Managed visibility</span></div><div><strong>5</strong><span>Connected service practices</span></div><div><strong>1</strong><span>Accountable relationship</span></div></div></div>
@@ -89,7 +89,7 @@ export default function AboutPage() {
         <div className="section-shell outcomes-layout"><div className="outcomes-heading"><p className="eyebrow">What the relationship changes</p><h2 id="outcomes-title">Less disruption.<br />More confidence.</h2><p>What worked when the business was smaller may no longer be enough. As more people, customers and critical processes depend on technology, the support model should grow to match the organisation you are becoming.</p></div><div className="outcomes-grid">{outcomes.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><CheckCircle size={24} weight="light" aria-hidden="true" /><h3>{title}</h3><p>{text}</p></article>)}</div></div>
       </section>
 
-      <AssessmentBand />
+      <AssessmentBand ctaLabel="Book a technology conversation" />
       <SiteFooter />
     </main>
   );

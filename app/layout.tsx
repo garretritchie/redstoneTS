@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import SiteBackgroundNetwork from "./SiteBackgroundNetwork";
+import { siteConfig } from "./siteConfig";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -36,17 +37,17 @@ const siteSchema = {
       },
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+1-242-601-6014",
+        telephone: siteConfig.phone.schema,
         contactType: "customer support",
-        areaServed: "BS",
+        areaServed: siteConfig.address.countryCode,
         availableLanguage: "English",
       },
       address: {
         "@type": "PostalAddress",
-        streetAddress: "1st Floor, Church Street Building, Shirley Street",
-        addressLocality: "Nassau",
-        addressRegion: "New Providence",
-        addressCountry: "BS",
+        streetAddress: siteConfig.address.street,
+        addressLocality: siteConfig.address.locality,
+        addressRegion: siteConfig.address.region,
+        addressCountry: siteConfig.address.countryCode,
       },
     },
     {

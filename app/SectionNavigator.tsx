@@ -7,6 +7,7 @@ import {
   Buildings,
   EnvelopeSimple,
   House,
+  NewspaperClipping,
   ShieldCheck,
   Sparkle,
 } from "@phosphor-icons/react";
@@ -16,6 +17,7 @@ const sections = [
   { href: "/managed-it", path: "/managed-it", label: "Managed IT", icon: ShieldCheck },
   { href: "/capabilities", path: "/capabilities", label: "Capabilities", icon: Sparkle },
   { href: "/about", path: "/about", label: "About Redstone", icon: Buildings },
+  { href: "/insights", path: "/insights", label: "Insights", icon: NewspaperClipping },
   { href: "/contact", path: "/contact", label: "Contact", icon: EnvelopeSimple },
 ];
 

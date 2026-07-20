@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   Brain,
   Briefcase,
+  ChartLineUp,
   CheckCircle,
   CloudArrowUp,
   FlowArrow,
@@ -15,11 +16,15 @@ import {
   Sparkle,
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import AssessmentBand from "./AssessmentBand";
 import HeroSpotlight from "./HeroSpotlight";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import TestimonialCarousel from "./TestimonialCarousel";
+import { siteConfig } from "./siteConfig";
+import InsightCard from "./insights/InsightCard";
+import { getLatestInsights } from "./insights/content";
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -30,10 +35,10 @@ const businessSchema = {
   logo: "https://www.redstonets.com/redstone-logo.png",
   image: "https://www.redstonets.com/og.png",
   description: "A Bahamian managed IT services provider delivering proactive monitoring, infrastructure support, helpdesk, cybersecurity, cloud services and technology strategy.",
-  telephone: "+1-242-601-6014",
-  email: "msp@redstonets.com",
-  address: { "@type": "PostalAddress", streetAddress: "1st Floor, Church Street Building, Shirley Street", addressLocality: "Nassau", addressRegion: "New Providence", addressCountry: "BS" },
-  areaServed: { "@type": "Country", name: "The Bahamas" },
+  telephone: siteConfig.phone.schema,
+  email: siteConfig.email.display,
+  address: { "@type": "PostalAddress", streetAddress: siteConfig.address.street, addressLocality: siteConfig.address.locality, addressRegion: siteConfig.address.region, addressCountry: siteConfig.address.countryCode },
+  areaServed: { "@type": "Country", name: siteConfig.address.country },
 };
 
 const services = [
@@ -45,13 +50,17 @@ const services = [
 ];
 
 const capabilities = [
-  { name: "Ad Hoc Technology Projects", icon: Briefcase },
-  { name: "Security & Compliance as a Service", icon: ShieldCheck },
-  { name: "AI-Powered Web & Application Development", icon: Brain },
-  { name: "Workflow Automation & Optimisation", icon: FlowArrow },
+  { name: "Ad Hoc Technology Projects", href: "/capabilities", icon: Briefcase },
+  { name: "Security & Compliance as a Service", href: "/capabilities", icon: ShieldCheck },
+  { name: "AI-Powered Web & Application Development", href: "/capabilities", icon: Brain },
+  { name: "Workflow Automation & Optimisation", href: "/capabilities", icon: FlowArrow },
+  { name: "vCIO & Technology Strategy", href: "/capabilities", icon: ChartLineUp },
+  { name: "Systems Integration & Modernisation", href: "/capabilities", icon: GearSix },
 ];
 
 export default function Home() {
+  const latestInsights = getLatestInsights(3);
+
   return (
     <main id="top">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
@@ -69,7 +78,7 @@ export default function Home() {
             <p className="hero-lede">We manage the systems, support, security, and technology strategy behind your operations—so your business can move forward with less risk and greater confidence.</p>
             <div className="hero-actions">
               <a className="button" href="/contact">Assess your technology standard <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
-              <a className="text-link" href="/managed-it">Explore managed IT <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
+              <a className="text-link" href="/managed-it#services">Explore managed IT <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
             </div>
             <div className="hero-trust" aria-label="Redstone service promise"><SealCheck size={22} weight="duotone" aria-hidden="true" /><strong>Local. Proactive. Human.</strong><span>Nassau, The Bahamas</span></div>
           </div>
@@ -106,7 +115,7 @@ export default function Home() {
         <div className="section-shell home-pathways-grid">
           <div className="home-pathways-intro"><p className="eyebrow">Beyond managed services</p><h2 id="pathways-title">Specialist capability.<br />Connected to your operation.</h2><p>Engage Redstone for a focused project or to add expertise and capacity to your internal team. The work remains aligned with your standards, risks and long-term technology plan.</p><a className="button" href="/capabilities">Explore our capabilities <ArrowRight size={18} weight="bold" aria-hidden="true" /></a></div>
           <div className="home-capability-list">
-            {capabilities.map(({ name, icon: Icon }, index) => <a href="/capabilities" key={name}><span>0{index + 1}</span><Icon size={27} weight="light" aria-hidden="true" /><strong>{name}</strong><ArrowUpRight size={17} weight="bold" aria-hidden="true" /></a>)}
+            {capabilities.map(({ name, href, icon: Icon }, index) => <a href={href} key={name}><span>0{index + 1}</span><Icon size={27} weight="light" aria-hidden="true" /><strong>{name}</strong><ArrowUpRight size={17} weight="bold" aria-hidden="true" /></a>)}
           </div>
           <aside className="home-process-preview"><Sparkle size={28} weight="duotone" aria-hidden="true" /><p className="eyebrow">How we work</p><h3>Assess. Stabilise. Manage. Improve. Plan.</h3><p>A disciplined operating rhythm turns technology from a collection of tools into a business system that keeps getting better.</p><a className="text-link" href="/capabilities#process">See our approach <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></aside>
         </div>
@@ -115,6 +124,18 @@ export default function Home() {
       <section className="human-section home-testimonial" aria-labelledby="human-title">
         <TestimonialCarousel />
         <div className="human-copy"><p className="eyebrow eyebrow--light">Human-centred support</p><h2 id="human-title">Technology support that feels personal.</h2><p className="human-lede">Our team explains what is happening, owns the issue and stays involved until it is properly resolved.</p><div className="human-promises"><article><Headset size={23} weight="light" aria-hidden="true" /><div><strong>Responsive</strong><span>There when you need us.</span></div></article><article><CheckCircle size={23} weight="light" aria-hidden="true" /><div><strong>Accountable</strong><span>We take outcomes personally.</span></div></article></div><a className="text-link text-link--inverse" href="/about">Meet Redstone <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div>
+      </section>
+
+      <section className="home-insights section-pad" aria-labelledby="home-insights-title">
+        <div className="section-shell">
+          <div className="home-section-heading">
+            <div><p className="eyebrow">Insights</p><h2 id="home-insights-title">Practical guidance for<br /><span>better technology decisions.</span></h2></div>
+            <div><p>Ideas for owners, executives and IT leaders who want technology managed with more clarity, security and business discipline.</p><Link className="text-link" href="/insights">Explore our insights <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link></div>
+          </div>
+          <div className="insights-list insights-list--home">
+            {latestInsights.map((article) => <InsightCard article={article} key={article.slug} />)}
+          </div>
+        </div>
       </section>
 
       <AssessmentBand />

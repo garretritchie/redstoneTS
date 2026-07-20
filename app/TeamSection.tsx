@@ -3,7 +3,21 @@
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, CheckCircle, Certificate, UsersThree, X } from "@phosphor-icons/react";
 
-const teamMembers = [
+type TeamMember = {
+  name: string;
+  title: string;
+  image: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageAlt: string;
+  imageFocus?: "top";
+  imagePending?: boolean;
+  responsibility: string;
+  description: string;
+  profile?: boolean;
+};
+
+const teamMembers: TeamMember[] = [
   {
     name: "Garret Ritchie",
     title: "Managing Director",

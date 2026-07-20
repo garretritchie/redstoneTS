@@ -16,7 +16,7 @@ export default function ManagedITPage() {
   return (
     <main id="top">
       <SiteHeader />
-      <PageHero eyebrow="Professional technology management" title={<>Five services.<br /><span>One accountable team.</span></>} description="Five distinct, ongoing responsibilities managed as one coordinated technology function—so your business can operate reliably, securely and with clear accountability." primaryLabel="Assess your technology standard" secondaryLabel="Explore the five services" secondaryHref="#services" tone="dark" />
+      <PageHero eyebrow="Professional technology management" title={<>Five services.<br /><span>One accountable team.</span></>} description="Five distinct, ongoing responsibilities managed as one coordinated technology function—so your business can operate reliably, securely and with clear accountability." primaryLabel="Review your technology standard" secondaryLabel="Explore the five services" secondaryHref="#services" tone="dark" />
 
       <section className="proof-section section-pad service-principles" aria-labelledby="service-principles-title">
         <div className="section-shell proof-layout">
@@ -63,7 +63,7 @@ export default function ManagedITPage() {
         </div>
       </section>
 
-      <AssessmentBand />
+      <AssessmentBand ctaLabel="Review your technology environment" />
       <SiteFooter />
     </main>
   );

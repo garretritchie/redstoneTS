@@ -91,8 +91,8 @@ export default function ContactForm() {
           <input name="company" type="text" autoComplete="organization" value={form.company} onChange={(event) => updateField("company", event.target.value)} required />
         </label>
         <label>
-          <span>Phone number</span>
-          <input name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={(event) => updateField("phone", event.target.value)} required />
+          <span>Phone number <small>(optional)</small></span>
+          <input name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={(event) => updateField("phone", event.target.value)} />
         </label>
         <label className="contact-form-message">
           <span>How can we help?</span>
@@ -101,10 +101,6 @@ export default function ContactForm() {
         <label className="contact-form-honeypot" aria-hidden="true">
           <span>Website</span>
           <input name="website" type="text" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} />
-        </label>
-        <label className="contact-captcha">
-          <input name="human-check" type="checkbox" required />
-          <span><strong>I’m not a robot</strong><small>Human verification</small></span>
         </label>
       </div>
 
