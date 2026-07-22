@@ -8,7 +8,30 @@
     <link rel="stylesheet" href="/admin/redstone-admin.css" />
   </head>
   <body>
-    <div class="admin-shell">
+    <!-- Login Screen -->
+    <div class="login-screen" id="loginScreen">
+      <div class="login-card">
+        <img src="/redstone-logo.png" alt="Redstone Technology Solutions" width="220" height="61" />
+        <p class="admin-kicker">Site content control</p>
+        <h1>Redstone CMS</h1>
+        <p class="login-intro">Sign in to manage site content and view analytics.</p>
+        <form id="loginForm">
+          <label class="field">
+            <span>Email</span>
+            <input type="email" id="loginEmail" required autocomplete="email" />
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input type="password" id="loginPassword" required autocomplete="current-password" />
+          </label>
+          <p class="login-error" id="loginError"></p>
+          <button class="primary-button" type="submit" id="loginButton">Sign in</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Admin (hidden until authed) -->
+    <div class="admin-shell" id="adminShell" style="display:none;">
       <aside class="admin-sidebar">
         <a class="admin-brand" href="/" aria-label="Return to Redstone website">
           <img src="/redstone-logo.png" alt="Redstone Technology Solutions" width="220" height="61" />
@@ -27,13 +50,10 @@
           <button type="button" data-section="footer">Footer & Social</button>
           <button type="button" data-section="director">Leadership Profile</button>
           <button type="button" data-section="insights">Insights</button>
-          <button type="button" data-section="analytics">Analytics</button>
+          <button type="button" data-section="analytics">Site Analytics</button>
           <button type="button" data-section="export">Export</button>
         </nav>
-        <div class="admin-note">
-          <strong>Temporary no-auth mode</strong>
-          <span>Changes save as a browser draft or downloadable JSON until proper publishing auth is connected.</span>
-        </div>
+        <button class="ghost-button" type="button" id="signOutBtn" style="margin-top:8px;">Sign out</button>
       </aside>
 
       <main class="admin-main">
@@ -66,7 +86,7 @@
             </article>
             <article class="panel">
               <h3>How drafts work</h3>
-              <p>Use “Save draft” to keep changes in this browser. Use “Download JSON bundle” in Export when you want the drafted content applied to the real site files.</p>
+              <p>Use "Save draft" to keep changes in this browser. Use "Download JSON bundle" in Export when you want the drafted content applied to the real site files.</p>
             </article>
           </div>
         </section>
@@ -152,12 +172,32 @@
 
         <section class="admin-section" id="section-analytics" aria-labelledby="analytics-title">
           <div class="section-heading">
-            <p class="admin-kicker">Measurement</p>
-            <h3 id="analytics-title">Basic Analytics</h3>
+            <p class="admin-kicker">Visitor measurement</p>
+            <h3 id="analytics-title">Site Analytics</h3>
           </div>
-          <div class="panel">
-            <p>Analytics are disabled by default. Enable them only after confirming your privacy and cookie policy language.</p>
-            <div class="form-grid" id="analyticsForm"></div>
+          <div class="analytics-loading" id="analyticsLoading">Loading analytics data...</div>
+          <div class="analytics-content" id="analyticsContent" style="display:none;">
+            <div class="analytics-summary" id="analyticsSummary"></div>
+            <div class="analytics-chart-panel">
+              <h4>Page views (last 30 days)</h4>
+              <div class="analytics-chart" id="analyticsChart"></div>
+            </div>
+            <div class="analytics-tables">
+              <div class="analytics-table-panel">
+                <h4>Top pages</h4>
+                <table class="analytics-table" id="topPagesTable">
+                  <thead><tr><th>Path</th><th>Views</th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <div class="analytics-table-panel">
+                <h4>Top referrers</h4>
+                <table class="analytics-table" id="topReferrersTable">
+                  <thead><tr><th>Source</th><th>Views</th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -180,6 +220,6 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="/admin/cms-data.js?v=20260722-compact-media-footer-v2"></script>
-    <script src="/admin/redstone-admin.js?v=20260722-compact-media-footer-v2"></script>
+    <script src="/admin/redstone-admin.js?v=20260722-analytics-auth"></script>
   </body>
 </html>

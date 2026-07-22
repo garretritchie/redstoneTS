@@ -181,6 +181,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} />
         <AnalyticsScripts />
+        <script defer src="/analytics.js" />
         <SiteBackgroundNetwork />
         {children}
       </body>
