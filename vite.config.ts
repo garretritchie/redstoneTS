@@ -37,26 +37,29 @@ export default defineConfig(async () => {
   process.env.WRANGLER_LOG_PATH ??= ".wrangler/logs";
   process.env.MINIFLARE_REGISTRY_PATH ??= ".wrangler/registry";
 
-  const { cloudflare } = await import("@cloudflare/vite-plugin");
+  const isDev = process.env.NODE_ENV !== "production";
+  const needsCloudflare = !isDev && (d1 != null || r2 != null);
+
+  const plugins = [vinext(), sites()];
+
+  if (needsCloudflare) {
+    const { cloudflare } = await import("@cloudflare/vite-plugin");
+    plugins.push(
+      cloudflare({
+        viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
+        config: localBindingConfig,
+      }),
+    );
+  }
 
   return {
     server: {
-      host: "0.0.0.0",
-      port: 5173,
-      strictPort: true,
       hmr: { clientPort: 443 },
       allowedHosts: "all",
       ...(isCodexSeatbeltSandbox
         ? { watch: { useFsEvents: false, usePolling: true } }
         : {}),
     },
-    plugins: [
-      vinext(),
-      sites(),
-      cloudflare({
-        viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
-        config: localBindingConfig,
-      }),
-    ],
+    plugins,
   };
 });
