@@ -1,0 +1,70 @@
+{
+  "slug": "bahamian-businesses-cybersecurity",
+  "title": "How Bahamian Businesses Should Think About Cybersecurity",
+  "summary": "Cybersecurity is not a one-time product decision. It is an operating discipline that protects availability, trust and continuity.",
+  "category": "Cybersecurity",
+  "publishedAt": "2026-07-09",
+  "readingTime": "7 min read",
+  "author": "Redstone Technology Solutions",
+  "featured": true,
+  "seoDescription": "A practical cybersecurity guide for Bahamian business leaders covering phishing, MFA, patching, backups, recoverability, vendor risk and managed oversight.",
+  "keywords": [
+    "cybersecurity Bahamas",
+    "business cybersecurity",
+    "managed security",
+    "phishing",
+    "MFA"
+  ],
+  "relatedServiceLinks": [
+    {
+      "label": "Shield Security Services",
+      "href": "/managed-it#services"
+    },
+    {
+      "label": "Security & Compliance",
+      "href": "/capabilities"
+    }
+  ],
+  "cta": {
+    "label": "Review your security posture",
+    "href": "/contact",
+    "text": "If you are unsure where your organisation is most exposed, Redstone can help you review practical risks and prioritise the controls that matter."
+  },
+  "body": [
+    {
+      "heading": "Security is a business issue before it is a technical issue",
+      "paragraphs": [
+        "For many Bahamian organisations, technology now sits at the centre of daily operations. Email, cloud applications, online banking, point-of-sale systems, patient information, customer records, file sharing and remote access are no longer back-office conveniences. They are how the business runs.",
+        "That means cybersecurity should be treated as an ongoing management responsibility, not as a one-time software purchase. Antivirus, firewalls and password policies are useful, but they only work when they are part of a broader operating standard: monitored, maintained, documented and adjusted as the business changes."
+      ]
+    },
+    {
+      "heading": "Smaller markets are not protected by obscurity",
+      "paragraphs": [
+        "A common assumption is that attackers are focused only on large international companies. In practice, many incidents are opportunistic. Automated phishing, credential stuffing, malicious attachments and exposed remote-access systems do not care whether a business is in Nassau, Miami, Toronto or London.",
+        "Local companies also work with banks, insurers, suppliers, government agencies and international partners. A single compromised mailbox or unavailable system can affect reputation, cash flow, customer service and confidence far beyond the IT department."
+      ]
+    },
+    {
+      "heading": "The fundamentals still matter",
+      "paragraphs": [
+        "Most practical security programmes begin with disciplined basics: multifactor authentication, strong password practices, patch management, endpoint protection, email filtering, secure remote access, backup testing and user awareness. These controls are not glamorous, but they reduce the most common paths into a business environment.",
+        "The challenge is consistency. A control that is deployed once and never reviewed becomes less reliable over time. New employees join, devices change, cloud applications are added, vendors request access and old systems remain in place longer than expected. Security needs ownership so these changes do not quietly create gaps."
+      ]
+    },
+    {
+      "heading": "Recoverability is part of security",
+      "paragraphs": [
+        "Business leaders should ask not only whether systems are protected, but whether the organisation can recover. Backups should be monitored, protected from tampering and tested. Critical applications should have clear recovery expectations. Staff should know who makes decisions during an incident.",
+        "A good security posture balances prevention with resilience. Even well-managed environments can experience user mistakes, vendor issues or service disruption. The question is whether the business can respond calmly, preserve evidence, restore access and continue serving customers."
+      ]
+    },
+    {
+      "heading": "Security should fit operational reality",
+      "paragraphs": [
+        "Security that makes work impossible will be bypassed. Security that is too loose will fail. The right approach considers the organisation’s actual workflow: who needs access, from where, on which devices, to which systems and under what level of risk.",
+        "Redstone’s view is practical: protect the business without losing sight of how people work. That usually means layered controls, clear communication, user education and ongoing oversight rather than a single product or policy expected to solve everything."
+      ]
+    }
+  ]
+}

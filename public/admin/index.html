@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Redstone CMS</title>
+    <link rel="stylesheet" href="/admin/redstone-admin.css" />
+  </head>
+  <body>
+    <aside class="redstone-admin-welcome" aria-label="Redstone CMS guide">
+      <img src="/redstone-logo.png" alt="Redstone Technology Solutions" width="220" height="61" />
+      <p class="redstone-admin-kicker">Site content control</p>
+      <h1>Manage Redstone’s website content.</h1>
+      <p>Edit the homepage hero, contact details, team profiles, leadership information, insight articles and analytics settings from one focused workspace.</p>
+    </aside>
+    <script src="https://unpkg.com/decap-cms@^3.6.0/dist/decap-cms.js"></script>
+    <script>
+      (() => {
+        const clickTemporaryLogin = () => {
+          const loginButton = Array.from(document.querySelectorAll("button")).find((button) => button.textContent?.trim() === "Login");
+          if (loginButton) {
+            loginButton.click();
+            return true;
+          }
+          return false;
+        };
+
+        if (!clickTemporaryLogin()) {
+          const observer = new MutationObserver(() => {
+            if (clickTemporaryLogin()) observer.disconnect();
+          });
+          observer.observe(document.documentElement, { childList: true, subtree: true });
+          window.setTimeout(() => observer.disconnect(), 10000);
+        }
+      })();
+    </script>
+  </body>
+</html>

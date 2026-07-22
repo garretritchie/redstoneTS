@@ -1,0 +1,62 @@
+{
+  "slug": "hidden-cost-below-modern-technology-standard",
+  "title": "The Hidden Cost of Operating Below a Modern Technology Standard",
+  "summary": "Technology gaps rarely show up as one clean line item. They appear as downtime, frustration, risk, rework and missed opportunity.",
+  "category": "Technology Standard",
+  "publishedAt": "2026-03-18",
+  "readingTime": "7 min read",
+  "author": "Redstone Technology Solutions",
+  "seoDescription": "Understand the business cost of operating below a modern technology standard, from downtime and security risk to technical debt and missed automation opportunities.",
+  "keywords": [
+    "technology standard",
+    "IT modernisation",
+    "technical debt",
+    "business continuity",
+    "workflow automation"
+  ],
+  "relatedServiceLinks": [
+    {
+      "label": "Our Process",
+      "href": "/capabilities#process"
+    },
+    {
+      "label": "Workflow Automation",
+      "href": "/capabilities"
+    }
+  ],
+  "cta": {
+    "label": "See where your environment stands",
+    "href": "/contact",
+    "text": "A practical technology review can identify the gaps that are creating friction, risk or unnecessary cost in your environment."
+  },
+  "body": [
+    {
+      "heading": "The cost is not always obvious",
+      "paragraphs": [
+        "When technology is treated as an afterthought, the cost rarely appears as a single invoice. It appears in smaller, repeated ways: slow systems, recurring support calls, delayed work, frustrated employees, avoidable downtime and decisions made without reliable information.",
+        "These issues are easy to normalise. People work around them, managers accept them as part of the job and leadership only sees the problem when a major failure occurs. A modern technology standard is intended to stop that drift."
+      ]
+    },
+    {
+      "heading": "Reactive support keeps the business behind the problem",
+      "paragraphs": [
+        "Break-fix support has a role, but it should not be the operating model for a business that depends heavily on technology. If every issue is handled only after someone complains, the organisation is always reacting to symptoms.",
+        "Managed standards shift attention toward prevention: patching, monitoring, documentation, lifecycle planning, security controls, backup validation and user support processes. The goal is not perfection. The goal is fewer surprises and clearer ownership when issues do occur."
+      ]
+    },
+    {
+      "heading": "Technical debt becomes operational debt",
+      "paragraphs": [
+        "Old systems, undocumented configurations, inconsistent permissions, unmanaged devices and disconnected applications may seem manageable for a while. Over time they make every change slower and riskier.",
+        "Technical debt can delay new projects, complicate onboarding, weaken security and make it harder to scale. It can also increase dependence on individual employees or vendors who are the only people who understand how something was set up."
+      ]
+    },
+    {
+      "heading": "A standard creates a basis for improvement",
+      "paragraphs": [
+        "A technology standard gives leadership a way to judge whether the environment is being managed intentionally. Are systems documented? Are backups tested? Are users protected with MFA? Are devices maintained? Are vendors coordinated? Are projects aligned with business goals?",
+        "Once those questions have clear answers, the business can prioritise intelligently. Some improvements will be urgent. Others can be planned over time. The important shift is moving from guesswork to a managed operating model."
+      ]
+    }
+  ]
+}

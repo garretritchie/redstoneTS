@@ -8,6 +8,7 @@ import SiteFooter from "../SiteFooter";
 import SiteHeader from "../SiteHeader";
 import TeamSection from "../TeamSection";
 import TestimonialCarousel from "../TestimonialCarousel";
+import teamContent from "../../content/team/team.json";
 
 export const metadata: Metadata = {
   title: "About Redstone Technology Solutions",
@@ -41,6 +42,8 @@ const technologyPartners = [
 ];
 
 export default function AboutPage() {
+  const director = teamContent.directorProfile;
+
   return (
     <main id="top">
       <SiteHeader />
@@ -82,7 +85,7 @@ export default function AboutPage() {
       <TeamSection />
 
       <section className="director-section section-pad" id="director" aria-labelledby="director-title">
-        <div className="section-shell director-layout"><div className="director-visual"><div className="director-portrait"><img src="/director-garret-natural-cutout.png" alt="Garret Ritchie, Managing Director of Redstone Technology Solutions in Nassau, The Bahamas" width="1046" height="1155" loading="lazy" decoding="async" /></div><span className="director-marker"><UserFocus size={22} weight="duotone" aria-hidden="true" />A local partner<br />with a long view.</span></div><div className="director-message"><p className="eyebrow">A message from our director</p><h2 id="director-title">“Technology should give business leaders confidence—not another problem to manage.”</h2><p>Redstone’s goal is not simply to support your technology, but to become a trusted adviser that helps your organisation operate more securely, efficiently and confidently.</p><div className="director-signature"><strong>Garret Ritchie</strong><span>Managing Director, Redstone Technology Solutions</span></div><DirectorProfile /></div></div>
+        <div className="section-shell director-layout"><div className="director-visual"><div className="director-portrait"><img src={director.image} alt={director.imageAlt} width="1046" height="1155" loading="lazy" decoding="async" /></div><span className="director-marker"><UserFocus size={22} weight="duotone" aria-hidden="true" />A local partner<br />with a long view.</span></div><div className="director-message"><p className="eyebrow">A message from our director</p><h2 id="director-title">“Technology should give business leaders confidence—not another problem to manage.”</h2><p>Redstone’s goal is not simply to support your technology, but to become a trusted adviser that helps your organisation operate more securely, efficiently and confidently.</p><div className="director-signature"><strong>{director.name}</strong><span>Managing Director, Redstone Technology Solutions</span></div><DirectorProfile /></div></div>
       </section>
 
       <section className="outcomes-section section-pad" aria-labelledby="outcomes-title">

@@ -1,4 +1,4 @@
-import { EnvelopeSimple, LinkedinLogo, MapPin, Phone } from "@phosphor-icons/react/dist/ssr";
+import { EnvelopeSimple, LinkedinLogo, LockKey, MapPin, Phone } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import LegalPolicies from "./LegalPolicies";
 import { Logo } from "./SiteHeader";
@@ -16,6 +16,7 @@ export default function SiteFooter() {
             <a href={siteConfig.email.href}><EnvelopeSimple size={18} weight="light" aria-hidden="true" />{siteConfig.email.display}</a>
             <a href={siteConfig.address.mapHref} target="_blank" rel="noreferrer"><MapPin size={18} weight="light" aria-hidden="true" />{siteConfig.address.short}</a>
             <a className="footer-social-link" href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Follow Redstone on LinkedIn"><LinkedinLogo size={18} weight="fill" aria-hidden="true" />Redstone on LinkedIn</a>
+            <a className="footer-social-link" href="/admin/" rel="nofollow"><LockKey size={18} weight="fill" aria-hidden="true" />Site Admin</a>
           </div>
         </div>
         <div className="footer-links">

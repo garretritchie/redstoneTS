@@ -2,29 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, CheckCircle, EnvelopeSimple, GlobeHemisphereWest, LinkedinLogo, Phone, X } from "@phosphor-icons/react";
+import teamContent from "../content/team/team.json";
 
-const credentials = [
-  "Microsoft Certified Systems Engineer",
-  "Microsoft Certified Systems Administrator",
-  "Certified Information Systems Security Officer",
-  "Certified Ethical Hacker",
-  "Certified Penetration Testing Engineer",
-  "CompTIA A+ / Network+",
-  "Cisco CCENT",
-];
-
-const trainerCredentials = [
-  "Microsoft Certified Trainer (MCT)",
-  "CompTIA Certified Trainer (CTT+)",
-  "Certified Mile2 Instructor",
-];
-
-const focusAreas = [
-  "Managed IT, infrastructure and cybersecurity",
-  "AI-powered applications and workflow automation",
-  "Technology strategy and business operations",
-  "Technical education, mentorship and enablement",
-];
+const director = teamContent.directorProfile;
+const credentials = director.professionalCredentials;
+const trainerCredentials = director.trainerCredentials;
+const focusAreas = director.focusAreas;
 
 export default function DirectorProfile() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -55,14 +38,14 @@ export default function DirectorProfile() {
           <aside className="director-profile-visual">
             <span className="director-profile-number">01 / Leadership profile</span>
             <div className="director-profile-portrait">
-              <img src="/director-garret-natural-cutout.png" alt="Garret Ritchie, Managing Director of Redstone Technology Solutions in Nassau, The Bahamas" width="1046" height="1155" loading="lazy" decoding="async" />
+              <img src={director.image} alt={director.imageAlt} width="1046" height="1155" loading="lazy" decoding="async" />
             </div>
-            <div className="director-profile-visual-contact" aria-label="Contact Garret Ritchie">
+            <div className="director-profile-visual-contact" aria-label={`Contact ${director.name}`}>
               <span>Leadership contact</span>
-              <div><EnvelopeSimple size={17} weight="light" aria-hidden="true" />gritchie@redstoneTS.com</div>
-              <a href="tel:+12426016014"><Phone size={17} weight="light" aria-hidden="true" />242-601-6014 ext 311</a>
-              <div><GlobeHemisphereWest size={17} weight="light" aria-hidden="true" />Nassau, The Bahamas</div>
-              <a className="director-profile-linkedin" href="https://bs.linkedin.com/in/garretritchie" target="_blank" rel="noreferrer">
+              <div><EnvelopeSimple size={17} weight="light" aria-hidden="true" />{director.email}</div>
+              <a href={director.phoneHref}><Phone size={17} weight="light" aria-hidden="true" />{director.phoneDisplay}</a>
+              <div><GlobeHemisphereWest size={17} weight="light" aria-hidden="true" />{director.location}</div>
+              <a className="director-profile-linkedin" href={director.linkedin} target="_blank" rel="noreferrer">
                 <LinkedinLogo size={17} weight="fill" aria-hidden="true" />
                 <span>View LinkedIn profile</span>
                 <ArrowUpRight className="director-profile-linkedin-arrow" size={15} weight="bold" aria-hidden="true" />
@@ -75,23 +58,17 @@ export default function DirectorProfile() {
               <X size={20} weight="bold" aria-hidden="true" />
             </button>
 
-            <p className="director-profile-kicker">Technology leadership / Human-centred systems</p>
-            <h2 id="director-profile-title">Garret Ritchie</h2>
-            <p className="director-profile-role">Managing Director, Technology Strategist, Systems Builder and Educator.</p>
-            <p className="director-profile-intro">
-              Garret is a Bahamian technology entrepreneur with more than 25 years of experience helping organisations solve practical business problems through technology. As Managing Director of Redstone, he guides technical operations, client solutions, project delivery and team execution.
-            </p>
-            <p className="director-profile-intro">
-              His work connects managed IT, infrastructure, cybersecurity, artificial intelligence, software development, automation and user experience. He approaches them as parts of one operating system - bringing people, technology and business priorities together so the whole organisation can work better.
-            </p>
-            <p className="director-profile-intro">
-              His experience is grounded in hands-on IT management and long-running technical instruction. He has served as a Lead Technical Trainer since 2006, helping students and working professionals turn complex technology into practical capability.
-            </p>
+            <p className="director-profile-kicker">{director.kicker}</p>
+            <h2 id="director-profile-title">{director.name}</h2>
+            <p className="director-profile-role">{director.role}</p>
+            {director.intro.map((paragraph) => (
+              <p className="director-profile-intro" key={paragraph}>{paragraph}</p>
+            ))}
 
             <div className="director-profile-stats" aria-label="Professional profile highlights">
-              <div><strong>25+</strong><span>Years in technology</span></div>
-              <div><strong>Director</strong><span>Redstone leadership</span></div>
-              <div><strong>Instructor</strong><span>Lead technical trainer since 2006</span></div>
+              {director.stats.map((stat) => (
+                <div key={stat.label}><strong>{stat.value}</strong><span>{stat.label}</span></div>
+              ))}
             </div>
 
             <section className="director-profile-focus" aria-labelledby="director-focus-title">

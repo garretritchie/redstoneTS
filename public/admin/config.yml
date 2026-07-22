@@ -1,0 +1,281 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: https://www.redstonets.com
+display_url: https://www.redstonets.com
+logo_url: /redstone-favicon.png
+show_preview_links: true
+
+editor:
+  preview: false
+
+collections:
+  - name: site
+    label: Site Settings
+    label_singular: Site Settings
+    description: Manage the homepage hero, primary contact details, office location and analytics settings.
+    files:
+      - name: settings
+        label: Global Website Settings
+        file: content/site/settings.json
+        format: json
+        fields:
+          - label: Website Identity
+            name: site
+            widget: object
+            collapsed: true
+            summary: "{{fields.name}}"
+            hint: Basic site identity used by search engines and structured data.
+            fields:
+              - { label: Business Name, name: name, widget: string, hint: "Example: Redstone Technology Solutions" }
+              - { label: Public Website URL, name: url, widget: string, hint: "Use the canonical public website URL." }
+
+          - label: Contact Information
+            name: contact
+            widget: object
+            collapsed: true
+            summary: "{{fields.phoneDisplay}} · {{fields.emailDisplay}}"
+            hint: Appears in the footer, contact section and SEO data.
+            fields:
+              - { label: Phone Number Display, name: phoneDisplay, widget: string }
+              - { label: Local Phone Display, name: phoneLocalDisplay, widget: string }
+              - { label: Phone Link, name: phoneHref, widget: string, hint: "Use tel:+12426016014 format." }
+              - { label: SEO Phone Number, name: phoneSchema, widget: string, hint: "Use +1-242-601-6014 format for structured data." }
+              - { label: Public Email Display, name: emailDisplay, widget: string }
+              - { label: Email Link, name: emailHref, widget: string, hint: "Use mailto:name@example.com format." }
+              - { label: Company LinkedIn URL, name: linkedin, widget: string, required: false }
+
+          - label: Office Location
+            name: address
+            widget: object
+            collapsed: true
+            summary: "{{fields.short}}"
+            hint: Used in the footer, contact page and local business SEO.
+            fields:
+              - { label: Full Street Address, name: street, widget: string }
+              - { label: Short Address, name: short, widget: string }
+              - { label: City / Locality, name: locality, widget: string }
+              - { label: Region / Island, name: region, widget: string }
+              - { label: Country, name: country, widget: string }
+              - { label: Country Code, name: countryCode, widget: string }
+              - { label: Google Maps Link, name: mapHref, widget: string }
+
+          - label: Homepage Hero
+            name: homeHero
+            widget: object
+            collapsed: false
+            summary: "{{fields.title}}"
+            hint: This controls the first impression on the homepage. Keep the headline clear and concise.
+            fields:
+              - { label: Small Eyebrow Label, name: eyebrow, widget: string }
+              - { label: Main Heading, name: title, widget: string }
+              - { label: Supporting Copy, name: description, widget: text, hint: "One short paragraph. Avoid overly technical language." }
+              - { label: Hero Image, name: image, widget: image }
+              - { label: Hero Image Alt Text, name: imageAlt, widget: string, hint: "Describe the image for accessibility and SEO." }
+              - { label: Primary CTA Label, name: primaryCtaLabel, widget: string }
+              - { label: Primary CTA Link, name: primaryCtaHref, widget: string }
+              - { label: Secondary CTA Label, name: secondaryCtaLabel, widget: string }
+              - { label: Secondary CTA Link, name: secondaryCtaHref, widget: string }
+              - { label: Trust Label, name: trustLabel, widget: string }
+              - { label: Trust Location, name: trustLocation, widget: string }
+
+          - label: Basic Analytics
+            name: analytics
+            widget: object
+            collapsed: true
+            summary: "{{fields.provider}}"
+            hint: Analytics are disabled by default. Enable only after confirming privacy/cookie language.
+            fields:
+              - { label: Enable Analytics, name: enabled, widget: boolean, default: false }
+              - label: Analytics Provider
+                name: provider
+                widget: select
+                options:
+                  - { label: None, value: none }
+                  - { label: Plausible, value: plausible }
+                  - { label: Google Analytics, value: google-analytics }
+              - { label: Plausible Domain, name: plausibleDomain, widget: string, required: false }
+              - { label: GA Measurement ID, name: gaMeasurementId, widget: string, required: false }
+
+  - name: team
+    label: Team & Leadership
+    label_singular: Team & Leadership
+    description: Manage visible team cards, the support operations card, credentials and Garret’s leadership profile modal.
+    files:
+      - name: team
+        label: Team & Leadership Content
+        file: content/team/team.json
+        format: json
+        fields:
+          - label: Team Members
+            name: members
+            widget: list
+            summary: "{{fields.name}} — {{fields.title}}"
+            minimize_collapsed: true
+            hint: These cards appear in the Our Team section. Keep titles specific, but avoid overloading cards with too much copy.
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Profile Image, name: image, widget: image, hint: "Square or portrait images work best." }
+              - { label: Image Width, name: imageWidth, widget: number, value_type: int }
+              - { label: Image Height, name: imageHeight, widget: number, value_type: int }
+              - { label: Image Alt Text, name: imageAlt, widget: string }
+              - label: Image Focus
+                name: imageFocus
+                widget: select
+                required: false
+                options:
+                  - { label: Default Center, value: "" }
+                  - { label: Top Aligned, value: top }
+              - { label: Responsibility, name: responsibility, widget: string }
+              - { label: Short Description, name: description, widget: text }
+              - { label: Show Leadership Profile Link, name: profile, widget: boolean, required: false, default: false }
+
+          - label: Admin & Business Operations Card
+            name: supportCard
+            widget: object
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: string }
+              - { label: Supporting Text, name: supporting, widget: text }
+
+          - label: Team Credential Groups
+            name: credentialGroups
+            widget: list
+            summary: "{{fields.title}}"
+            minimize_collapsed: true
+            hint: These appear inside the team credentials popup.
+            fields:
+              - { label: Group Title, name: title, widget: string }
+              - label: Credentials
+                name: items
+                widget: list
+                minimize_collapsed: true
+                field: { label: Credential, name: credential, widget: string }
+
+          - label: Director Leadership Profile
+            name: directorProfile
+            widget: object
+            collapsed: false
+            summary: "{{fields.name}}"
+            hint: Controls the About the Director popup and director portrait.
+            fields:
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: Role Line, name: role, widget: string }
+              - { label: Profile Image, name: image, widget: image }
+              - { label: Image Alt Text, name: imageAlt, widget: string }
+              - { label: Email, name: email, widget: string }
+              - { label: Phone Display, name: phoneDisplay, widget: string }
+              - { label: Phone Link, name: phoneHref, widget: string }
+              - { label: Location, name: location, widget: string }
+              - { label: LinkedIn URL, name: linkedin, widget: string, required: false }
+              - label: Intro Paragraphs
+                name: intro
+                widget: list
+                minimize_collapsed: true
+                field: { label: Paragraph, name: paragraph, widget: text }
+              - label: Profile Stats
+                name: stats
+                widget: list
+                minimize_collapsed: true
+                fields:
+                  - { label: Value, name: value, widget: string }
+                  - { label: Label, name: label, widget: string }
+              - label: Areas of Focus
+                name: focusAreas
+                widget: list
+                minimize_collapsed: true
+                field: { label: Focus Area, name: focus, widget: string }
+              - label: Highlighted Professional Credentials
+                name: professionalCredentials
+                widget: list
+                minimize_collapsed: true
+                field: { label: Credential, name: credential, widget: string }
+              - label: Trainer Credentials
+                name: trainerCredentials
+                widget: list
+                minimize_collapsed: true
+                field: { label: Credential, name: credential, widget: string }
+
+  - name: insights
+    label: Insight Articles
+    label_singular: Insight Article
+    description: Create and manage practical technology articles for business leaders.
+    folder: content/insights
+    create: true
+    format: json
+    extension: json
+    slug: "{{slug}}"
+    summary: "{{title}} — {{publishedAt}}"
+    sortable_fields: ["publishedAt", "title", "category", "featured"]
+    view_groups:
+      - label: Category
+        field: category
+      - label: Featured
+        field: featured
+    fields:
+      - { label: URL Slug, name: slug, widget: string, hint: "Lowercase words separated by hyphens. Example: cybersecurity-basics" }
+      - { label: Article Title, name: title, widget: string }
+      - { label: Summary, name: summary, widget: text, hint: "Short card summary shown on listing pages." }
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - Managed IT
+          - Cybersecurity
+          - Cloud Services
+          - Technology Standard
+          - Workflow Automation
+          - Compliance
+          - Business Continuity
+      - { label: Published Date, name: publishedAt, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: Updated Date, name: updatedAt, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: Reading Time, name: readingTime, widget: string, default: "6 min read" }
+      - { label: Author, name: author, widget: string, default: "Redstone Technology Solutions" }
+      - { label: Feature This Article, name: featured, widget: boolean, required: false, default: false }
+      - { label: SEO Title, name: seoTitle, widget: string, required: false }
+      - { label: SEO Description, name: seoDescription, widget: text, hint: "Recommended: 140–160 characters." }
+      - label: SEO Keywords
+        name: keywords
+        widget: list
+        required: false
+        minimize_collapsed: true
+        field: { label: Keyword, name: keyword, widget: string }
+      - label: Related Service Links
+        name: relatedServiceLinks
+        widget: list
+        required: false
+        minimize_collapsed: true
+        fields:
+          - { label: Link Label, name: label, widget: string }
+          - { label: Link URL, name: href, widget: string }
+      - label: Article CTA
+        name: cta
+        widget: object
+        collapsed: true
+        summary: "{{fields.label}}"
+        fields:
+          - { label: Button Label, name: label, widget: string }
+          - { label: Button Link, name: href, widget: string }
+          - { label: CTA Text, name: text, widget: text }
+      - label: Article Sections
+        name: body
+        widget: list
+        summary: "{{fields.heading}}"
+        minimize_collapsed: true
+        fields:
+          - { label: Section Heading, name: heading, widget: string }
+          - label: Paragraphs
+            name: paragraphs
+            widget: list
+            minimize_collapsed: true
+            field: { label: Paragraph, name: paragraph, widget: text }

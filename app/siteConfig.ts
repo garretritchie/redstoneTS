@@ -1,26 +1,30 @@
+import settings from "../content/site/settings.json";
+
+export const siteContent = settings;
+
 export const siteConfig = {
-  name: "Redstone Technology Solutions",
-  url: "https://www.redstonets.com",
+  name: settings.site.name,
+  url: settings.site.url,
   phone: {
-    display: "+1 (242) 601-6014",
-    localDisplay: "242-601-6014",
-    href: "tel:+12426016014",
-    schema: "+1-242-601-6014",
+    display: settings.contact.phoneDisplay,
+    localDisplay: settings.contact.phoneLocalDisplay,
+    href: settings.contact.phoneHref,
+    schema: settings.contact.phoneSchema,
   },
   email: {
-    display: "msp@redstoneTS.com",
-    href: "mailto:msp@redstoneTS.com",
+    display: settings.contact.emailDisplay,
+    href: settings.contact.emailHref,
   },
   address: {
-    street: "1st Floor, Church Street Building, Shirley Street",
-    short: "1st Floor Church St. Bldg, Shirley Street",
-    locality: "Nassau",
-    region: "New Providence",
-    country: "The Bahamas",
-    countryCode: "BS",
-    mapHref: "https://maps.app.goo.gl/Y4spaFH54bomZCFZ6",
+    street: settings.address.street,
+    short: settings.address.short,
+    locality: settings.address.locality,
+    region: settings.address.region,
+    country: settings.address.country,
+    countryCode: settings.address.countryCode,
+    mapHref: settings.address.mapHref,
   },
   social: {
-    linkedin: "https://www.linkedin.com/company/redstonets",
+    linkedin: settings.contact.linkedin,
   },
 };

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, CheckCircle, Certificate, UsersThree, X } from "@phosphor-icons/react";
+import teamContent from "../content/team/team.json";
 
 type TeamMember = {
   name: string;
@@ -17,115 +18,8 @@ type TeamMember = {
   profile?: boolean;
 };
 
-const teamMembers: TeamMember[] = [
-  {
-    name: "Garret Ritchie",
-    title: "Managing Director",
-    image: "/team-garret-ritchie-v2.jpg",
-    imageWidth: 640,
-    imageHeight: 640,
-    imageAlt: "Garret Ritchie, Managing Director at Redstone Technology Solutions",
-    responsibility: "Technology Strategy, Client Solutions & Operations",
-    description: "Guides Redstone’s technical operations, client solutions, project delivery and long-term technology strategy.",
-    profile: true,
-  },
-  {
-    name: "Devon Leslie",
-    title: "Director of Training Support & Business Adviser",
-    image: "/team-devon-leslie.png",
-    imageWidth: 285,
-    imageHeight: 345,
-    imageFocus: "top",
-    imageAlt: "Devon Leslie, Director of Training Support and Business Adviser at Redstone Technology Solutions",
-    responsibility: "Training Support, Professional Development & Business Advisory",
-    description: "Supports professional development and advises on business priorities and client outcomes.",
-  },
-  {
-    name: "Trey Curling",
-    title: "Technical Supervisor",
-    image: "/team-trey-curling.png",
-    imageWidth: 1254,
-    imageHeight: 1254,
-    imageAlt: "Trey Curling, Technical Supervisor at Redstone Technology Solutions",
-    responsibility: "Technical Team Leadership",
-    description: "Leads technical coordination, service quality and the day-to-day delivery of client support.",
-  },
-  {
-    name: "Demetris Robinson",
-    title: "IT Specialist",
-    image: "/team-demetris-robinson.png",
-    imageWidth: 1254,
-    imageHeight: 1254,
-    imageAlt: "Demetris Robinson, IT Specialist at Redstone Technology Solutions",
-    responsibility: "Helpdesk & Server Maintenance",
-    description: "Supports end users and helps maintain the server systems our clients rely on every day.",
-  },
-  {
-    name: "Jayson Greene",
-    title: "IT Specialist",
-    image: "/team-jayson-greene.jpg",
-    imageWidth: 640,
-    imageHeight: 734,
-    imageAlt: "Jayson Greene, IT Specialist at Redstone Technology Solutions",
-    responsibility: "Helpdesk & Server Maintenance",
-    description: "Provides responsive user support and assists with the ongoing care of client server environments.",
-  },
-];
-
-const credentialGroups = [
-  {
-    title: "Security & risk",
-    items: [
-      "Certified Information Systems Security Officer",
-      "Certified Penetration Testing Engineer",
-      "Certified Ethical Hacker",
-      "Cisco Certified Network Associate Security",
-      "CheckPoint Certified Security Administrator",
-    ],
-  },
-  {
-    title: "Networking & infrastructure",
-    items: [
-      "Cisco Certified Entry Networking Technician",
-      "Cisco Certified Network Associate",
-      "Cisco Certified Network Professional",
-      "Cisco Certified Design Professional",
-      "Cisco Certified Internetwork Professional",
-      "Brocade Certified Network Professional",
-      "Juniper Networks Certified Associate",
-      "Juniper Network Certified Internet Professional – Service Provider",
-      "Juniper Network Certified Internet Professional – Enterprise Routing & Switching",
-      "Juniper Network Certified Internet Professional – Security",
-      "Juniper Network Certified Design Specialist – Data Center",
-    ],
-  },
-  {
-    title: "Systems & user support",
-    items: [
-      "MTA Networking Fundamentals",
-      "MTA Operating System Fundamentals",
-      "CompTIA A+ IT Support Technician",
-      "CompTIA Network+",
-      "CompTIA IT Fundamentals",
-      "Microsoft Certified Systems Engineer",
-      "Microsoft Certified Systems Administrator | Security",
-      "Microsoft Certified Systems Administrator | Messaging",
-      "Microsoft Certified Professional",
-      "Microsoft Technology Specialist",
-      "Microsoft Small Business Specialist",
-      "Microsoft Office Specialist",
-    ],
-  },
-  {
-    title: "Training & service management",
-    items: [
-      "CompTIA Certified Trainer",
-      "Microsoft Certified Trainer",
-      "CBP Project Management",
-      "ITIL Foundations",
-    ],
-  },
-];
+const teamMembers = teamContent.members as TeamMember[];
+const credentialGroups = teamContent.credentialGroups;
 
 export default function TeamSection() {
   const credentialsDialogRef = useRef<HTMLDialogElement>(null);
@@ -193,11 +87,11 @@ export default function TeamSection() {
             <div className="team-card-heading">
               <div className="team-card-name-line">
                 <span className="team-card-number">06</span>
-                <h3>Admin &amp; Business Operations</h3>
+                <h3>{teamContent.supportCard.title}</h3>
               </div>
-              <p>The people behind the service</p>
+              <p>{teamContent.supportCard.subtitle}</p>
             </div>
-            <div className="team-card-responsibility"><span>Supporting</span><strong>Helpdesk Administration, Finance, Sales &amp; Marketing, and Human Resources</strong></div>
+            <div className="team-card-responsibility"><span>Supporting</span><strong>{teamContent.supportCard.supporting}</strong></div>
           </article>
         </div>
       </div>

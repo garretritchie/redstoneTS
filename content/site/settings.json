@@ -1,0 +1,43 @@
+{
+  "site": {
+    "name": "Redstone Technology Solutions",
+    "url": "https://www.redstonets.com"
+  },
+  "contact": {
+    "phoneDisplay": "+1 (242) 601-6014",
+    "phoneLocalDisplay": "242-601-6014",
+    "phoneHref": "tel:+12426016014",
+    "phoneSchema": "+1-242-601-6014",
+    "emailDisplay": "msp@redstoneTS.com",
+    "emailHref": "mailto:msp@redstoneTS.com",
+    "linkedin": "https://www.linkedin.com/company/redstonets"
+  },
+  "address": {
+    "street": "1st Floor, Church Street Building, Shirley Street",
+    "short": "1st Floor Church St. Bldg, Shirley Street",
+    "locality": "Nassau",
+    "region": "New Providence",
+    "country": "The Bahamas",
+    "countryCode": "BS",
+    "mapHref": "https://maps.app.goo.gl/Y4spaFH54bomZCFZ6"
+  },
+  "homeHero": {
+    "eyebrow": "Technology management for serious businesses",
+    "title": "Well-run businesses deserve well-run technology",
+    "description": "We manage the systems, support, security, and technology strategy behind your operations—so your business can move forward with less risk and greater confidence.",
+    "image": "/redstone-hero-meeting-v3.webp",
+    "imageAlt": "Two business leaders meeting with a Redstone technology advisor in Nassau, The Bahamas",
+    "primaryCtaLabel": "Assess your technology standard",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Explore managed IT",
+    "secondaryCtaHref": "/managed-it#services",
+    "trustLabel": "Local. Proactive. Human.",
+    "trustLocation": "Nassau, The Bahamas"
+  },
+  "analytics": {
+    "enabled": false,
+    "provider": "none",
+    "plausibleDomain": "www.redstonets.com",
+    "gaMeasurementId": ""
+  }
+}

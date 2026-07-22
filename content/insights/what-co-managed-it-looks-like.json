@@ -1,0 +1,61 @@
+{
+  "slug": "what-co-managed-it-looks-like",
+  "title": "What Co-Managed IT Actually Looks Like",
+  "summary": "Co-managed IT gives internal teams extra capacity, tools and specialist support without replacing their knowledge or role.",
+  "category": "Managed IT",
+  "publishedAt": "2026-05-22",
+  "readingTime": "6 min read",
+  "author": "Redstone Technology Solutions",
+  "seoDescription": "Learn how co-managed IT works for organisations with internal IT teams, including escalation, monitoring, after-hours support, projects and strategic planning.",
+  "keywords": [
+    "co-managed IT",
+    "internal IT support",
+    "IT escalation",
+    "managed IT Bahamas"
+  ],
+  "relatedServiceLinks": [
+    {
+      "label": "Managed IT Services",
+      "href": "/managed-it"
+    },
+    {
+      "label": "vCIO & Technology Strategy",
+      "href": "/capabilities"
+    }
+  ],
+  "cta": {
+    "label": "Explore co-managed IT support",
+    "href": "/managed-it#partnership-models",
+    "text": "If your internal team needs more coverage, specialist support or project capacity, co-managed IT can strengthen the function without disrupting what already works."
+  },
+  "body": [
+    {
+      "heading": "Co-managed IT is not outsourcing by another name",
+      "paragraphs": [
+        "Some organisations already have capable internal IT people. They know the business, understand the users and carry valuable institutional knowledge. Co-managed IT is designed to strengthen that team, not erase it.",
+        "In a co-managed model, responsibilities are defined clearly. The internal team may continue leading daily relationships, application ownership and business-specific priorities, while Redstone adds monitoring, documentation, escalation support, security oversight, after-hours coverage or project engineering where extra capacity is needed."
+      ]
+    },
+    {
+      "heading": "The value is clarity of responsibility",
+      "paragraphs": [
+        "Co-managed IT works best when everyone knows who owns what. For example, Redstone might monitor servers and network devices, handle endpoint maintenance, support cybersecurity tools and assist with complex issues. The internal team might retain approval authority, vendor relationships, line-of-business applications and executive communication.",
+        "The exact division depends on the organisation. The important point is that the arrangement should reduce confusion, not add another layer of handoffs."
+      ]
+    },
+    {
+      "heading": "Coverage gaps are often the real problem",
+      "paragraphs": [
+        "Internal teams are frequently stretched by competing demands: user support, leadership requests, projects, compliance, hardware refreshes, documentation, licensing, cybersecurity and vendor coordination. Even strong teams can struggle when urgent issues interrupt planned work every day.",
+        "Redstone can absorb defined responsibilities so internal staff can focus on higher-value work. That may include routine maintenance, backup monitoring, helpdesk overflow, security reviews, project delivery or advisory support for budgeting and lifecycle planning."
+      ]
+    },
+    {
+      "heading": "The relationship should be collaborative",
+      "paragraphs": [
+        "A productive co-managed arrangement depends on respect. Redstone should not treat internal IT as a barrier, and internal IT should not have to defend its role. The shared objective is a healthier technology environment and better outcomes for the organisation.",
+        "Good documentation, escalation paths, recurring reviews and transparent communication make the model work. Over time, the business gains more resilience because knowledge, tools and responsibility are no longer concentrated in one person or one provider."
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import SiteBackgroundNetwork from "./SiteBackgroundNetwork";
-import { siteConfig } from "./siteConfig";
+import { siteConfig, siteContent } from "./siteConfig";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -60,6 +60,31 @@ const siteSchema = {
     },
   ],
 };
+
+function AnalyticsScripts() {
+  const { analytics } = siteContent;
+
+  if (!analytics.enabled) return null;
+
+  if (analytics.provider === "plausible" && analytics.plausibleDomain) {
+    return <script defer data-domain={analytics.plausibleDomain} src="https://plausible.io/js/script.js" />;
+  }
+
+  if (analytics.provider === "google-analytics" && analytics.gaMeasurementId) {
+    return (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${analytics.gaMeasurementId}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${analytics.gaMeasurementId}');`,
+          }}
+        />
+      </>
+    );
+  }
+
+  return null;
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.redstonets.com"),
@@ -155,6 +180,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} />
+        <AnalyticsScripts />
         <SiteBackgroundNetwork />
         {children}
       </body>

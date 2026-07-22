@@ -22,7 +22,7 @@ import HeroSpotlight from "./HeroSpotlight";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import TestimonialCarousel from "./TestimonialCarousel";
-import { siteConfig } from "./siteConfig";
+import { siteConfig, siteContent } from "./siteConfig";
 import InsightCard from "./insights/InsightCard";
 import { getLatestInsights } from "./insights/content";
 
@@ -60,6 +60,7 @@ const capabilities = [
 
 export default function Home() {
   const latestInsights = getLatestInsights(3);
+  const hero = siteContent.homeHero;
 
   return (
     <main id="top">
@@ -68,19 +69,19 @@ export default function Home() {
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-media">
-          <img src="/redstone-hero-meeting-v3.webp" alt="Two business leaders meeting with a Redstone technology advisor in Nassau, The Bahamas" width="1774" height="887" fetchPriority="high" decoding="async" />
+          <img src={hero.image} alt={hero.imageAlt} width="1774" height="887" fetchPriority="high" decoding="async" />
         </div>
         <HeroSpotlight />
         <div className="hero-inner">
           <div className="hero-copy">
-            <p className="eyebrow">Technology management for serious businesses</p>
-            <h1 id="hero-title">Well-run businesses deserve well-run technology</h1>
-            <p className="hero-lede">We manage the systems, support, security, and technology strategy behind your operations—so your business can move forward with less risk and greater confidence.</p>
+            <p className="eyebrow">{hero.eyebrow}</p>
+            <h1 id="hero-title">{hero.title}</h1>
+            <p className="hero-lede">{hero.description}</p>
             <div className="hero-actions">
-              <a className="button" href="/contact">Assess your technology standard <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
-              <a className="text-link" href="/managed-it#services">Explore managed IT <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
+              <a className="button" href={hero.primaryCtaHref}>{hero.primaryCtaLabel} <ArrowRight size={18} weight="bold" aria-hidden="true" /></a>
+              <a className="text-link" href={hero.secondaryCtaHref}>{hero.secondaryCtaLabel} <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
             </div>
-            <div className="hero-trust" aria-label="Redstone service promise"><SealCheck size={22} weight="duotone" aria-hidden="true" /><strong>Local. Proactive. Human.</strong><span>Nassau, The Bahamas</span></div>
+            <div className="hero-trust" aria-label="Redstone service promise"><SealCheck size={22} weight="duotone" aria-hidden="true" /><strong>{hero.trustLabel}</strong><span>{hero.trustLocation}</span></div>
           </div>
         </div>
       </section>
