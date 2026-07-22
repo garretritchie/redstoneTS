@@ -5,8 +5,8 @@ type ContactFormState = { name: string; email: string; company: string; phone: s
 
 const initialForm: ContactFormState = { name: "", email: "", company: "", phone: "", message: "" };
 
-const supabaseUrl = "https://ywahqhhqeztkyppdfmoo.supabase.co";
-const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl3YWhxaGhxZXp0a3lwcGRmbW9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNzMxNTAsImV4cCI6MjA4ODY0OTE1MH0.jXqhB5I9Cj531TbLLjGtsZOg1BH_tSGfQ3pJzTKkgzA";
+const supabaseUrl = "https://hnfdrolietieeqotxgqq.supabase.co";
+const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhuZmRyb2xpZXRpZWVxb3R4Z3FxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ3NDA3NTcsImV4cCI6MjEwMDMxNjc1N30.Avdto-_gKj5qInBXGp0yGY-JKShYOBEFuemwvjLbWtY";
 const contactEndpoint = `${supabaseUrl}/functions/v1/send-contact-email`;
 
 export default function ContactForm() {
