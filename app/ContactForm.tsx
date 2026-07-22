@@ -19,8 +19,9 @@ const initialForm: ContactFormState = {
   message: "",
 };
 
-const contactEndpoint = "https://ywahqhhqeztkyppdfmoo.supabase.co/functions/v1/send-contact-email";
-const contactToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl3YWhxaGhxZXp0a3lwcGRmbW9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNzMxNTAsImV4cCI6MjA4ODY0OTE1MH0.jXqhB5I9Cj531TbLLjGtsZOg1BH_tSGfQ3pJzTKkgzA";
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://ywahqhhqeztkyppdfmoo.supabase.co";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl3YWhxaGhxZXp0a3lwcGRmbW9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNzMxNTAsImV4cCI6MjA4ODY0OTE1MH0.jXqhB5I9Cj531TbLLjGtsZOg1BH_tSGfQ3pJzTKkgzA";
+const contactEndpoint = `${supabaseUrl}/functions/v1/send-contact-email`;
 
 export default function ContactForm() {
   const [form, setForm] = useState<ContactFormState>(initialForm);
@@ -48,7 +49,7 @@ export default function ContactForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${contactToken}`,
+          Authorization: `Bearer ${supabaseAnonKey}`,
         },
         body: JSON.stringify({
           ...form,
