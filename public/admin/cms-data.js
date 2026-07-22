@@ -654,6 +654,39 @@ window.REDSTONE_CMS_DATA = {
     "proof": {
       "heading": "Managed technology designed to move your business forward.",
       "body": "Since 2006, Redstone has helped Bahamian organisations replace fragmented, reactive support with clear standards, ongoing oversight and one accountable relationship."
+    },
+    "footer": {
+      "tagline": "Professional technology management for businesses that take success seriously.",
+      "copyright": "© 2026 Redstone Technology Solutions Ltd. All rights reserved.",
+      "socialProfiles": [
+        { "platform": "LinkedIn", "label": "Redstone on LinkedIn", "url": "https://www.linkedin.com/company/redstonets", "enabled": true },
+        { "platform": "Site Admin", "label": "Site Admin", "url": "/admin/", "enabled": true }
+      ],
+      "columns": [
+        { "heading": "Managed Services", "links": [
+          { "label": "Overwatch", "url": "/managed-it#overwatch" },
+          { "label": "Checkmark", "url": "/managed-it#checkmark" },
+          { "label": "Helpdesk", "url": "/managed-it#helpdesk" },
+          { "label": "Shield", "url": "/managed-it#shield" },
+          { "label": "Cirrus", "url": "/managed-it#cirrus" }
+        ] },
+        { "heading": "Capabilities", "links": [
+          { "label": "Ad Hoc Projects", "url": "/capabilities" },
+          { "label": "Security & Compliance", "url": "/capabilities" },
+          { "label": "AI Web & Applications", "url": "/capabilities" },
+          { "label": "Workflow Automation", "url": "/capabilities" },
+          { "label": "Insights", "url": "/insights" }
+        ] },
+        { "heading": "Redstone", "links": [
+          { "label": "Why Redstone", "url": "/about" },
+          { "label": "Our Team", "url": "/about#team" },
+          { "label": "Partnerships", "url": "/about#partnerships" },
+          { "label": "Our Approach", "url": "/capabilities#process" },
+          { "label": "Leadership", "url": "/about#director" },
+          { "label": "Client Support", "url": "tel:+12426016014" },
+          { "label": "Contact", "url": "/contact" }
+        ] }
+      ]
     }
   }
 };

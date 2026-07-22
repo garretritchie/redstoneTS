@@ -1,6 +1,6 @@
 (function () {
   const source = window.REDSTONE_CMS_DATA || { site: {}, team: {}, insights: [] };
-  const draftKey = "redstoneCmsDraft:v2:frontend-seeded";
+  const draftKey = "redstoneCmsDraft:v3:compact-media-footer";
   const sectionTitles = {
     overview: "Overview",
     site: "Hero & Contact",
@@ -9,6 +9,7 @@
     team: "Our Team",
     testimonials: "Testimonials",
     partnerships: "Partners",
+    footer: "Footer & Social",
     director: "Leadership Profile",
     insights: "Insights",
     analytics: "Basic Analytics",
@@ -67,9 +68,72 @@
     window.setTimeout(() => toast.classList.remove("is-visible"), 2400);
   }
 
-  function makeField({ label, path, type = "text", rows = 4, help = "" }) {
+  const linkOptions = [
+    ["/", "Home"],
+    ["/managed-it", "Services"],
+    ["/managed-it#services", "Service section"],
+    ["/managed-it#overwatch", "Overwatch service"],
+    ["/managed-it#checkmark", "Checkmark service"],
+    ["/managed-it#helpdesk", "Helpdesk service"],
+    ["/managed-it#shield", "Shield service"],
+    ["/managed-it#cirrus", "Cirrus service"],
+    ["/capabilities", "Solutions"],
+    ["/capabilities#process", "Process"],
+    ["/about", "About"],
+    ["/about#team", "Our Team"],
+    ["/about#director", "Leadership"],
+    ["/about#partnerships", "Partners"],
+    ["/insights", "Insights"],
+    ["/contact", "Contact"],
+    ["/admin/", "Site Admin"],
+    ["https://msp2.rdstn.com/", "Client Portal"],
+    ["tel:+12426016014", "Client Support phone"],
+  ];
+
+  const insightCategoryOptions = ["Managed IT", "Cybersecurity", "Technology Standard", "Cloud Services", "Workflow Automation", "AI Applications", "Business Continuity", "Local Support"];
+  const readingTimeOptions = ["3 min read", "4 min read", "5 min read", "6 min read", "7 min read", "8 min read", "10 min read"];
+
+  function onEdit(input, handler) {
+    input.addEventListener("input", handler);
+    input.addEventListener("change", handler);
+  }
+
+  function makeSelectOptions(options, value) {
+    const hasCurrentValue = options.some((option) => String(Array.isArray(option) ? option[0] : option) === String(value));
+    const normalizedOptions = hasCurrentValue || value === "" || value == null ? options : [[value, `Custom: ${value}`], ...options];
+    return normalizedOptions.map((option) => {
+      const optionValue = Array.isArray(option) ? option[0] : option;
+      const optionLabel = Array.isArray(option) ? option[1] : option;
+      return `<option value="${html(optionValue)}" ${String(optionValue) === String(value) ? "selected" : ""}>${html(optionLabel)}</option>`;
+    }).join("");
+  }
+
+  function makeField({ label, path, type = "text", rows = 4, help = "", options = [] }) {
     const value = get(path) ?? "";
     const id = path.replace(/[^a-z0-9]/gi, "-");
+    if (type === "select") {
+      return `<label class="field" for="${id}">
+        <span>${label}</span>
+        <select id="${id}" data-path="${path}">${makeSelectOptions(options, value)}</select>
+        ${help ? `<small>${help}</small>` : ""}
+      </label>`;
+    }
+    if (type === "image") {
+      return `<label class="field image-field" for="${id}">
+        <span>${label}</span>
+        <div class="image-upload">
+          <img src="${html(value)}" alt="" data-image-preview="${path}" />
+          <div>
+            <input id="${id}" type="file" accept="image/*" data-image-upload="${path}" />
+            <details class="advanced-source">
+              <summary>Advanced: current image source</summary>
+              <input type="text" value="${html(value)}" data-path="${path}" aria-label="${html(label)} current image source" />
+            </details>
+            <small>${help || "Choose an image from your computer. The CMS stores a browser draft/export for now; final publishing still needs the asset committed into /public."}</small>
+          </div>
+        </div>
+      </label>`;
+    }
     if (type === "textarea") {
       return `<label class="field" for="${id}">
         <span>${label}</span>
@@ -121,9 +185,25 @@
 
   function bindInputs(scope = document) {
     scope.querySelectorAll("[data-path]").forEach((input) => {
-      input.addEventListener("input", (event) => {
+      onEdit(input, (event) => {
         const target = event.currentTarget;
         set(target.dataset.path, target.type === "checkbox" ? target.checked : target.value);
+      });
+    });
+    scope.querySelectorAll("[data-image-upload]").forEach((input) => {
+      input.addEventListener("change", (event) => {
+        const target = event.currentTarget;
+        const file = target.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          set(target.dataset.imageUpload, reader.result);
+          document.querySelectorAll(`[data-image-preview="${target.dataset.imageUpload}"]`).forEach((img) => {
+            img.src = reader.result;
+          });
+          notify("Image preview added to draft.");
+        });
+        reader.readAsDataURL(file);
       });
     });
   }
@@ -148,12 +228,12 @@
       makeField({ label: "Hero eyebrow", path: "site.homeHero.eyebrow" }),
       makeField({ label: "Hero title", path: "site.homeHero.title" }),
       makeField({ label: "Hero supporting copy", path: "site.homeHero.description", type: "textarea" }),
-      makeField({ label: "Hero image path", path: "site.homeHero.image" }),
+      makeField({ label: "Hero image", path: "site.homeHero.image", type: "image" }),
       makeField({ label: "Hero image alt text", path: "site.homeHero.imageAlt" }),
       makeField({ label: "Primary CTA label", path: "site.homeHero.primaryCtaLabel" }),
-      makeField({ label: "Primary CTA link", path: "site.homeHero.primaryCtaHref" }),
+      makeField({ label: "Primary CTA link", path: "site.homeHero.primaryCtaHref", type: "select", options: linkOptions }),
       makeField({ label: "Secondary CTA label", path: "site.homeHero.secondaryCtaLabel" }),
-      makeField({ label: "Secondary CTA link", path: "site.homeHero.secondaryCtaHref" }),
+      makeField({ label: "Secondary CTA link", path: "site.homeHero.secondaryCtaHref", type: "select", options: linkOptions }),
       makeField({ label: "Public phone display", path: "site.contact.phoneDisplay" }),
       makeField({ label: "Public email", path: "site.contact.emailDisplay" }),
       makeField({ label: "LinkedIn company URL", path: "site.contact.linkedin" }),
@@ -172,7 +252,7 @@
           <p class="admin-kicker">${String(index + 1).padStart(2, "0")}</p>
           <label class="field"><span>Name</span><input value="${html(member.name)}" data-team-index="${index}" data-team-field="name" /></label>
           <label class="field"><span>Title</span><input value="${html(member.title)}" data-team-index="${index}" data-team-field="title" /></label>
-          <label class="field"><span>Image path</span><input value="${html(member.image)}" data-team-index="${index}" data-team-field="image" /></label>
+          <label class="field image-field"><span>Image</span><div class="image-upload image-upload--compact"><img src="${html(member.image)}" alt="" data-team-preview="${index}" /><div><input type="file" accept="image/*" data-team-image="${index}" /><details class="advanced-source"><summary>Advanced: current image source</summary><input value="${html(member.image)}" data-team-index="${index}" data-team-field="image" /></details></div></div></label>
           <label class="field"><span>Alt text</span><input value="${html(member.imageAlt)}" data-team-index="${index}" data-team-field="imageAlt" /></label>
           <label class="field"><span>Responsible for</span><textarea rows="2" data-team-index="${index}" data-team-field="responsibility">${html(member.responsibility)}</textarea></label>
           <label class="field"><span>Description</span><textarea rows="3" data-team-index="${index}" data-team-field="description">${html(member.description)}</textarea></label>
@@ -180,10 +260,28 @@
       </article>`)
       .join("");
     document.querySelectorAll("[data-team-index]").forEach((input) => {
-      input.addEventListener("input", (event) => {
+      onEdit(input, (event) => {
         const target = event.currentTarget;
         data.team.members[Number(target.dataset.teamIndex)][target.dataset.teamField] = target.value;
         refresh();
+      });
+    });
+    document.querySelectorAll("[data-team-image]").forEach((input) => {
+      input.addEventListener("change", (event) => {
+        const target = event.currentTarget;
+        const file = target.files?.[0];
+        if (!file) return;
+        const index = Number(target.dataset.teamImage);
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          data.team.members[index].image = reader.result;
+          document.querySelector(`[data-team-preview="${index}"]`).src = reader.result;
+          const sourceInput = document.querySelector(`[data-team-index="${index}"][data-team-field="image"]`);
+          if (sourceInput) sourceInput.value = reader.result;
+          refresh();
+          notify("Team image preview added to draft.");
+        });
+        reader.readAsDataURL(file);
       });
     });
   }
@@ -202,6 +300,9 @@
               if (Array.isArray(value)) {
                 return `<label class="field field--wide"><span>${field.label}</span><textarea rows="${field.rows || 5}" data-array-collection="${path}" data-array-index="${index}" data-array-field="${field.key}">${html(listToText(value))}</textarea><small>One item per line.</small></label>`;
               }
+              if (field.type === "select") {
+                return `<label class="field ${field.wide ? "field--wide" : ""}"><span>${field.label}</span><select data-collection="${path}" data-index="${index}" data-field="${field.key}">${makeSelectOptions(field.options || [], value)}</select></label>`;
+              }
               const textarea = field.type === "textarea";
               return `<label class="field ${field.wide ? "field--wide" : ""}"><span>${field.label}</span>${textarea ? `<textarea rows="${field.rows || 3}" data-collection="${path}" data-index="${index}" data-field="${field.key}">${html(value)}</textarea>` : `<input value="${html(value)}" data-collection="${path}" data-index="${index}" data-field="${field.key}" />`}</label>`;
             }).join("")}
@@ -211,14 +312,14 @@
       .join("");
 
     container.querySelectorAll("[data-collection]").forEach((input) => {
-      input.addEventListener("input", (event) => {
+      onEdit(input, (event) => {
         const target = event.currentTarget;
         get(target.dataset.collection)[Number(target.dataset.index)][target.dataset.field] = target.value;
         refresh();
       });
     });
     container.querySelectorAll("[data-array-collection]").forEach((input) => {
-      input.addEventListener("input", (event) => {
+      onEdit(input, (event) => {
         const target = event.currentTarget;
         get(target.dataset.arrayCollection)[Number(target.dataset.arrayIndex)][target.dataset.arrayField] = textToList(target.value);
         refresh();
@@ -234,6 +335,7 @@
       fields: [
         { key: "brand", label: "Brand" },
         { key: "name", label: "Service name" },
+        { key: "role", label: "System role", type: "select", options: ["The visibility layer", "The stability layer", "The people layer", "The protection layer", "The modernisation layer"] },
         { key: "promise", label: "Promise", wide: true },
         { key: "description", label: "Short description", type: "textarea", wide: true },
         { key: "responsibility", label: "Responsibility", type: "textarea", wide: true },
@@ -280,7 +382,7 @@
       <div class="form-grid">
         ${makeField({ label: "Name", path: "team.directorProfile.name" })}
         ${makeField({ label: "Role line", path: "team.directorProfile.role" })}
-        ${makeField({ label: "Profile image path", path: "team.directorProfile.image" })}
+        ${makeField({ label: "Profile image", path: "team.directorProfile.image", type: "image" })}
         ${makeField({ label: "Image alt text", path: "team.directorProfile.imageAlt" })}
         ${makeField({ label: "Email", path: "team.directorProfile.email" })}
         ${makeField({ label: "Phone", path: "team.directorProfile.phoneDisplay" })}
@@ -296,9 +398,67 @@
     bindListInputs(document.getElementById("directorForm"));
   }
 
+  function renderFooter() {
+    const footer = data.frontend?.footer || {};
+    document.getElementById("footerBrandForm").innerHTML = `
+      <p class="admin-kicker">Brand footer</p>
+      <div class="form-grid form-grid--one">
+        ${makeField({ label: "Footer tagline", path: "frontend.footer.tagline", type: "textarea", rows: 3 })}
+        ${makeField({ label: "Copyright line", path: "frontend.footer.copyright" })}
+      </div>`;
+
+    document.getElementById("footerSocialForm").innerHTML = `
+      <p class="admin-kicker">Social / utility links</p>
+      <div class="mini-stack">
+        ${(footer.socialProfiles || []).map((profile, index) => `<article class="mini-card">
+          <label class="field"><span>Platform</span><select data-footer-social="${index}" data-field="platform">${makeSelectOptions(["LinkedIn", "Facebook", "Instagram", "X / Twitter", "YouTube", "Site Admin", "Other"], profile.platform)}</select></label>
+          <label class="field"><span>Label</span><input value="${html(profile.label)}" data-footer-social="${index}" data-field="label" /></label>
+          <label class="field"><span>URL</span><input value="${html(profile.url)}" data-footer-social="${index}" data-field="url" /></label>
+          <label class="field field--checkbox"><input type="checkbox" ${profile.enabled ? "checked" : ""} data-footer-social="${index}" data-field="enabled" /><span>Enabled</span></label>
+        </article>`).join("")}
+      </div>`;
+
+    document.getElementById("footerColumns").innerHTML = (footer.columns || []).map((column, columnIndex) => `<article class="edit-card edit-card--text">
+      <div class="edit-card__number">${String(columnIndex + 1).padStart(2, "0")}</div>
+      <div class="edit-card__body">
+        <label class="field"><span>Column heading</span><input value="${html(column.heading)}" data-footer-column="${columnIndex}" data-field="heading" /></label>
+        <div class="mini-stack">
+          ${(column.links || []).map((link, linkIndex) => `<div class="footer-link-row">
+            <input value="${html(link.label)}" aria-label="Footer link label" data-footer-link-column="${columnIndex}" data-footer-link="${linkIndex}" data-field="label" />
+            <select aria-label="Footer link destination" data-footer-link-column="${columnIndex}" data-footer-link="${linkIndex}" data-field="url">${makeSelectOptions(linkOptions, link.url)}</select>
+          </div>`).join("")}
+        </div>
+      </div>
+    </article>`).join("");
+
+    bindInputs(document.getElementById("footerBrandForm"));
+    document.querySelectorAll("[data-footer-social]").forEach((input) => {
+      onEdit(input, (event) => {
+        const target = event.currentTarget;
+        const value = target.type === "checkbox" ? target.checked : target.value;
+        data.frontend.footer.socialProfiles[Number(target.dataset.footerSocial)][target.dataset.field] = value;
+        refresh();
+      });
+    });
+    document.querySelectorAll("[data-footer-column]").forEach((input) => {
+      onEdit(input, (event) => {
+        const target = event.currentTarget;
+        data.frontend.footer.columns[Number(target.dataset.footerColumn)][target.dataset.field] = target.value;
+        refresh();
+      });
+    });
+    document.querySelectorAll("[data-footer-link]").forEach((input) => {
+      onEdit(input, (event) => {
+        const target = event.currentTarget;
+        data.frontend.footer.columns[Number(target.dataset.footerLinkColumn)].links[Number(target.dataset.footerLink)][target.dataset.field] = target.value;
+        refresh();
+      });
+    });
+  }
+
   function bindListInputs(scope) {
     scope.querySelectorAll("[data-list-path]").forEach((input) => {
-      input.addEventListener("input", (event) => set(event.currentTarget.dataset.listPath, textToList(event.currentTarget.value)));
+      onEdit(input, (event) => set(event.currentTarget.dataset.listPath, textToList(event.currentTarget.value)));
     });
   }
 
@@ -322,9 +482,9 @@
     document.getElementById("insightEditor").innerHTML = `<div class="form-grid">
       <label class="field"><span>Title</span><input value="${html(article.title)}" data-article-field="title" /></label>
       <label class="field"><span>Slug</span><input value="${html(article.slug)}" data-article-field="slug" /></label>
-      <label class="field"><span>Category</span><input value="${html(article.category)}" data-article-field="category" /></label>
+      <label class="field"><span>Category</span><select data-article-field="category">${makeSelectOptions(insightCategoryOptions, article.category)}</select></label>
       <label class="field"><span>Date</span><input type="date" value="${html(article.publishedAt)}" data-article-field="publishedAt" /></label>
-      <label class="field"><span>Reading time</span><input value="${html(article.readingTime)}" data-article-field="readingTime" /></label>
+      <label class="field"><span>Reading time</span><select data-article-field="readingTime">${makeSelectOptions(readingTimeOptions, article.readingTime)}</select></label>
       <label class="field"><span>Author</span><input value="${html(article.author)}" data-article-field="author" /></label>
       <label class="field field--wide"><span>Summary</span><textarea rows="3" data-article-field="summary">${html(article.summary)}</textarea></label>
       <label class="field field--wide"><span>SEO description</span><textarea rows="3" data-article-field="seoDescription">${html(article.seoDescription)}</textarea></label>
@@ -332,13 +492,13 @@
       <label class="field field--wide"><span>Article body</span><textarea rows="16" data-article-body>${html(bodyToText(article))}</textarea><small>Use ## headings followed by paragraph lines.</small></label>
     </div>`;
     document.querySelectorAll("[data-article-field]").forEach((input) => {
-      input.addEventListener("input", (event) => {
+      onEdit(input, (event) => {
         data.insights[selectedInsight][event.currentTarget.dataset.articleField] = event.currentTarget.value;
         refresh();
       });
     });
     document.querySelectorAll("[data-article-list]").forEach((input) => {
-      input.addEventListener("input", (event) => {
+      onEdit(input, (event) => {
         data.insights[selectedInsight][event.currentTarget.dataset.articleList] = textToList(event.currentTarget.value);
         refresh();
       });
@@ -352,7 +512,7 @@
   function renderAnalytics() {
     document.getElementById("analyticsForm").innerHTML = [
       makeField({ label: "Enable analytics", path: "site.analytics.enabled", type: "checkbox" }),
-      makeField({ label: "Provider", path: "site.analytics.provider" }),
+      makeField({ label: "Provider", path: "site.analytics.provider", type: "select", options: [["none", "None"], ["plausible", "Plausible"], ["google-analytics", "Google Analytics"]] }),
       makeField({ label: "Plausible domain", path: "site.analytics.plausibleDomain" }),
       makeField({ label: "Google Analytics measurement ID", path: "site.analytics.gaMeasurementId" }),
     ].join("");
@@ -376,6 +536,7 @@
     if (hash.includes("capabilities") || hash.includes("solutions")) return "capabilities";
     if (hash.includes("testimonial")) return "testimonials";
     if (hash.includes("partner")) return "partnerships";
+    if (hash.includes("footer") || hash.includes("social")) return "footer";
     if (hash.includes("insights")) return "insights";
     if (hash.includes("settings") || hash.includes("site")) return "site";
     if (hash.includes("analytics")) return "analytics";
@@ -397,6 +558,7 @@
     renderSite();
     renderFrontendCollections();
     renderTeam();
+    renderFooter();
     renderDirector();
     renderInsights();
     renderAnalytics();
@@ -407,6 +569,10 @@
     button.addEventListener("click", () => {
       activateSection(button.dataset.section);
     });
+  });
+
+  window.addEventListener("hashchange", () => {
+    activateSection(sectionFromHash(), false);
   });
 
   document.getElementById("saveDraft").addEventListener("click", () => {
