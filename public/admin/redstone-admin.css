@@ -42,7 +42,7 @@ body::after {
 }
 
 body::before {
-  content: "Local editing mode. Start npm run cms before saving. Production auth can be restored later.";
+  content: "Temporary no-auth CMS preview. Content is preloaded in the repo; persistent publishing edits need production auth later.";
   display: block;
   position: fixed;
   inset: auto 18px 18px auto;

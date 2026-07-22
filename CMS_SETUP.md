@@ -1,6 +1,6 @@
 # Redstone CMS Setup
 
-This site uses Decap CMS. The CMS is available at `/admin/`. During local review it is configured with Decap's local backend so the CMS opens without a username/password and can read/write the populated JSON files under `content/`.
+This site uses Decap CMS. The CMS is available at `/admin/`. It is currently configured as a temporary no-auth CMS preview so the interface opens without a username/password.
 
 ## What can be edited
 
@@ -12,25 +12,38 @@ This site uses Decap CMS. The CMS is available at `/admin/`. During local review
 
 ## Current temporary access
 
-The admin interface is currently configured with Decap's local backend. It has no username/password prompt and is useful for reviewing and editing the real local content files.
+The admin interface is currently configured with Decap's `test-repo` backend. It has no username/password prompt and is useful for reviewing the CMS structure.
 
-Start the local CMS backend in one terminal:
-
-```text
-npm run cms
-```
-
-Then run the website preview in another terminal and open:
+The actual website content is prepopulated in the repository under:
 
 ```text
-http://localhost:3003/admin/
+content/site/settings.json
+content/team/team.json
+content/insights/
 ```
 
 Important limitations:
 
-- It is for local editing only.
-- It is not a production authentication mechanism.
-- Changes still need to be committed and pushed to GitHub before publication.
+- This temporary backend is not connected to GitHub.
+- Edits made inside the deployed `/admin/` interface are not persistent site updates.
+- This avoids exposing a write token in the public site.
+- Persistent editing should be enabled later with Netlify Identity/Git Gateway, GitHub OAuth, or another authenticated backend.
+
+For local filesystem-backed CMS editing, temporarily change `public/admin/config.yml` to:
+
+```text
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+```
+
+Then start the local CMS backend:
+
+```text
+npm run cms
+```
 
 ## Production access
 
