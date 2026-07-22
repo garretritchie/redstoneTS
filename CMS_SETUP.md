@@ -1,20 +1,10 @@
 # Redstone CMS Setup
 
-This site uses Decap CMS. The CMS is available at `/admin/`. It is currently configured as a temporary no-auth CMS preview so the interface opens without a username/password.
+The site admin is available at `/admin/`. It is currently a lightweight Redstone-branded CMS dashboard designed for simple, no-auth content review while production authentication is deferred.
 
-## What can be edited
+## What is prepopulated
 
-- Home hero copy, CTA links, image and alt text
-- Contact information and physical address
-- Basic analytics provider settings
-- Team members, profile images, responsibilities and leadership profile details
-- Insight articles
-
-## Current temporary access
-
-The admin interface is currently configured with Decap's `test-repo` backend. It has no username/password prompt and is useful for reviewing the CMS structure.
-
-The actual website content is prepopulated in the repository under:
+The admin dashboard is seeded from the same content files used by the current frontend:
 
 ```text
 content/site/settings.json
@@ -22,73 +12,51 @@ content/team/team.json
 content/insights/
 ```
 
+The generated browser seed file is:
+
+```text
+public/admin/cms-data.js
+```
+
+## Editable areas
+
+- Home hero copy, CTA links, image path and alt text
+- Contact information and physical address
+- Basic analytics provider settings
+- Team members, profile images, titles, responsibilities and descriptions
+- Leadership profile details, contact information, focus areas and credentials
+- Insight article metadata, SEO fields, keywords and body content
+
+## Temporary no-auth behavior
+
+For now, the dashboard does not require a username or password. This keeps it simple for review and avoids storing credentials or public write tokens in the repository.
+
 Important limitations:
 
-- This temporary backend is not connected to GitHub.
-- Edits made inside the deployed `/admin/` interface are not persistent site updates.
-- This avoids exposing a write token in the public site.
-- Persistent editing should be enabled later with Netlify Identity/Git Gateway, GitHub OAuth, or another authenticated backend.
+- Edits are saved as a browser-local draft with the “Save draft” button.
+- Drafts do not automatically update the live site files.
+- Use “Export” to download or copy a JSON bundle when a draft should be applied to the repository.
+- Production editing should later be connected to a real authenticated backend before giving non-technical users write access.
 
-For local filesystem-backed CMS editing, temporarily change `public/admin/config.yml` to:
+## Production CMS path
 
-```text
-backend:
-  name: git-gateway
-  branch: main
-
-local_backend: true
-```
-
-Then start the local CMS backend:
-
-```text
-npm run cms
-```
-
-## Production access
-
-For production, switch `public/admin/config.yml` back to Netlify Identity and Git Gateway. Do not store admin usernames or passwords in this repository.
-
-To enable editing on the deployed site:
-
-1. In Netlify, open the Redstone site.
-2. Enable Identity.
-3. Enable Git Gateway.
-4. Invite `gritchie@redstonets.com` as an Identity user.
-5. Set the password through Netlify’s secure invitation/reset flow.
-6. Visit `/admin/` on the deployed site and sign in.
-
-CMS edits commit content changes back to the `main` branch and trigger a new Netlify/Bolt build.
-
-Production backend config:
-
-```yaml
-backend:
-  name: git-gateway
-  branch: main
-
-local_backend: true
-```
+When ready, replace the temporary dashboard workflow with an authenticated write path such as Netlify Identity/Git Gateway, GitHub OAuth, or a small custom admin API. Do not commit passwords or long-lived write tokens into this public frontend.
 
 ## Local preview
 
-The CMS interface can be reviewed locally at:
+Review locally at:
 
 ```text
 http://localhost:3003/admin/
 ```
 
-Local content changes should still be made carefully and validated with:
+Validate the site after CMS-related changes with:
 
 ```text
 npm test
+npm run lint
 ```
 
 ## Analytics
 
-Analytics are intentionally disabled by default. They can be enabled in the CMS under Site Settings:
-
-- `plausible` requires a Plausible domain.
-- `google-analytics` requires a GA Measurement ID.
-
-If analytics are enabled, review the cookie/privacy language before publishing.
+Analytics are intentionally disabled by default. If analytics are enabled, confirm that the privacy policy and cookie policy language still matches the configured provider.

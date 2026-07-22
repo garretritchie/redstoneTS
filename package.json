@@ -11,7 +11,7 @@
     "start": "next start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "cms": "npx --yes decap-server",
+    "cms": "node -e \"console.log('Start the site with npm run dev, then open http://localhost:3003/admin/ for the Redstone CMS dashboard.')\"",
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {

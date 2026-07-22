@@ -8,32 +8,129 @@
     <link rel="stylesheet" href="/admin/redstone-admin.css" />
   </head>
   <body>
-    <aside class="redstone-admin-welcome" aria-label="Redstone CMS guide">
-      <img src="/redstone-logo.png" alt="Redstone Technology Solutions" width="220" height="61" />
-      <p class="redstone-admin-kicker">Site content control</p>
-      <h1>Manage Redstone’s website content.</h1>
-      <p>Edit the homepage hero, contact details, team profiles, leadership information, insight articles and analytics settings from one focused workspace.</p>
-    </aside>
-    <script src="https://unpkg.com/decap-cms@^3.6.0/dist/decap-cms.js"></script>
-    <script>
-      (() => {
-        const clickTemporaryLogin = () => {
-          const loginButton = Array.from(document.querySelectorAll("button")).find((button) => button.textContent?.trim() === "Login");
-          if (loginButton) {
-            loginButton.click();
-            return true;
-          }
-          return false;
-        };
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <a class="admin-brand" href="/" aria-label="Return to Redstone website">
+          <img src="/redstone-logo.png" alt="Redstone Technology Solutions" width="220" height="61" />
+        </a>
+        <p class="admin-kicker">Site content control</p>
+        <h1>Redstone CMS</h1>
+        <p class="admin-intro">Edit a browser draft of the homepage hero, contact details, team, leadership profile, insights and analytics settings.</p>
+        <nav class="admin-nav" aria-label="CMS sections">
+          <button class="is-active" type="button" data-section="overview">Overview</button>
+          <button type="button" data-section="site">Hero & Contact</button>
+          <button type="button" data-section="team">Our Team</button>
+          <button type="button" data-section="director">Leadership Profile</button>
+          <button type="button" data-section="insights">Insights</button>
+          <button type="button" data-section="analytics">Analytics</button>
+          <button type="button" data-section="export">Export</button>
+        </nav>
+        <div class="admin-note">
+          <strong>Temporary no-auth mode</strong>
+          <span>Changes save as a browser draft or downloadable JSON until proper publishing auth is connected.</span>
+        </div>
+      </aside>
 
-        if (!clickTemporaryLogin()) {
-          const observer = new MutationObserver(() => {
-            if (clickTemporaryLogin()) observer.disconnect();
-          });
-          observer.observe(document.documentElement, { childList: true, subtree: true });
-          window.setTimeout(() => observer.disconnect(), 10000);
-        }
-      })();
-    </script>
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <div>
+            <p class="admin-kicker">Prepopulated from current frontend</p>
+            <h2 id="admin-section-title">Overview</h2>
+          </div>
+          <div class="admin-actions">
+            <a class="ghost-button" href="/" target="_blank" rel="noreferrer">View site</a>
+            <button class="ghost-button" type="button" id="resetDraft">Reset draft</button>
+            <button class="primary-button" type="button" id="saveDraft">Save draft</button>
+          </div>
+        </header>
+
+        <section class="admin-section is-active" id="section-overview" aria-labelledby="overview-title">
+          <div class="hero-panel">
+            <div>
+              <p class="admin-kicker">Content snapshot</p>
+              <h3 id="overview-title">Actual Redstone website content, ready to manage.</h3>
+              <p>This dashboard is seeded from the same JSON content used by the current frontend. Use it to review and prepare edits before connecting a production CMS backend.</p>
+            </div>
+            <img src="/redstone-favicon.png" alt="" width="90" height="90" />
+          </div>
+          <div class="metric-grid" id="overviewMetrics"></div>
+          <div class="panel-grid">
+            <article class="panel">
+              <h3>What is editable now</h3>
+              <p>Hero copy, CTA labels, images, contact information, office location, team cards, leadership details, credentials, insight articles and analytics settings.</p>
+            </article>
+            <article class="panel">
+              <h3>How drafts work</h3>
+              <p>Use “Save draft” to keep changes in this browser. Use “Download JSON bundle” in Export when you want the drafted content applied to the real site files.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="admin-section" id="section-site" aria-labelledby="site-title">
+          <div class="section-heading">
+            <p class="admin-kicker">Homepage and global details</p>
+            <h3 id="site-title">Hero & Contact</h3>
+          </div>
+          <div class="form-grid" id="siteForm"></div>
+        </section>
+
+        <section class="admin-section" id="section-team" aria-labelledby="team-title">
+          <div class="section-heading">
+            <p class="admin-kicker">Public team section</p>
+            <h3 id="team-title">Our Team</h3>
+          </div>
+          <div class="cards-grid" id="teamCards"></div>
+        </section>
+
+        <section class="admin-section" id="section-director" aria-labelledby="director-title">
+          <div class="section-heading">
+            <p class="admin-kicker">Modal content</p>
+            <h3 id="director-title">Leadership Profile</h3>
+          </div>
+          <div id="directorForm"></div>
+        </section>
+
+        <section class="admin-section" id="section-insights" aria-labelledby="insights-title">
+          <div class="section-heading">
+            <p class="admin-kicker">Articles</p>
+            <h3 id="insights-title">Insights</h3>
+          </div>
+          <div class="insight-layout">
+            <div class="insight-list" id="insightList"></div>
+            <div class="insight-editor" id="insightEditor"></div>
+          </div>
+        </section>
+
+        <section class="admin-section" id="section-analytics" aria-labelledby="analytics-title">
+          <div class="section-heading">
+            <p class="admin-kicker">Measurement</p>
+            <h3 id="analytics-title">Basic Analytics</h3>
+          </div>
+          <div class="panel">
+            <p>Analytics are disabled by default. Enable them only after confirming your privacy and cookie policy language.</p>
+            <div class="form-grid" id="analyticsForm"></div>
+          </div>
+        </section>
+
+        <section class="admin-section" id="section-export" aria-labelledby="export-title">
+          <div class="section-heading">
+            <p class="admin-kicker">Draft handoff</p>
+            <h3 id="export-title">Export CMS Draft</h3>
+          </div>
+          <div class="panel">
+            <p>Because this is temporary no-auth mode, the safest workflow is to export the edited content and apply it through the repo until production authentication is connected.</p>
+            <div class="admin-actions admin-actions--left">
+              <button class="primary-button" type="button" id="downloadBundle">Download JSON bundle</button>
+              <button class="ghost-button" type="button" id="copyBundle">Copy JSON</button>
+            </div>
+            <textarea class="json-preview" id="jsonPreview" readonly aria-label="CMS JSON preview"></textarea>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/admin/cms-data.js"></script>
+    <script src="/admin/redstone-admin.js"></script>
   </body>
 </html>
