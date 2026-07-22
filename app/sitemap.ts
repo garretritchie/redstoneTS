@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const pageEntries = routes.map(({ path, priority }) => ({
     url: `https://www.redstonets.com${path || "/"}`,
-    lastModified: new Date("2026-07-20"),
+    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority,
   }));
