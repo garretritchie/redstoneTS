@@ -19,7 +19,11 @@
         <nav class="admin-nav" aria-label="CMS sections">
           <button class="is-active" type="button" data-section="overview">Overview</button>
           <button type="button" data-section="site">Hero & Contact</button>
+          <button type="button" data-section="services">Services</button>
+          <button type="button" data-section="capabilities">Solutions</button>
           <button type="button" data-section="team">Our Team</button>
+          <button type="button" data-section="testimonials">Testimonials</button>
+          <button type="button" data-section="partnerships">Partners</button>
           <button type="button" data-section="director">Leadership Profile</button>
           <button type="button" data-section="insights">Insights</button>
           <button type="button" data-section="analytics">Analytics</button>
@@ -57,7 +61,7 @@
           <div class="panel-grid">
             <article class="panel">
               <h3>What is editable now</h3>
-              <p>Hero copy, CTA labels, images, contact information, office location, team cards, leadership details, credentials, insight articles and analytics settings.</p>
+              <p>Hero copy, CTA labels, service categories, solutions, testimonials, partner affiliations, contact information, team cards, leadership details, credentials, insight articles and analytics settings.</p>
             </article>
             <article class="panel">
               <h3>How drafts work</h3>
@@ -80,6 +84,38 @@
             <h3 id="team-title">Our Team</h3>
           </div>
           <div class="cards-grid" id="teamCards"></div>
+        </section>
+
+        <section class="admin-section" id="section-services" aria-labelledby="services-title">
+          <div class="section-heading">
+            <p class="admin-kicker">Managed IT system</p>
+            <h3 id="services-title">Services</h3>
+          </div>
+          <div class="cards-grid cards-grid--single" id="servicesCards"></div>
+        </section>
+
+        <section class="admin-section" id="section-capabilities" aria-labelledby="capabilities-title">
+          <div class="section-heading">
+            <p class="admin-kicker">Solutions and projects</p>
+            <h3 id="capabilities-title">Solutions</h3>
+          </div>
+          <div class="cards-grid cards-grid--single" id="capabilitiesCards"></div>
+        </section>
+
+        <section class="admin-section" id="section-testimonials" aria-labelledby="testimonials-title">
+          <div class="section-heading">
+            <p class="admin-kicker">Client proof</p>
+            <h3 id="testimonials-title">Testimonials</h3>
+          </div>
+          <div class="cards-grid cards-grid--single" id="testimonialCards"></div>
+        </section>
+
+        <section class="admin-section" id="section-partnerships" aria-labelledby="partnerships-title">
+          <div class="section-heading">
+            <p class="admin-kicker">Technology partners & affiliations</p>
+            <h3 id="partnerships-title">Partners</h3>
+          </div>
+          <div class="cards-grid" id="partnershipCards"></div>
         </section>
 
         <section class="admin-section" id="section-director" aria-labelledby="director-title">
@@ -130,7 +166,7 @@
     </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="/admin/cms-data.js"></script>
-    <script src="/admin/redstone-admin.js"></script>
+    <script src="/admin/cms-data.js?v=20260722-frontend-seed-2"></script>
+    <script src="/admin/redstone-admin.js?v=20260722-frontend-seed-2"></script>
   </body>
 </html>

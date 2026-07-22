@@ -394,6 +394,36 @@ select:focus {
   padding: 18px;
 }
 
+.cards-grid--single {
+  grid-template-columns: 1fr;
+}
+
+.edit-card--text {
+  grid-template-columns: 64px minmax(0, 1fr);
+}
+
+.edit-card__number {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(223, 31, 45, 0.25);
+  border-radius: 50%;
+  background: rgba(223, 31, 45, 0.08);
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.edit-card h4 {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
 .edit-card__image {
   overflow: hidden;
   aspect-ratio: 1;

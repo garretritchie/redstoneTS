@@ -1,10 +1,14 @@
 (function () {
   const source = window.REDSTONE_CMS_DATA || { site: {}, team: {}, insights: [] };
-  const draftKey = "redstoneCmsDraft";
+  const draftKey = "redstoneCmsDraft:v2:frontend-seeded";
   const sectionTitles = {
     overview: "Overview",
     site: "Hero & Contact",
+    services: "Services",
+    capabilities: "Solutions",
     team: "Our Team",
+    testimonials: "Testimonials",
+    partnerships: "Partners",
     director: "Leadership Profile",
     insights: "Insights",
     analytics: "Basic Analytics",
@@ -22,7 +26,15 @@
     const saved = localStorage.getItem(draftKey);
     if (!saved) return clone(source);
     try {
-      return JSON.parse(saved);
+      const parsed = JSON.parse(saved);
+      return {
+        ...clone(source),
+        ...parsed,
+        site: { ...clone(source.site), ...(parsed.site || {}) },
+        team: { ...clone(source.team), ...(parsed.team || {}) },
+        frontend: { ...clone(source.frontend || {}), ...(parsed.frontend || {}) },
+        insights: parsed.insights || clone(source.insights || []),
+      };
     } catch {
       return clone(source);
     }
@@ -119,6 +131,7 @@
   function renderOverview() {
     const metrics = [
       ["Hero", data.site.homeHero?.title || "Configured"],
+      ["Services", `${data.frontend?.services?.length || 0} managed categories`],
       ["Team", `${data.team.members?.length || 0} people + operations`],
       ["Insights", `${data.insights?.length || 0} articles`],
       ["Analytics", data.site.analytics?.enabled ? data.site.analytics.provider : "Disabled"],
@@ -172,6 +185,88 @@
         data.team.members[Number(target.dataset.teamIndex)][target.dataset.teamField] = target.value;
         refresh();
       });
+    });
+  }
+
+  function renderTextCollection({ containerId, path, titleField = "name", fields }) {
+    const items = get(path) || [];
+    const container = document.getElementById(containerId);
+    container.innerHTML = items
+      .map((item, index) => `<article class="edit-card edit-card--text">
+        <div class="edit-card__number">${String(index + 1).padStart(2, "0")}</div>
+        <div class="edit-card__body">
+          <h4>${html(item[titleField] || item.brand || `Item ${index + 1}`)}</h4>
+          <div class="form-grid">
+            ${fields.map((field) => {
+              const value = item[field.key];
+              if (Array.isArray(value)) {
+                return `<label class="field field--wide"><span>${field.label}</span><textarea rows="${field.rows || 5}" data-array-collection="${path}" data-array-index="${index}" data-array-field="${field.key}">${html(listToText(value))}</textarea><small>One item per line.</small></label>`;
+              }
+              const textarea = field.type === "textarea";
+              return `<label class="field ${field.wide ? "field--wide" : ""}"><span>${field.label}</span>${textarea ? `<textarea rows="${field.rows || 3}" data-collection="${path}" data-index="${index}" data-field="${field.key}">${html(value)}</textarea>` : `<input value="${html(value)}" data-collection="${path}" data-index="${index}" data-field="${field.key}" />`}</label>`;
+            }).join("")}
+          </div>
+        </div>
+      </article>`)
+      .join("");
+
+    container.querySelectorAll("[data-collection]").forEach((input) => {
+      input.addEventListener("input", (event) => {
+        const target = event.currentTarget;
+        get(target.dataset.collection)[Number(target.dataset.index)][target.dataset.field] = target.value;
+        refresh();
+      });
+    });
+    container.querySelectorAll("[data-array-collection]").forEach((input) => {
+      input.addEventListener("input", (event) => {
+        const target = event.currentTarget;
+        get(target.dataset.arrayCollection)[Number(target.dataset.arrayIndex)][target.dataset.arrayField] = textToList(target.value);
+        refresh();
+      });
+    });
+  }
+
+  function renderFrontendCollections() {
+    renderTextCollection({
+      containerId: "servicesCards",
+      path: "frontend.services",
+      titleField: "brand",
+      fields: [
+        { key: "brand", label: "Brand" },
+        { key: "name", label: "Service name" },
+        { key: "promise", label: "Promise", wide: true },
+        { key: "description", label: "Short description", type: "textarea", wide: true },
+        { key: "responsibility", label: "Responsibility", type: "textarea", wide: true },
+        { key: "bestFor", label: "Best for", type: "textarea", wide: true },
+        { key: "covers", label: "What it covers", rows: 6 },
+      ],
+    });
+
+    renderTextCollection({
+      containerId: "capabilitiesCards",
+      path: "frontend.capabilities",
+      fields: [
+        { key: "name", label: "Capability" },
+        { key: "text", label: "Description", type: "textarea", wide: true },
+      ],
+    });
+
+    renderTextCollection({
+      containerId: "testimonialCards",
+      path: "frontend.testimonials",
+      titleField: "name",
+      fields: [
+        { key: "name", label: "Name" },
+        { key: "role", label: "Role" },
+        { key: "company", label: "Company" },
+        { key: "quote", label: "Quote", type: "textarea", rows: 5, wide: true },
+      ],
+    });
+
+    renderTextCollection({
+      containerId: "partnershipCards",
+      path: "frontend.partnerships",
+      fields: [{ key: "name", label: "Partner / affiliation" }],
     });
   }
 
@@ -277,6 +372,10 @@
   function sectionFromHash() {
     const hash = window.location.hash.toLowerCase();
     if (hash.includes("team")) return "team";
+    if (hash.includes("services") || hash.includes("managed-it")) return "services";
+    if (hash.includes("capabilities") || hash.includes("solutions")) return "capabilities";
+    if (hash.includes("testimonial")) return "testimonials";
+    if (hash.includes("partner")) return "partnerships";
     if (hash.includes("insights")) return "insights";
     if (hash.includes("settings") || hash.includes("site")) return "site";
     if (hash.includes("analytics")) return "analytics";
@@ -296,6 +395,7 @@
   function fullRender() {
     renderOverview();
     renderSite();
+    renderFrontendCollections();
     renderTeam();
     renderDirector();
     renderInsights();

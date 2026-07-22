@@ -1,6 +1,6 @@
 window.REDSTONE_CMS_DATA = {
   "meta": {
-    "generatedFrom": "content/site, content/team, and content/insights",
+    "generatedFrom": "current frontend content and content JSON files",
     "updatedAt": "2026-07-22"
   },
   "site": {
@@ -467,5 +467,193 @@ window.REDSTONE_CMS_DATA = {
         }
       ]
     }
-  ]
+  ],
+  "frontend": {
+    "services": [
+      {
+        "brand": "Overwatch",
+        "name": "Remote Monitoring & Management",
+        "promise": "See issues early. Act before impact.",
+        "description": "Continuous visibility into device health, availability and developing issues so problems do not remain unnoticed.",
+        "responsibility": "Monitoring, visibility, alerting, device health and early intervention across the managed environment.",
+        "role": "The visibility layer",
+        "bestFor": "Organisations that rely on always-available servers, workstations, connectivity and line-of-business systems.",
+        "covers": [
+          "24/7/365 network, server and endpoint monitoring",
+          "Health, availability and performance baselines",
+          "Automated alerts, tickets and escalation",
+          "Scheduled maintenance and proactive remediation",
+          "Usage-based upgrade and lifecycle recommendations"
+        ]
+      },
+      {
+        "brand": "Checkmark",
+        "name": "Core Infrastructure Support & Maintenance",
+        "promise": "Keep the foundation stable and dependable.",
+        "description": "Disciplined maintenance of servers, networks, workstations and core systems so the foundation stays current and dependable.",
+        "responsibility": "Infrastructure maintenance, patching, configuration, documentation, standards and long-term reliability.",
+        "role": "The stability layer",
+        "bestFor": "Businesses that need their servers, network, virtual infrastructure and core systems maintained as one dependable foundation.",
+        "covers": [
+          "Server, network and workstation maintenance",
+          "Security, performance and configuration changes",
+          "Patching, lifecycle planning and documentation",
+          "Virtual server replication and failover support",
+          "Coordination with line-of-business vendors"
+        ]
+      },
+      {
+        "brand": "Helpdesk",
+        "name": "End User Support",
+        "promise": "Give every user a human path back to productive.",
+        "description": "Responsive, accountable support that keeps employees productive and gives every user a professional path to resolution.",
+        "responsibility": "User support, issue resolution, communication, service experience and employee productivity.",
+        "role": "The people layer",
+        "bestFor": "Teams that need one clear, friendly and accountable place to get help with everyday technology issues and requests.",
+        "covers": [
+          "Remote and onsite end-user support",
+          "Workstations, printers and common applications",
+          "User administration, email and remote access",
+          "Ticket tracking, prioritisation and escalation",
+          "Third-party application and vendor coordination"
+        ]
+      },
+      {
+        "brand": "Shield",
+        "name": "Security Services",
+        "promise": "Protect every layer of the business.",
+        "description": "Ongoing protection across users, devices, identity, email and infrastructure—not simply security software installed once.",
+        "responsibility": "Cybersecurity, data protection, threat response, access security and continuous risk reduction.",
+        "role": "The protection layer",
+        "bestFor": "Organisations that need coordinated, continuously managed security across users, identities, endpoints, email, networks and business data.",
+        "covers": [
+          "Next-generation firewall management",
+          "Endpoint, server and ransomware protection",
+          "Email, web and application security controls",
+          "Security audits and vulnerability assessments",
+          "Security awareness, governance and compliance support",
+          "Managed backup, recovery and ransomware resilience"
+        ]
+      },
+      {
+        "brand": "Cirrus",
+        "name": "Cloud Services",
+        "promise": "Make cloud simpler, safer and more useful.",
+        "description": "Managed cloud access, collaboration, identity, backup and recovery that keep people and information available as circumstances change.",
+        "responsibility": "Cloud services, secure access, collaboration, backup, recovery and business continuity.",
+        "role": "The modernisation layer",
+        "bestFor": "Businesses that want Microsoft 365, cloud platforms, virtualisation, identity and backup to operate as a secure, well-managed service.",
+        "covers": [
+          "Microsoft 365 and cloud identity",
+          "Azure, AWS and hybrid cloud solutions",
+          "Hyper-V and VMware virtualisation",
+          "Cloud migration, licensing and optimisation",
+          "Backup, replication and disaster recovery"
+        ]
+      }
+    ],
+    "capabilities": [
+      {
+        "name": "Ad Hoc Technology Projects",
+        "text": "Infrastructure upgrades, office moves, hardware deployments and complex technology changes—planned and delivered with control."
+      },
+      {
+        "name": "Security & Compliance as a Service",
+        "text": "Ongoing governance, risk reviews, policy guidance and compliance support that turn requirements into operating discipline."
+      },
+      {
+        "name": "AI-Powered Web & Application Development",
+        "text": "Premium websites, applications and intelligent business platforms designed around the way your organisation actually works."
+      },
+      {
+        "name": "Workflow Automation & Optimisation",
+        "text": "Practical automation that connects information, removes repetitive work and gives teams a clearer, faster way to operate."
+      },
+      {
+        "name": "vCIO & Technology Strategy",
+        "text": "Executive-level guidance, budgeting, roadmaps and lifecycle planning without the complexity of a full-time CIO."
+      },
+      {
+        "name": "Systems Integration & Modernisation",
+        "text": "Bring disconnected platforms, data and processes together so the business operates as one coordinated system."
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "“In radiology today, consistent availability and access to our applications, data and patient images are absolutely crucial. Because of Redstone’s remote monitoring and responsive support, our issues are addressed quickly before they result in unplanned downtime.”",
+        "name": "Stanley R. Darville",
+        "role": "President",
+        "company": "Fourth Terrace Diagnostic Centre"
+      },
+      {
+        "quote": "“Our scheduled backup and real-time replication solution provided by Redstone, helps us to sleep well at night knowing our important company data and servers are fully protected and recoverable should anything go wrong. We had a disaster and the team at Redstone was able to get us up and running right away!”",
+        "name": "Mitzi Thompson",
+        "role": "",
+        "company": "Executive Printers of The Bahamas"
+      },
+      {
+        "quote": "“Our company relies on rapid response to any computer problems we encounter. For over the past year we have been relying on Redstone for our computer needs. We have been pleased with the high level of professionalism this company exhibits through their well-trained and pleasant staff.”",
+        "name": "Lois Major",
+        "role": "",
+        "company": "Administrative Assistance & Associates Ltd."
+      },
+      {
+        "quote": "“We needed a comprehensive security solution to protect our network resources from future attacks and threats. Redstone locked down our network with NextGen products that help us to stay ahead of security threats.”",
+        "name": "Christian Dean",
+        "role": "IT Manager",
+        "company": "Sun Oil"
+      },
+      {
+        "quote": "“In the banking industry, data security, availability and integrity are our highest priorities. The team at Redstone took the time to understand our needs, and provided a custom offsite cloud and virtualization solution to keep our financial data and applications accessible, secure and safe.”",
+        "name": "Òscar Paris Vives",
+        "role": "IT Manager",
+        "company": "AndBank"
+      }
+    ],
+    "partnerships": [
+      {
+        "name": "Microsoft"
+      },
+      {
+        "name": "Sophos"
+      },
+      {
+        "name": "Cisco"
+      },
+      {
+        "name": "Juniper"
+      },
+      {
+        "name": "Veeam"
+      },
+      {
+        "name": "Wasabi"
+      },
+      {
+        "name": "CompTIA"
+      },
+      {
+        "name": "Dell"
+      },
+      {
+        "name": "HP"
+      },
+      {
+        "name": "VMware"
+      },
+      {
+        "name": "Digium"
+      },
+      {
+        "name": "Asterisk"
+      },
+      {
+        "name": "Ubiquiti"
+      }
+    ],
+    "proof": {
+      "heading": "Managed technology designed to move your business forward.",
+      "body": "Since 2006, Redstone has helped Bahamian organisations replace fragmented, reactive support with clear standards, ongoing oversight and one accountable relationship."
+    }
+  }
 };
