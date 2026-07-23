@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, CheckCircle, EnvelopeSimple, GlobeHemisphereWest, LinkedinLogo, Phone, X } from "@phosphor-icons/react";
-import teamContent from "../../content/team/team.json";
+import { getContent } from "../contentStore";
 
-const director = teamContent.directorProfile;
+const director = getContent().team.directorProfile;
 const credentials = director.professionalCredentials;
 const trainerCredentials = director.trainerCredentials;
 const focusAreas = director.focusAreas;

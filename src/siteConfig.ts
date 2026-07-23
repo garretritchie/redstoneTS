@@ -1,30 +1,33 @@
-import settings from "../content/site/settings.json";
-
-export const siteContent = settings;
+import { getContent } from "./contentStore";
 
 export const siteConfig = {
-  name: settings.site.name,
-  url: settings.site.url,
+  get name() { return getContent().site.site.name; },
+  get url() { return getContent().site.site.url; },
   phone: {
-    display: settings.contact.phoneDisplay,
-    localDisplay: settings.contact.phoneLocalDisplay,
-    href: settings.contact.phoneHref,
-    schema: settings.contact.phoneSchema,
+    get display() { return getContent().site.contact.phoneDisplay; },
+    get localDisplay() { return getContent().site.contact.phoneLocalDisplay; },
+    get href() { return getContent().site.contact.phoneHref; },
+    get schema() { return getContent().site.contact.phoneSchema; },
   },
   email: {
-    display: settings.contact.emailDisplay,
-    href: settings.contact.emailHref,
+    get display() { return getContent().site.contact.emailDisplay; },
+    get href() { return getContent().site.contact.emailHref; },
   },
   address: {
-    street: settings.address.street,
-    short: settings.address.short,
-    locality: settings.address.locality,
-    region: settings.address.region,
-    country: settings.address.country,
-    countryCode: settings.address.countryCode,
-    mapHref: settings.address.mapHref,
+    get street() { return getContent().site.address.street; },
+    get short() { return getContent().site.address.short; },
+    get locality() { return getContent().site.address.locality; },
+    get region() { return getContent().site.address.region; },
+    get country() { return getContent().site.address.country; },
+    get countryCode() { return getContent().site.address.countryCode; },
+    get mapHref() { return getContent().site.address.mapHref; },
   },
   social: {
-    linkedin: settings.contact.linkedin,
+    get linkedin() { return getContent().site.contact.linkedin; },
   },
+};
+
+export const siteContent = {
+  get homeHero() { return getContent().site.homeHero; },
+  get analytics() { return getContent().site.analytics; },
 };

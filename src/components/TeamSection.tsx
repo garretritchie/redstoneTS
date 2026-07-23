@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, CheckCircle, Certificate, UsersThree, X } from "@phosphor-icons/react";
-import teamContent from "../../content/team/team.json";
+import { getContent } from "../contentStore";
 
 type TeamMember = {
   name: string;
@@ -16,6 +16,7 @@ type TeamMember = {
   profile?: boolean;
 };
 
+const teamContent = getContent().team;
 const teamMembers = teamContent.members as TeamMember[];
 const credentialGroups = teamContent.credentialGroups;
 

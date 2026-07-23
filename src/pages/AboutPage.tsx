@@ -8,7 +8,7 @@ import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
 import TeamSection from "../components/TeamSection";
 import TestimonialCarousel from "../components/TestimonialCarousel";
-import teamContent from "../../content/team/team.json";
+import { getContent } from "../contentStore";
 
 const outcomes = [
   ["Fewer recurring problems", "Issues are documented and solved at the root\u2014not allowed to keep interrupting the same people."],
@@ -24,7 +24,7 @@ const technologyPartners = [
 ];
 
 export default function AboutPage() {
-  const director = teamContent.directorProfile;
+  const director = getContent().team.directorProfile;
 
   return (
     <main id="top">

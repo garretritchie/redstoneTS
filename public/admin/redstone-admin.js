@@ -635,6 +635,69 @@
     }).join("");
   }
 
+  // ---- Publish / Load Published ----
+
+  function publishToSupabase() {
+    var btn = document.getElementById("publishBtn");
+    btn.textContent = "Publishing...";
+    btn.disabled = true;
+
+    var sections = [
+      { key: "site", payload: data.site || {} },
+      { key: "team", payload: data.team || {} },
+      { key: "insights", payload: data.insights || [] },
+      { key: "frontend", payload: data.frontend || {} },
+    ];
+
+    var promises = sections.map(function (s) {
+      return fetch(SUPABASE_URL + "/rest/v1/cms_content?on_conflict=section", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: "Bearer " + accessToken,
+          Prefer: "resolution=merge-duplicates,return=minimal",
+        },
+        body: JSON.stringify({ section: s.key, content: s.payload }),
+      }).then(function (res) {
+        if (!res.ok) throw new Error("Failed to publish " + s.key);
+        return res;
+      });
+    });
+
+    Promise.all(promises)
+      .then(function () {
+        notify("Published successfully. Site is now live.");
+        btn.textContent = "Publish";
+        btn.disabled = false;
+      })
+      .catch(function (err) {
+        notify("Publish failed: " + (err.message || "unknown error"));
+        btn.textContent = "Publish";
+        btn.disabled = false;
+      });
+  }
+
+  function loadPublishedContent() {
+    return fetch(SUPABASE_URL + "/rest/v1/cms_content?select=section,content", {
+      headers: { apikey: SUPABASE_ANON_KEY },
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (rows) {
+        var published = {};
+        (rows || []).forEach(function (row) { published[row.section] = row.content; });
+        return published;
+      });
+  }
+
+  function applyPublishedToData(published) {
+    if (published.site) data.site = clone(published.site);
+    if (published.team) data.team = clone(published.team);
+    if (published.insights) data.insights = clone(published.insights);
+    if (published.frontend) data.frontend = clone(published.frontend);
+    fullRender();
+  }
+
   // ---- Init ----
 
   document.getElementById("loginForm").addEventListener("submit", handleLogin);
@@ -658,6 +721,28 @@
     notify("Draft reset to current frontend content.");
   });
 
+  document.getElementById("publishBtn").addEventListener("click", publishToSupabase);
+
+  document.getElementById("resetToPublished").addEventListener("click", function () {
+    var btn = document.getElementById("resetToPublished");
+    btn.textContent = "Loading...";
+    btn.disabled = true;
+    loadPublishedContent()
+      .then(function (published) {
+        if (Object.keys(published).length === 0) {
+          notify("No published content found yet.");
+        } else {
+          applyPublishedToData(published);
+          notify("Loaded published content.");
+        }
+      })
+      .catch(function () { notify("Failed to load published content."); })
+      .finally(function () {
+        btn.textContent = "Load published";
+        btn.disabled = false;
+      });
+  });
+
   document.getElementById("downloadBundle").addEventListener("click", function () {
     var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     var link = document.createElement("a");
@@ -678,6 +763,14 @@
 
   if (checkSession()) {
     showAdmin();
+    loadPublishedContent()
+      .then(function (published) {
+        if (Object.keys(published).length > 0) {
+          applyPublishedToData(published);
+          notify("Loaded latest published content.");
+        }
+      })
+      .catch(function () {});
   } else {
     showLogin();
   }

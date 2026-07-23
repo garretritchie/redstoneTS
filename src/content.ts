@@ -1,7 +1,4 @@
-import article1 from "../content/insights/bahamian-businesses-cybersecurity.json";
-import article2 from "../content/insights/hidden-cost-below-modern-technology-standard.json";
-import article3 from "../content/insights/what-co-managed-it-looks-like.json";
-import article4 from "../content/insights/when-to-move-from-reactive-support-to-managed-it.json";
+import { getContent } from "./contentStore";
 
 export type InsightArticle = {
   slug: string;
@@ -21,15 +18,8 @@ export type InsightArticle = {
   body: { heading: string; paragraphs: string[] }[];
 };
 
-const articles: InsightArticle[] = [
-  article1 as unknown as InsightArticle,
-  article2 as unknown as InsightArticle,
-  article3 as unknown as InsightArticle,
-  article4 as unknown as InsightArticle,
-];
-
 export function getAllInsights() {
-  return [...articles].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+  return [...getContent().insights].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
 }
 
 export function getFeaturedInsight() {
