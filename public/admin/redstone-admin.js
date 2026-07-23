@@ -641,6 +641,7 @@
     var btn = document.getElementById("publishBtn");
     btn.textContent = "Publishing...";
     btn.disabled = true;
+    localStorage.setItem(draftKey, JSON.stringify(data));
 
     var sections = [
       { key: "site", payload: data.site || {} },
@@ -668,12 +669,12 @@
     Promise.all(promises)
       .then(function () {
         notify("Published successfully. Site is now live.");
-        btn.textContent = "Publish";
+        btn.textContent = "Publish live";
         btn.disabled = false;
       })
       .catch(function (err) {
         notify("Publish failed: " + (err.message || "unknown error"));
-        btn.textContent = "Publish";
+        btn.textContent = "Publish live";
         btn.disabled = false;
       });
   }
@@ -711,7 +712,7 @@
 
   document.getElementById("saveDraft").addEventListener("click", function () {
     localStorage.setItem(draftKey, JSON.stringify(data));
-    notify("Draft saved in this browser.");
+    notify("Local draft saved in this browser. It is not live until you click Publish live.");
   });
 
   document.getElementById("resetDraft").addEventListener("click", function () {

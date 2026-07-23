@@ -39,7 +39,7 @@
         </a>
         <p class="admin-kicker">Site content control</p>
         <h1>Redstone CMS</h1>
-        <p class="admin-intro">Edit a browser draft of the homepage hero, contact details, team, leadership profile, insights and analytics settings.</p>
+        <p class="admin-intro">Edit site content, save local drafts for review, and publish approved changes to the live Bolt CMS database.</p>
         <nav class="admin-nav" aria-label="CMS sections">
           <button class="is-active" type="button" data-section="overview">Overview</button>
           <button type="button" data-section="site">Hero & Contact</button>
@@ -68,8 +68,8 @@
             <a class="ghost-button" href="/" target="_blank" rel="noreferrer">View site</a>
             <button class="ghost-button" type="button" id="resetDraft">Reset draft</button>
             <button class="ghost-button" type="button" id="resetToPublished">Load published</button>
-            <button class="primary-button" type="button" id="saveDraft">Save draft</button>
-            <button class="primary-button publish-button" type="button" id="publishBtn">Publish</button>
+            <button class="primary-button" type="button" id="saveDraft">Save local draft</button>
+            <button class="primary-button publish-button" type="button" id="publishBtn">Publish live</button>
           </div>
         </header>
 
@@ -78,7 +78,7 @@
             <div>
               <p class="admin-kicker">Content snapshot</p>
               <h3 id="overview-title">Actual Redstone website content, ready to manage.</h3>
-              <p>This dashboard is seeded from the same JSON content used by the current frontend. Use it to review and prepare edits before connecting a production CMS backend.</p>
+              <p>This dashboard is seeded from the current frontend and can load the latest published database content. Use Save local draft for private edits, then Publish live when the change should appear on the website.</p>
             </div>
             <img src="/redstone-favicon.png" alt="" width="90" height="90" />
           </div>
@@ -90,7 +90,7 @@
             </article>
             <article class="panel">
               <h3>How drafts work</h3>
-              <p>Use "Save draft" to keep changes in this browser. Use "Download JSON bundle" in Export when you want the drafted content applied to the real site files.</p>
+              <p>Use "Load published" to pull the latest live database content, "Save local draft" to keep private edits in this browser, and "Publish live" to update the public website through the Bolt CMS database.</p>
             </article>
           </div>
         </section>

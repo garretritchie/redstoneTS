@@ -1,8 +1,10 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { setPublishedContent } from "./contentStore";
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
+const SUPABASE_URL = (import.meta.env.VITE_SUPABASE_URL as string) || "https://hnfdrolietieeqotxgqq.supabase.co";
+const SUPABASE_ANON_KEY =
+  (import.meta.env.VITE_SUPABASE_ANON_KEY as string) ||
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhuZmRyb2xpZXRpZWVxb3R4Z3FxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ3NDA3NTcsImV4cCI6MjEwMDMxNjc1N30.Avdto-_gKj5qInBXGp0yGY-JKShYOBEFuemwvjLbWtY";
 
 export default function ContentProvider({ children }: { children: ReactNode }) {
   const [version, setVersion] = useState(0);

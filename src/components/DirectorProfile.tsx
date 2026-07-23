@@ -2,12 +2,11 @@ import { useEffect, useRef } from "react";
 import { ArrowUpRight, CheckCircle, EnvelopeSimple, GlobeHemisphereWest, LinkedinLogo, Phone, X } from "@phosphor-icons/react";
 import { getContent } from "../contentStore";
 
-const director = getContent().team.directorProfile;
-const credentials = director.professionalCredentials;
-const trainerCredentials = director.trainerCredentials;
-const focusAreas = director.focusAreas;
-
 export default function DirectorProfile() {
+  const director = getContent().team.directorProfile;
+  const credentials = director.professionalCredentials;
+  const trainerCredentials = director.trainerCredentials;
+  const focusAreas = director.focusAreas;
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const openProfile = () => dialogRef.current?.showModal();

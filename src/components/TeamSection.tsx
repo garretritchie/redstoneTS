@@ -16,11 +16,10 @@ type TeamMember = {
   profile?: boolean;
 };
 
-const teamContent = getContent().team;
-const teamMembers = teamContent.members as TeamMember[];
-const credentialGroups = teamContent.credentialGroups;
-
 export default function TeamSection() {
+  const teamContent = getContent().team;
+  const teamMembers = teamContent.members as TeamMember[];
+  const credentialGroups = teamContent.credentialGroups;
   const credentialsDialogRef = useRef<HTMLDialogElement>(null);
   const applicationDialogRef = useRef<HTMLDialogElement>(null);
 

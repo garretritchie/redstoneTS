@@ -10,21 +10,6 @@ import InsightCard from "../components/InsightCard";
 import { siteConfig, siteContent } from "../siteConfig";
 import { getLatestInsights } from "../content";
 
-const businessSchema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
-  "@id": "https://www.redstonets.com/#business",
-  name: "Redstone Technology Solutions",
-  url: "https://www.redstonets.com/",
-  logo: "https://www.redstonets.com/redstone-logo.png",
-  image: "https://www.redstonets.com/og.png",
-  description: "A Bahamian managed IT services provider delivering proactive monitoring, infrastructure support, helpdesk, cybersecurity, cloud services and technology strategy.",
-  telephone: siteConfig.phone.schema,
-  email: siteConfig.email.display,
-  address: { "@type": "PostalAddress", streetAddress: siteConfig.address.street, addressLocality: siteConfig.address.locality, addressRegion: siteConfig.address.region, addressCountry: siteConfig.address.countryCode },
-  areaServed: { "@type": "Country", name: siteConfig.address.country },
-};
-
 const services = [
   { brand: "Overwatch", name: "Remote Monitoring & Management", role: "Know when something is going wrong.", icon: Pulse },
   { brand: "Checkmark", name: "Core Infrastructure Support", role: "Keep systems properly maintained.", icon: GearSix },
@@ -45,6 +30,20 @@ const capabilities = [
 export default function HomePage() {
   const latestInsights = getLatestInsights(3);
   const hero = siteContent.homeHero;
+  const businessSchema = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": "https://www.redstonets.com/#business",
+    name: siteConfig.name,
+    url: "https://www.redstonets.com/",
+    logo: "https://www.redstonets.com/redstone-logo.png",
+    image: "https://www.redstonets.com/og.png",
+    description: "A Bahamian managed IT services provider delivering proactive monitoring, infrastructure support, helpdesk, cybersecurity, cloud services and technology strategy.",
+    telephone: siteConfig.phone.schema,
+    email: siteConfig.email.display,
+    address: { "@type": "PostalAddress", streetAddress: siteConfig.address.street, addressLocality: siteConfig.address.locality, addressRegion: siteConfig.address.region, addressCountry: siteConfig.address.countryCode },
+    areaServed: { "@type": "Country", name: siteConfig.address.country },
+  };
 
   return (
     <main id="top">
