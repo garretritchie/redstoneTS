@@ -768,6 +768,31 @@ select:focus {
   font-size: 13px;
 }
 
+.back-to-site {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.back-to-site:hover {
+  color: var(--red);
+}
+.back-to-site--sidebar {
+  display: block;
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+.back-to-site--sidebar:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
 /* Analytics Dashboard */
 .analytics-loading {
   padding: 40px;
