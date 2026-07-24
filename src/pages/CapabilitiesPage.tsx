@@ -35,13 +35,19 @@ export default function CapabilitiesPage() {
 
       <section className="offering-bridge" aria-label="Redstone services and solutions">
         <div className="section-shell offering-bridge-card">
-          <div>
+          <div className="offering-bridge-copy">
             <p className="eyebrow">Services and solutions work together</p>
             <h2>Solutions handle focused needs. Managed services keep the environment operating.</h2>
             <p>This page covers projects, specialist expertise, automation, compliance and advisory work. If you need Redstone to manage the day-to-day technology function, review our five connected managed IT services.</p>
           </div>
-          <a className="text-link" href="/managed-it">Explore managed IT services <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
-          <ShieldCheck size={32} weight="duotone" aria-hidden="true" />
+          <a className="offering-bridge-action" href="/managed-it">
+            <span className="offering-bridge-icon"><ShieldCheck size={25} weight="duotone" aria-hidden="true" /></span>
+            <span>
+              <small>Related service model</small>
+              Explore managed IT services
+            </span>
+            <ArrowRight size={18} weight="bold" aria-hidden="true" />
+          </a>
         </div>
       </section>
 
