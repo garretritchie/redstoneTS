@@ -4681,6 +4681,14 @@ h3 {
   color: #ffffff;
 }
 
+.insight-card--featured:hover {
+  border-color: rgba(216, 32, 43, 0.48);
+  background:
+    linear-gradient(145deg, rgba(17, 21, 27, 0.96), rgba(17, 21, 27, 0.9)),
+    radial-gradient(560px circle at 100% 0%, rgba(216, 32, 43, 0.34), transparent 60%);
+  box-shadow: 0 22px 52px rgba(10, 14, 19, 0.24);
+}
+
 .insight-card-meta,
 .insight-article-meta {
   display: flex;

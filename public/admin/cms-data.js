@@ -336,7 +336,7 @@ window.REDSTONE_CMS_DATA = {
     {
       "slug": "checkmark-infrastructure-standard-stabilized-growth",
       "title": "How a Stronger Infrastructure Standard Helped Stabilise a Growing Business",
-      "summary": "Core infrastructure maintenance, documentation and lifecycle planning reduce recurring issues as a business grows.",
+      "summary": "When infrastructure grows without clear standards, small issues become recurring distractions. A more disciplined foundation for servers, networks, workstations, documentation and lifecycle planning helps the business reduce avoidable disruption and make better technology decisions.",
       "category": "Infrastructure",
       "publishedAt": "2026-06-24",
       "readingTime": "6 min read",
