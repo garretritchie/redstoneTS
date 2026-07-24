@@ -31,8 +31,16 @@
   function mergeInsightsWithSource(insights) {
     var publishedInsights = Array.isArray(insights) ? clone(insights) : [];
     var slugs = {};
+    var sourceBySlug = {};
+    (source.insights || []).forEach(function (article) {
+      if (article && article.slug) sourceBySlug[article.slug] = article;
+    });
     publishedInsights.forEach(function (article) {
       if (article && article.slug) slugs[article.slug] = true;
+      if (article && article.slug && sourceBySlug[article.slug]) {
+        article.summary = sourceBySlug[article.slug].summary;
+        article.seoDescription = sourceBySlug[article.slug].seoDescription;
+      }
     });
 
     (source.insights || []).forEach(function (article) {
@@ -398,8 +406,25 @@
         renderInsights();
       });
     });
+    document.querySelectorAll("[data-insight-index]").forEach(function (button) {
+      var item = insights[Number(button.dataset.insightIndex)];
+      var label = button.querySelector("span");
+      if (item && item.featured && label) label.insertAdjacentHTML("beforeend", " <em>Featured</em>");
+    });
     if (!article) return;
-    document.getElementById("insightEditor").innerHTML = '<div class="form-grid"><label class="field"><span>Title</span><input value="' + html(article.title) + '" data-article-field="title" /></label><label class="field"><span>Slug</span><input value="' + html(article.slug) + '" data-article-field="slug" /></label><label class="field"><span>Category</span><select data-article-field="category">' + makeSelectOptions(insightCategoryOptions, article.category) + '</select></label><label class="field"><span>Date</span><input type="date" value="' + html(article.publishedAt) + '" data-article-field="publishedAt" /></label><label class="field"><span>Reading time</span><select data-article-field="readingTime">' + makeSelectOptions(readingTimeOptions, article.readingTime) + '</select></label><label class="field"><span>Author</span><input value="' + html(article.author) + '" data-article-field="author" /></label><label class="field field--wide"><span>Summary</span><textarea rows="3" data-article-field="summary">' + html(article.summary) + '</textarea></label><label class="field field--wide"><span>SEO description</span><textarea rows="3" data-article-field="seoDescription">' + html(article.seoDescription) + '</textarea></label><label class="field field--wide"><span>Keywords</span><textarea rows="3" data-article-list="keywords">' + html(listToText(article.keywords)) + '</textarea><small>One keyword per line.</small></label><label class="field field--wide"><span>Article body</span><textarea rows="16" data-article-body>' + html(bodyToText(article)) + '</textarea><small>Use ## headings followed by paragraph lines.</small></label></div>';
+    document.getElementById("insightEditor").innerHTML = '<div class="form-grid"><label class="field field--checkbox field--wide"><input type="checkbox" data-article-featured ' + (article.featured ? "checked" : "") + ' /><span>Feature this article on the Insights page</span><small>Only one article can be featured at a time.</small></label><label class="field"><span>Title</span><input value="' + html(article.title) + '" data-article-field="title" /></label><label class="field"><span>Slug</span><input value="' + html(article.slug) + '" data-article-field="slug" /></label><label class="field"><span>Category</span><select data-article-field="category">' + makeSelectOptions(insightCategoryOptions, article.category) + '</select></label><label class="field"><span>Date</span><input type="date" value="' + html(article.publishedAt) + '" data-article-field="publishedAt" /></label><label class="field"><span>Reading time</span><select data-article-field="readingTime">' + makeSelectOptions(readingTimeOptions, article.readingTime) + '</select></label><label class="field"><span>Author</span><input value="' + html(article.author) + '" data-article-field="author" /></label><label class="field field--wide"><span>Summary</span><textarea rows="3" data-article-field="summary">' + html(article.summary) + '</textarea></label><label class="field field--wide"><span>SEO description</span><textarea rows="3" data-article-field="seoDescription">' + html(article.seoDescription) + '</textarea></label><label class="field field--wide"><span>Keywords</span><textarea rows="3" data-article-list="keywords">' + html(listToText(article.keywords)) + '</textarea><small>One keyword per line.</small></label><label class="field field--wide"><span>Article body</span><textarea rows="16" data-article-body>' + html(bodyToText(article)) + '</textarea><small>Use ## headings followed by paragraph lines.</small></label></div>';
+    var featuredInput = document.querySelector("[data-article-featured]");
+    if (featuredInput) {
+      featuredInput.addEventListener("change", function (event) {
+        if (event.currentTarget.checked) {
+          data.insights.forEach(function (item, index) { item.featured = index === selectedInsight; });
+        } else {
+          data.insights[selectedInsight].featured = false;
+        }
+        renderInsights();
+        refresh();
+      });
+    }
     document.querySelectorAll("[data-article-field]").forEach(function (input) {
       onEdit(input, function (event) {
         data.insights[selectedInsight][event.currentTarget.dataset.articleField] = event.currentTarget.value;

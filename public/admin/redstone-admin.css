@@ -616,6 +616,19 @@ select:focus {
   text-transform: uppercase;
 }
 
+.insight-list span em {
+  display: inline-flex;
+  margin-left: 6px;
+  border-radius: 999px;
+  background: rgba(223, 31, 45, 0.1);
+  padding: 2px 7px;
+  color: var(--red-dark);
+  font-size: 9px;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+}
+
 .insight-editor {
   padding: 14px;
 }

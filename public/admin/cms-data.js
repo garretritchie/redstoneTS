@@ -286,12 +286,12 @@ window.REDSTONE_CMS_DATA = {
     {
       "slug": "overwatch-monitoring-prevented-business-disruption",
       "title": "How Continuous Monitoring Helped Prevent a Full Business Disruption",
-      "summary": "An anonymized example of how remote monitoring can turn a developing infrastructure problem into a controlled maintenance event instead of an unexpected outage.",
+      "summary": "Remote monitoring turns developing infrastructure problems into controlled maintenance events instead of unexpected outages.",
       "category": "Remote Monitoring",
       "publishedAt": "2026-07-16",
       "readingTime": "6 min read",
       "author": "Redstone Technology Solutions",
-      "seoDescription": "An anonymized managed IT case study showing how continuous monitoring, alerting and escalation can help prevent avoidable downtime for a business.",
+      "seoDescription": "How continuous monitoring, alerting and escalation can help prevent avoidable downtime for a business.",
       "keywords": ["remote monitoring Bahamas", "managed IT monitoring", "downtime prevention", "IT alerting", "proactive IT support"],
       "relatedServiceLinks": [
         { "label": "Overwatch Remote Monitoring & Management", "href": "/managed-it#overwatch" },
@@ -336,12 +336,12 @@ window.REDSTONE_CMS_DATA = {
     {
       "slug": "checkmark-infrastructure-standard-stabilized-growth",
       "title": "How a Stronger Infrastructure Standard Helped Stabilise a Growing Business",
-      "summary": "An anonymized example of how core infrastructure maintenance, documentation and lifecycle planning can reduce recurring issues as a business grows.",
+      "summary": "Core infrastructure maintenance, documentation and lifecycle planning reduce recurring issues as a business grows.",
       "category": "Infrastructure",
       "publishedAt": "2026-06-24",
       "readingTime": "6 min read",
       "author": "Redstone Technology Solutions",
-      "seoDescription": "An anonymized infrastructure support case study showing how server, network and workstation maintenance can improve reliability for a growing business.",
+      "seoDescription": "How server, network and workstation maintenance can improve reliability for a growing business.",
       "keywords": ["infrastructure support Bahamas", "server maintenance", "network maintenance", "IT documentation", "managed infrastructure"],
       "relatedServiceLinks": [
         { "label": "Checkmark Core Infrastructure Support", "href": "/managed-it#checkmark" },
@@ -386,12 +386,12 @@ window.REDSTONE_CMS_DATA = {
     {
       "slug": "helpdesk-support-reset-improved-user-confidence",
       "title": "How a Better Helpdesk Experience Improved User Confidence",
-      "summary": "An anonymized example of how responsive support, ticket ownership and clear communication can change how employees experience technology.",
+      "summary": "Responsive support, ticket ownership and clear communication can change how employees experience technology.",
       "category": "Helpdesk",
       "publishedAt": "2026-05-28",
       "readingTime": "5 min read",
       "author": "Redstone Technology Solutions",
-      "seoDescription": "An anonymized helpdesk support case study showing how clear ticket ownership, responsive communication and escalation improve employee productivity.",
+      "seoDescription": "How clear ticket ownership, responsive communication and escalation improve employee productivity.",
       "keywords": ["IT helpdesk Bahamas", "end user support", "managed helpdesk", "employee productivity", "IT support experience"],
       "relatedServiceLinks": [
         { "label": "Helpdesk End User Support", "href": "/managed-it#helpdesk" },
@@ -436,12 +436,12 @@ window.REDSTONE_CMS_DATA = {
     {
       "slug": "shield-layered-security-reduced-practical-risk",
       "title": "How Layered Security Reduced Practical Business Risk",
-      "summary": "An anonymized example of how security controls, user awareness and managed oversight can improve protection without making everyday work harder.",
+      "summary": "Layered security controls, user awareness and managed oversight improve protection without making everyday work harder.",
       "category": "Cybersecurity",
       "publishedAt": "2026-04-22",
       "readingTime": "6 min read",
       "author": "Redstone Technology Solutions",
-      "seoDescription": "An anonymized cybersecurity case study showing how layered security, identity controls, endpoint protection and user awareness reduce practical business risk.",
+      "seoDescription": "How layered security, identity controls, endpoint protection and user awareness reduce practical business risk.",
       "keywords": ["managed cybersecurity Bahamas", "layered security", "security awareness", "endpoint protection", "identity security"],
       "relatedServiceLinks": [
         { "label": "Shield Security Services", "href": "/managed-it#shield" },
@@ -486,12 +486,12 @@ window.REDSTONE_CMS_DATA = {
     {
       "slug": "cirrus-cloud-modernisation-improved-availability",
       "title": "How a Cloud Modernisation Improved Availability and Flexibility",
-      "summary": "An anonymized example of how cloud services, identity, backup and migration planning can help a business work more securely from more places.",
+      "summary": "Cloud services, identity, backup and migration planning help businesses work more securely from more places.",
       "category": "Cloud Services",
       "publishedAt": "2026-03-18",
       "readingTime": "6 min read",
       "author": "Redstone Technology Solutions",
-      "seoDescription": "An anonymized cloud services case study showing how Microsoft 365, cloud identity, backup and migration planning improve availability and flexibility.",
+      "seoDescription": "How Microsoft 365, cloud identity, backup and migration planning improve availability and flexibility.",
       "keywords": ["cloud services Bahamas", "Microsoft 365 management", "cloud migration", "business continuity", "cloud backup"],
       "relatedServiceLinks": [
         { "label": "Cirrus Cloud Services", "href": "/managed-it#cirrus" },
