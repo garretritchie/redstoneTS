@@ -28,6 +28,22 @@
     return JSON.parse(JSON.stringify(value));
   }
 
+  function mergeInsightsWithSource(insights) {
+    var publishedInsights = Array.isArray(insights) ? clone(insights) : [];
+    var slugs = {};
+    publishedInsights.forEach(function (article) {
+      if (article && article.slug) slugs[article.slug] = true;
+    });
+
+    (source.insights || []).forEach(function (article) {
+      if (article && article.slug && !slugs[article.slug]) {
+        publishedInsights.push(clone(article));
+      }
+    });
+
+    return publishedInsights;
+  }
+
   function loadDraft() {
     var saved = localStorage.getItem(draftKey);
     if (!saved) return clone(source);
@@ -39,7 +55,7 @@
         site: { ...clone(source.site), ...(parsed.site || {}) },
         team: { ...clone(source.team), ...(parsed.team || {}) },
         frontend: { ...clone(source.frontend || {}), ...(parsed.frontend || {}) },
-        insights: parsed.insights || clone(source.insights || []),
+        insights: mergeInsightsWithSource(parsed.insights || source.insights || []),
       };
     } catch {
       return clone(source);
@@ -694,7 +710,7 @@
   function applyPublishedToData(published) {
     if (published.site) data.site = clone(published.site);
     if (published.team) data.team = clone(published.team);
-    if (published.insights) data.insights = clone(published.insights);
+    if (published.insights) data.insights = mergeInsightsWithSource(published.insights);
     if (published.frontend) data.frontend = clone(published.frontend);
     fullRender();
   }

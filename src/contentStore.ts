@@ -29,10 +29,17 @@ let current: PublishedContent = {
   insights: [...fallback.insights],
 };
 
+function mergeInsightsWithFallback(publishedInsights: InsightArticle[]) {
+  const publishedBySlug = new Map(publishedInsights.map((article) => [article.slug, article]));
+  const missingFallbackArticles = fallback.insights.filter((article) => !publishedBySlug.has(article.slug));
+
+  return [...publishedInsights, ...missingFallbackArticles];
+}
+
 export function setPublishedContent(published: Partial<PublishedContent>) {
   if (published.site) current.site = published.site;
   if (published.team) current.team = published.team;
-  if (published.insights) current.insights = published.insights;
+  if (published.insights) current.insights = mergeInsightsWithFallback(published.insights);
 }
 
 export function getContent() {
