@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowUpRight, Brain, Briefcase, ChartLineUp, Compass, FlowArrow, GearSix, HardDrives, MagnifyingGlass, SealCheck, TrendUp, Wrench } from "@phosphor-icons/react";
+import { ArrowRight, ArrowUpRight, Brain, Briefcase, ChartLineUp, Compass, FlowArrow, GearSix, HardDrives, MagnifyingGlass, SealCheck, ShieldCheck, TrendUp, Wrench } from "@phosphor-icons/react";
 import AssessmentBand from "../components/AssessmentBand";
 import PageHero from "../components/PageHero";
 import SiteFooter from "../components/SiteFooter";
@@ -32,6 +32,19 @@ export default function CapabilitiesPage() {
       </Helmet>
       <SiteHeader />
       <PageHero eyebrow="Projects, expertise and added capacity" title={<>Build what is next.<br /><span>Improve what exists.</span></>} description="Engage Redstone for a focused initiative or to strengthen an established IT team with specialist expertise, engineering capacity, project delivery and independent guidance." primaryLabel="Identify your technology gaps" secondaryLabel="See how we work" secondaryHref="#process" tone="dark" />
+
+      <section className="offering-bridge" aria-label="Redstone services and solutions">
+        <div className="section-shell offering-bridge-card">
+          <div>
+            <p className="eyebrow">Services and solutions work together</p>
+            <h2>Solutions handle focused needs. Managed services keep the environment operating.</h2>
+            <p>This page covers projects, specialist expertise, automation, compliance and advisory work. If you need Redstone to manage the day-to-day technology function, review our five connected managed IT services.</p>
+          </div>
+          <a className="text-link" href="/managed-it">Explore managed IT services <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
+          <ShieldCheck size={32} weight="duotone" aria-hidden="true" />
+        </div>
+      </section>
+
       <section className="capabilities-section section-pad" aria-labelledby="solutions-title">
         <div className="section-shell"><div className="capabilities-heading"><p className="eyebrow">Specialist capabilities</p><h2 id="solutions-title">Serious expertise.<br />Applied with discipline.</h2><p>Bring Redstone in for one initiative, additional capacity during a demanding period or specialist support your internal team does not need to maintain full-time. Every engagement stays connected to business priorities, operational standards and long-term value.</p></div><div className="capabilities-list">{capabilities.map(({ name, text, icon: Icon }, index) => <article key={name}><span>0{index + 1}</span><Icon size={31} weight="light" aria-hidden="true" /><div><h3>{name}</h3><p>{text}</p></div><a href="/contact" aria-label={`Discuss ${name}`}>Discuss this capability <ArrowUpRight size={17} weight="bold" aria-hidden="true" /></a></article>)}</div></div>
       </section>

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Buildings, Compass, FlowArrow, Gauge, Headset, ShieldCheck, UsersThree } from "@phosphor-icons/react";
+import { ArrowRight, Buildings, Compass, FlowArrow, Gauge, Headset, ShieldCheck, Sparkle, UsersThree } from "@phosphor-icons/react";
 import AssessmentBand from "../components/AssessmentBand";
 import PageHero from "../components/PageHero";
 import ServiceExplorer from "../components/ServiceExplorer";
@@ -16,6 +16,18 @@ export default function ManagedITPage() {
       </Helmet>
       <SiteHeader />
       <PageHero eyebrow="Professional technology management" title={<>Five services.<br /><span>One accountable team.</span></>} description="Five distinct, ongoing responsibilities managed as one coordinated technology function\u2014so your business can operate reliably, securely and with clear accountability." primaryLabel="Review your technology standard" secondaryLabel="Explore the five services" secondaryHref="#services" tone="dark" />
+
+      <section className="offering-bridge" aria-label="Redstone services and solutions">
+        <div className="section-shell offering-bridge-card">
+          <div>
+            <p className="eyebrow">Services and solutions work together</p>
+            <h2>Managed IT is the operating foundation. Solutions extend what your business can do.</h2>
+            <p>This page explains Redstone&rsquo;s ongoing managed services. We also deliver focused technology projects, compliance support, AI-powered websites and applications, workflow automation and strategic advisory work.</p>
+          </div>
+          <a className="text-link" href="/capabilities">Explore Redstone solutions <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
+          <Sparkle size={32} weight="duotone" aria-hidden="true" />
+        </div>
+      </section>
 
       <section className="proof-section section-pad service-principles" aria-labelledby="service-principles-title">
         <div className="section-shell proof-layout">

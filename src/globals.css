@@ -2334,6 +2334,55 @@ h3 {
   background: var(--paper-cool);
 }
 
+.offering-bridge {
+  background: var(--paper);
+  padding: 34px 0 0;
+}
+
+.offering-bridge-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(213, 218, 222, 0.95);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(247, 249, 250, 0.96)),
+    radial-gradient(460px circle at 100% 0%, rgba(216, 32, 43, 0.08), transparent 64%);
+  padding: 28px 32px;
+  box-shadow: 0 16px 38px rgba(18, 28, 38, 0.055);
+}
+
+.offering-bridge-card > svg {
+  position: absolute;
+  right: 26px;
+  top: 24px;
+  color: rgba(216, 32, 43, 0.16);
+}
+
+.offering-bridge-card h2 {
+  max-width: 760px;
+  margin-bottom: 10px;
+  font-size: clamp(24px, 2.25vw, 34px);
+  line-height: 1.08;
+}
+
+.offering-bridge-card p:not(.eyebrow) {
+  max-width: 850px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.66;
+}
+
+.offering-bridge-card .text-link {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
 .outcomes-layout {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -3566,6 +3615,7 @@ h3 {
   .services-heading,
   .process-intro,
   .capabilities-heading,
+  .offering-bridge-card,
   .outcomes-layout,
   .director-layout,
   .contact-intro,
@@ -3578,6 +3628,7 @@ h3 {
   .services-heading,
   .process-intro,
   .capabilities-heading,
+  .offering-bridge-card,
   .outcomes-layout,
   .director-layout,
   .contact-intro,
@@ -3625,6 +3676,15 @@ h3 {
 
   .capabilities-heading .eyebrow {
     grid-column: auto;
+  }
+
+  .offering-bridge-card {
+    align-items: start;
+  }
+
+  .offering-bridge-card .text-link {
+    width: fit-content;
+    white-space: normal;
   }
 
   .outcomes-heading {
