@@ -7112,6 +7112,44 @@ h3 {
   }
 }
 
+/* Final guard: the featured insight must remain dark in every interactive state.
+   This intentionally sits after responsive card rules so generic card hover styles
+   cannot create a white card with white text. */
+.insights-index .insight-card.insight-card--featured,
+.insights-index .insight-card.insight-card--featured:hover,
+.insights-index .insight-card.insight-card--featured:focus-within,
+.insights-index .insight-card.insight-card--featured:active {
+  border-color: rgba(216, 32, 43, 0.48) !important;
+  background:
+    linear-gradient(145deg, rgba(17, 21, 27, 0.97), rgba(17, 21, 27, 0.9)),
+    radial-gradient(560px circle at 100% 0%, rgba(216, 32, 43, 0.34), transparent 60%) !important;
+  color: #ffffff !important;
+}
+
+.insights-index .insight-card.insight-card--featured h3,
+.insights-index .insight-card.insight-card--featured h3 a,
+.insights-index .insight-card.insight-card--featured .insight-card-link,
+.insights-index .insight-card.insight-card--featured:hover h3,
+.insights-index .insight-card.insight-card--featured:hover h3 a,
+.insights-index .insight-card.insight-card--featured:hover .insight-card-link,
+.insights-index .insight-card.insight-card--featured:focus-within h3,
+.insights-index .insight-card.insight-card--featured:focus-within h3 a,
+.insights-index .insight-card.insight-card--featured:focus-within .insight-card-link {
+  color: #ffffff !important;
+}
+
+.insights-index .insight-card.insight-card--featured p,
+.insights-index .insight-card.insight-card--featured:hover p,
+.insights-index .insight-card.insight-card--featured:focus-within p {
+  color: #d5dbe1 !important;
+}
+
+.insights-index .insight-card.insight-card--featured .insight-card-meta,
+.insights-index .insight-card.insight-card--featured:hover .insight-card-meta,
+.insights-index .insight-card.insight-card--featured:focus-within .insight-card-meta {
+  color: #b8c0c8 !important;
+}
+
 /* 404 Not Found */
 .not-found {
   min-height: 60vh;
