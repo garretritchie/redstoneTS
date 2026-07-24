@@ -1,0 +1,69 @@
+{
+  "slug": "cirrus-cloud-modernisation-improved-availability",
+  "title": "How a Cloud Modernisation Improved Availability and Flexibility",
+  "summary": "An anonymized example of how cloud services, identity, backup and migration planning can help a business work more securely from more places.",
+  "category": "Cloud Services",
+  "publishedAt": "2026-03-18",
+  "readingTime": "6 min read",
+  "author": "Redstone Technology Solutions",
+  "seoDescription": "An anonymized cloud services case study showing how Microsoft 365, cloud identity, backup and migration planning improve availability and flexibility.",
+  "keywords": [
+    "cloud services Bahamas",
+    "Microsoft 365 management",
+    "cloud migration",
+    "business continuity",
+    "cloud backup"
+  ],
+  "relatedServiceLinks": [
+    {
+      "label": "Cirrus Cloud Services",
+      "href": "/managed-it#cirrus"
+    },
+    {
+      "label": "Business Continuity Planning",
+      "href": "/capabilities"
+    }
+  ],
+  "cta": {
+    "label": "Plan a practical cloud roadmap",
+    "href": "/contact",
+    "text": "If cloud tools have grown organically without a clear operating standard, Redstone can help create a roadmap for access, security, cost and resilience."
+  },
+  "body": [
+    {
+      "heading": "The situation",
+      "paragraphs": [
+        "A business had adopted cloud tools gradually. Email, file sharing, remote access and collaboration were all important, but settings, licensing and backup expectations had grown unevenly over time.",
+        "The organisation wanted more flexibility without increasing confusion or risk. Staff needed easier access, leadership needed better control and the business needed clearer recoverability."
+      ]
+    },
+    {
+      "heading": "What needed attention",
+      "paragraphs": [
+        "Redstone reviewed identity, licensing, data locations, access rules, backup coverage and the applications that still depended on traditional infrastructure.",
+        "The findings showed that cloud value was being limited by inconsistent management. Some services were useful, but the environment needed a more intentional design."
+      ]
+    },
+    {
+      "heading": "What changed",
+      "paragraphs": [
+        "The work was planned in stages. Redstone improved account structure, tightened access, clarified licensing, aligned backup expectations and helped migrate selected workloads where the business case was clear.",
+        "The approach avoided unnecessary disruption. Users were prepared for changes, support was available during transition and the final design balanced convenience with security."
+      ]
+    },
+    {
+      "heading": "The business result",
+      "paragraphs": [
+        "Staff gained more reliable access to the tools and information they needed. Leadership gained better visibility into licensing, security and recovery. The environment became easier to support because cloud services were managed as part of the broader technology system.",
+        "The business also had a clearer roadmap for what should remain on-premises, what should move to cloud services and what should be reviewed again as requirements changed."
+      ]
+    },
+    {
+      "heading": "The lesson",
+      "paragraphs": [
+        "Cloud success is not only migration. It is ongoing management of identity, access, data protection, cost, backup and user experience.",
+        "Cirrus is designed to make cloud services simpler, safer and more useful as part of a managed technology environment."
+      ]
+    }
+  ]
+}

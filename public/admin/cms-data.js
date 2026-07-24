@@ -284,6 +284,256 @@ window.REDSTONE_CMS_DATA = {
       ]
     },
     {
+      "slug": "overwatch-monitoring-prevented-business-disruption",
+      "title": "How Continuous Monitoring Helped Prevent a Full Business Disruption",
+      "summary": "An anonymized example of how remote monitoring can turn a developing infrastructure problem into a controlled maintenance event instead of an unexpected outage.",
+      "category": "Remote Monitoring",
+      "publishedAt": "2026-07-16",
+      "readingTime": "6 min read",
+      "author": "Redstone Technology Solutions",
+      "seoDescription": "An anonymized managed IT case study showing how continuous monitoring, alerting and escalation can help prevent avoidable downtime for a business.",
+      "keywords": ["remote monitoring Bahamas", "managed IT monitoring", "downtime prevention", "IT alerting", "proactive IT support"],
+      "relatedServiceLinks": [
+        { "label": "Overwatch Remote Monitoring & Management", "href": "/managed-it#overwatch" },
+        { "label": "Managed IT Services", "href": "/managed-it" }
+      ],
+      "cta": {
+        "label": "Review your monitoring coverage",
+        "href": "/contact",
+        "text": "If you are not sure whether your critical systems are being watched closely enough, Redstone can help identify where visibility is missing."
+      },
+      "body": [
+        {
+          "heading": "The situation",
+          "paragraphs": [
+            "A professional services organisation depended heavily on a small number of servers, shared files and business applications. The environment generally worked, but the business had no consistent way to see developing issues before users felt them.",
+            "The leadership team was not looking for a major technology project. They wanted fewer surprises, better visibility and a clearer answer to a simple question: is anything important quietly failing?"
+          ]
+        },
+        {
+          "heading": "What monitoring revealed",
+          "paragraphs": [
+            "After remote monitoring was deployed, Redstone began seeing health patterns that were not obvious from day-to-day use. Storage consumption was rising, backups needed closer attention and one system was showing signs of intermittent performance degradation.",
+            "None of these items had created a visible outage yet. That was the point. The value of monitoring is not only in responding to a red alert, but in seeing the yellow warnings early enough to act calmly."
+          ]
+        },
+        {
+          "heading": "How the issue was handled",
+          "paragraphs": [
+            "The alerts were reviewed, prioritised and translated into a maintenance plan. Redstone coordinated the work outside peak operating hours, verified backups, cleared immediate risks and documented the follow-up recommendations.",
+            "Instead of staff arriving to unavailable applications or missing files, the business experienced a controlled maintenance event with clear communication and minimal disruption."
+          ]
+        },
+        {
+          "heading": "The lesson",
+          "paragraphs": [
+            "Monitoring is not the same as management. Dashboards alone do not prevent downtime. The difference comes from having real people review the signals, understand the business context and follow through before small issues become business interruptions.",
+            "Overwatch is designed to provide that visibility layer so the rest of the managed system can respond with evidence, timing and accountability."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "checkmark-infrastructure-standard-stabilized-growth",
+      "title": "How a Stronger Infrastructure Standard Helped Stabilise a Growing Business",
+      "summary": "An anonymized example of how core infrastructure maintenance, documentation and lifecycle planning can reduce recurring issues as a business grows.",
+      "category": "Infrastructure",
+      "publishedAt": "2026-06-24",
+      "readingTime": "6 min read",
+      "author": "Redstone Technology Solutions",
+      "seoDescription": "An anonymized infrastructure support case study showing how server, network and workstation maintenance can improve reliability for a growing business.",
+      "keywords": ["infrastructure support Bahamas", "server maintenance", "network maintenance", "IT documentation", "managed infrastructure"],
+      "relatedServiceLinks": [
+        { "label": "Checkmark Core Infrastructure Support", "href": "/managed-it#checkmark" },
+        { "label": "Technology Standard", "href": "/insights/hidden-cost-below-modern-technology-standard" }
+      ],
+      "cta": {
+        "label": "Stabilise your technology foundation",
+        "href": "/contact",
+        "text": "If recurring infrastructure issues are slowing your business down, Redstone can help assess the foundation and prioritise practical improvements."
+      },
+      "body": [
+        {
+          "heading": "The situation",
+          "paragraphs": [
+            "A growing organisation had added users, applications and locations faster than its technology standards had matured. Nothing appeared catastrophic, but small infrastructure issues were becoming normal: intermittent connectivity, ageing equipment, inconsistent patching and unclear documentation.",
+            "The internal conversation had shifted from 'what is broken today?' to 'why do the same kinds of problems keep returning?'"
+          ]
+        },
+        {
+          "heading": "What Redstone found",
+          "paragraphs": [
+            "The environment needed less guesswork and more standardisation. Some systems were stable, while others had been configured quickly to meet immediate needs. Documentation existed in fragments, vendor relationships were unclear and lifecycle planning had not kept pace with operational growth.",
+            "This is a common stage for successful businesses. The technology that helped the organisation get here is not always the technology standard required for the next stage."
+          ]
+        },
+        {
+          "heading": "What changed",
+          "paragraphs": [
+            "Redstone focused first on the foundation: documenting core systems, reviewing server and network health, standardising maintenance routines, prioritising updates and identifying equipment that carried unnecessary operational risk.",
+            "The goal was not to replace everything. It was to create a supportable baseline so the business could make clear decisions about what to maintain, what to improve and what to retire."
+          ]
+        },
+        {
+          "heading": "The lesson",
+          "paragraphs": [
+            "Reliable infrastructure is not created by one repair. It is the result of disciplined maintenance, clear documentation, controlled changes and lifecycle planning.",
+            "Checkmark exists to keep the foundation stable so the rest of the business can operate with fewer avoidable interruptions."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "helpdesk-support-reset-improved-user-confidence",
+      "title": "How a Better Helpdesk Experience Improved User Confidence",
+      "summary": "An anonymized example of how responsive support, ticket ownership and clear communication can change how employees experience technology.",
+      "category": "Helpdesk",
+      "publishedAt": "2026-05-28",
+      "readingTime": "5 min read",
+      "author": "Redstone Technology Solutions",
+      "seoDescription": "An anonymized helpdesk support case study showing how clear ticket ownership, responsive communication and escalation improve employee productivity.",
+      "keywords": ["IT helpdesk Bahamas", "end user support", "managed helpdesk", "employee productivity", "IT support experience"],
+      "relatedServiceLinks": [
+        { "label": "Helpdesk End User Support", "href": "/managed-it#helpdesk" },
+        { "label": "Contact Redstone", "href": "/contact" }
+      ],
+      "cta": {
+        "label": "Improve your support experience",
+        "href": "/contact",
+        "text": "If employees are losing time to unclear support paths or repeated issues, Redstone can help create a more accountable helpdesk experience."
+      },
+      "body": [
+        {
+          "heading": "The situation",
+          "paragraphs": [
+            "A busy team had become used to working around technology problems. Some users emailed one person, others called a vendor directly and some waited until a problem became urgent before asking for help.",
+            "The issue was not only technical. It was operational. Employees were not confident that support requests would be logged, owned and followed through consistently."
+          ]
+        },
+        {
+          "heading": "What needed to change",
+          "paragraphs": [
+            "The organisation needed one clear support path, consistent prioritisation and better communication. Everyday issues such as password resets, printer problems, application access and workstation performance needed to be handled without pulling managers into every request.",
+            "More complex issues also needed a reliable escalation path into infrastructure, cloud or security support when the root cause was deeper than the user-facing symptom."
+          ]
+        },
+        {
+          "heading": "How Redstone approached it",
+          "paragraphs": [
+            "Redstone established a more structured helpdesk process: requests were logged, categorised, prioritised and tracked. Users received clearer updates, and recurring issues were reviewed instead of being treated as isolated complaints.",
+            "The team also worked behind the scenes with vendors and internal contacts so employees did not have to become project managers for their own support tickets."
+          ]
+        },
+        {
+          "heading": "The lesson",
+          "paragraphs": [
+            "A good helpdesk is not just a queue. It is a human operating system for technology support.",
+            "Helpdesk service works best when users feel heard, issues are owned and the support team has access to the broader managed environment."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "shield-layered-security-reduced-practical-risk",
+      "title": "How Layered Security Reduced Practical Business Risk",
+      "summary": "An anonymized example of how security controls, user awareness and managed oversight can improve protection without making everyday work harder.",
+      "category": "Cybersecurity",
+      "publishedAt": "2026-04-22",
+      "readingTime": "6 min read",
+      "author": "Redstone Technology Solutions",
+      "seoDescription": "An anonymized cybersecurity case study showing how layered security, identity controls, endpoint protection and user awareness reduce practical business risk.",
+      "keywords": ["managed cybersecurity Bahamas", "layered security", "security awareness", "endpoint protection", "identity security"],
+      "relatedServiceLinks": [
+        { "label": "Shield Security Services", "href": "/managed-it#shield" },
+        { "label": "Security & Compliance as a Service", "href": "/capabilities" }
+      ],
+      "cta": {
+        "label": "Strengthen your security posture",
+        "href": "/contact",
+        "text": "If security is handled through disconnected tools or informal practices, Redstone can help build a more coordinated operating standard."
+      },
+      "body": [
+        {
+          "heading": "The situation",
+          "paragraphs": [
+            "An organisation had invested in several security tools over time, but the controls were not managed as one coordinated system. Some protections were strong, while others depended on habits, assumptions or settings that had not been reviewed recently.",
+            "Leadership was concerned about phishing, ransomware, remote access and the possibility that a single compromised account could disrupt operations."
+          ]
+        },
+        {
+          "heading": "What Redstone reviewed",
+          "paragraphs": [
+            "The first step was to understand the real operating environment: users, devices, email, remote access, backups, administrative privileges, endpoint protection and the systems most important to daily work.",
+            "The goal was not to create fear or overwhelm the team. The goal was to identify practical risks and close the gaps most likely to matter."
+          ]
+        },
+        {
+          "heading": "What changed",
+          "paragraphs": [
+            "Redstone helped strengthen identity controls, review endpoint protection, improve email and web filtering, reduce unnecessary administrative access and reinforce backup and recovery expectations.",
+            "User awareness was treated as part of the security system. Staff received clearer guidance on suspicious messages, credential protection and when to escalate concerns."
+          ]
+        },
+        {
+          "heading": "The lesson",
+          "paragraphs": [
+            "Security is strongest when it is layered, managed and connected to business reality. A single product cannot replace oversight, user education, good configuration and recoverability.",
+            "Shield is designed to bring those pieces together so the business can reduce risk without losing productivity."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cirrus-cloud-modernisation-improved-availability",
+      "title": "How a Cloud Modernisation Improved Availability and Flexibility",
+      "summary": "An anonymized example of how cloud services, identity, backup and migration planning can help a business work more securely from more places.",
+      "category": "Cloud Services",
+      "publishedAt": "2026-03-18",
+      "readingTime": "6 min read",
+      "author": "Redstone Technology Solutions",
+      "seoDescription": "An anonymized cloud services case study showing how Microsoft 365, cloud identity, backup and migration planning improve availability and flexibility.",
+      "keywords": ["cloud services Bahamas", "Microsoft 365 management", "cloud migration", "business continuity", "cloud backup"],
+      "relatedServiceLinks": [
+        { "label": "Cirrus Cloud Services", "href": "/managed-it#cirrus" },
+        { "label": "Business Continuity Planning", "href": "/capabilities" }
+      ],
+      "cta": {
+        "label": "Plan a practical cloud roadmap",
+        "href": "/contact",
+        "text": "If cloud tools have grown organically without a clear operating standard, Redstone can help create a roadmap for access, security, cost and resilience."
+      },
+      "body": [
+        {
+          "heading": "The situation",
+          "paragraphs": [
+            "A business had adopted cloud tools gradually. Email, file sharing, remote access and collaboration were all important, but settings, licensing and backup expectations had grown unevenly over time.",
+            "The organisation wanted more flexibility without increasing confusion or risk. Staff needed easier access, leadership needed better control and the business needed clearer recoverability."
+          ]
+        },
+        {
+          "heading": "What needed attention",
+          "paragraphs": [
+            "Redstone reviewed identity, licensing, data locations, access rules, backup coverage and the applications that still depended on traditional infrastructure.",
+            "The findings showed that cloud value was being limited by inconsistent management. Some services were useful, but the environment needed a more intentional design."
+          ]
+        },
+        {
+          "heading": "What changed",
+          "paragraphs": [
+            "The work was planned in stages. Redstone improved account structure, tightened access, clarified licensing, aligned backup expectations and helped migrate selected workloads where the business case was clear.",
+            "The approach avoided unnecessary disruption. Users were prepared for changes, support was available during transition and the final design balanced convenience with security."
+          ]
+        },
+        {
+          "heading": "The lesson",
+          "paragraphs": [
+            "Cloud success is not only migration. It is ongoing management of identity, access, data protection, cost, backup and user experience.",
+            "Cirrus is designed to make cloud services simpler, safer and more useful as part of a managed technology environment."
+          ]
+        }
+      ]
+    },
+    {
       "slug": "what-co-managed-it-looks-like",
       "title": "What Co-Managed IT Actually Looks Like",
       "summary": "Co-managed IT gives internal teams extra capacity, tools and specialist support without replacing their knowledge or role.",

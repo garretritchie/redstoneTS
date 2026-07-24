@@ -4,6 +4,11 @@ import article1 from "../content/insights/bahamian-businesses-cybersecurity.json
 import article2 from "../content/insights/hidden-cost-below-modern-technology-standard.json";
 import article3 from "../content/insights/what-co-managed-it-looks-like.json";
 import article4 from "../content/insights/when-to-move-from-reactive-support-to-managed-it.json";
+import article5 from "../content/insights/overwatch-monitoring-prevented-business-disruption.json";
+import article6 from "../content/insights/checkmark-infrastructure-standard-stabilized-growth.json";
+import article7 from "../content/insights/helpdesk-support-reset-improved-user-confidence.json";
+import article8 from "../content/insights/shield-layered-security-reduced-practical-risk.json";
+import article9 from "../content/insights/cirrus-cloud-modernisation-improved-availability.json";
 import type { InsightArticle } from "./content";
 
 type PublishedContent = {
@@ -15,7 +20,7 @@ type PublishedContent = {
 const fallback: PublishedContent = {
   site: settings,
   team: teamContent,
-  insights: [article1, article2, article3, article4] as unknown as InsightArticle[],
+  insights: [article1, article2, article3, article4, article5, article6, article7, article8, article9] as unknown as InsightArticle[],
 };
 
 let current: PublishedContent = {
